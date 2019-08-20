@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a4a52633726943589ee55acefb827bd5" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="ProteusModel.Access" Width="1.5" PointX="4.5" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Access_Employee_Type" Width="1.5" PointX="6.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Audit" Width="1.5" PointX="9" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Audit_Detail" Width="1.5" PointX="11.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Audit_Type" Width="1.5" PointX="6.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Audit_Update_Detail" Width="1.5" PointX="11.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Client" Width="1.5" PointX="1.5" PointY="40.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Client_Contact_Person_Detail" Width="1.5" PointX="1.5" PointY="58.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Client_Credit_Order" Width="1.5" PointX="8.25" PointY="31.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Client_Discount_Rate" Width="1.5" PointX="3" PointY="29" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Client_Order" Width="1.5" PointX="3.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Client_Order_Detail" Width="1.5" PointX="6" PointY="28.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Client_Order_Status" Width="1.5" PointX="1.5" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Client_Order_Type" Width="1.5" PointX="1.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Client_Quote" Width="1.5" PointX="0.75" PointY="36.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Client_Quote_Detail" Width="1.5" PointX="3" PointY="25.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Component" Width="1.5" PointX="10.5" PointY="43.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Component_Supplier" Width="1.5" PointX="16.75" PointY="31.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Contracted_Client_Orders" Width="1.5" PointX="6" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Customer_Credit" Width="1.5" PointX="8.25" PointY="39.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Customer_Credit_Detail" Width="1.5" PointX="10.5" PointY="35.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Delivery_Method" Width="1.5" PointX="1.5" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Delivery_Note" Width="1.5" PointX="9" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Delivery_Note_Details" Width="1.5" PointX="11.25" PointY="29" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Employee" Width="1.5" PointX="1.5" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Employee_Photo" Width="1.5" PointX="3.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Employee_Type" Width="1.5" PointX="1.5" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Gender" Width="1.5" PointX="1.5" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Invoice" Width="1.5" PointX="11.25" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Invoice_Payment" Width="1.5" PointX="13.5" PointY="23" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Invoice_Status" Width="1.5" PointX="9" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Job_Card" Width="1.5" PointX="1.5" PointY="62.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Job_Card_Detail" Width="1.5" PointX="3" PointY="31.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Job_Card_Priority" Width="1.5" PointX="1.5" PointY="67.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Job_Card_Status" Width="1.5" PointX="1.5" PointY="69.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Machine" Width="1.5" PointX="3.75" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Machine_Part" Width="1.5" PointX="6" PointY="25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Machine_Status" Width="1.5" PointX="6.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Manual_Labour_Type" Width="1.5" PointX="3.75" PointY="35.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Manual_Labour_Type_Part" Width="1.5" PointX="6" PointY="33" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Part" Width="1.5" PointX="8.25" PointY="34.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Part_Blueprint" Width="1.5" PointX="3" PointY="45.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Part_Status" Width="1.5" PointX="6" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Part_Supplier" Width="1.5" PointX="9" PointY="28.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Part_Type" Width="1.5" PointX="0.75" PointY="27.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Production_Schedule" Width="1.5" PointX="11.25" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Production_Task" Width="1.5" PointX="13.5" PointY="34.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Province" Width="1.5" PointX="1.5" PointY="55.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Raw_Material" Width="1.5" PointX="13.5" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Raw_Material_Supplier" Width="1.5" PointX="15.75" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Recipe" Width="1.5" PointX="3" PointY="51.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Sub_Contractor" Width="1.5" PointX="6" PointY="44.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Sub_Contractor_Contact_Detail" Width="1.5" PointX="8.25" PointY="45.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Supplier" Width="1.5" PointX="4.5" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Supplier_Order" Width="1.5" PointX="10.5" PointY="38.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Supplier_Order_Component" Width="1.5" PointX="12.75" PointY="39.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Supplier_Order_Detail_Part" Width="1.5" PointX="13.75" PointY="30.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Supplier_Order_Detail_Raw_Material" Width="1.5" PointX="15.75" PointY="39.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Supplier_Order_Status" Width="1.5" PointX="8.25" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Supplier_Quote" Width="1.5" PointX="6.75" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Supplier_Quote_Component" Width="1.5" PointX="15.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Supplier_Quote_Detail_Part" Width="1.5" PointX="9" PointY="25.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Supplier_Quote_Detail_Raw_Material" Width="1.5" PointX="15.75" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Supplier_Return" Width="1.5" PointX="12.75" PointY="49" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Supplier_Return_Item" Width="1.5" PointX="15" PointY="49" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Unique_Machine" Width="1.5" PointX="9" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.Unique_Raw_Material" Width="1.5" PointX="12.75" PointY="43.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProteusModel.VAT" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="ProteusModel.FK__Access_Em__Acces__7E02B4CC" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Access_Em__Emplo__7EF6D905" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Audit__Audit_Typ__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Audit_Det__Audit__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Audit_Upd__Audit__6EF57B66" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Client__Province__75A278F5" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Client_Co__Clien__0D7A0286" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Client_Di__Clien__05D8E0BE" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Client_Or__Clien__151B244E" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Client_Qu__Clien__236943A5" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Client_Qu__Conta__245D67DE" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Client_Cr__Clien__625A9A57" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Client_Di__Part___06CD04F7" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Client_Or__Clien__160F4887" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Client_Or__Clien__17036CC0" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Client_Or__Clien__3864608B" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Client_Or__Deliv__17F790F9" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Client_Or__Job_C__18EBB532" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Contracte__Clien__2739D489" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Delivery___Clien__2DE6D218" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Client_Or__Part___395884C4" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Delivery___Clien__57DD0BE4" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Client_Qu__Clien__5BAD9CC8" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Client_Qu__Part___5CA1C101" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Component__Compo__4A8310C6" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Supplier___Compo__208CD6FA" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Supplier___Compo__3C34F16F" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Component__Suppl__4B7734FF" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Customer___Custo__793DFFAF" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Customer___Part___7849DB76" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Delivery___Deliv__58D1301D" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Invoice__Deliver__55009F39" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Employee___Emplo__01D345B0" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Employee__Employ__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Employee__Gender__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Productio__Emplo__6BE40491" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Invoice__Invoice__540C7B00" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Invoice_P__Invoi__5F7E2DAC" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Job_Card___Job_C__71D1E811" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Job_Card__Job_Ca__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Job_Card__Job_Ca__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Productio__Job_C__69FBBC1F" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Job_Card___Part___72C60C4A" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Machine_P__Machi__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Unique_Ma__Machi__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Machine_P__Part___5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Unique_Ma__Machi__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Manual_La__Manua__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Sub_Contr__Manua__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Manual_La__Part___5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Part__Part_Statu__65370702" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Part__Part_Type___662B2B3B" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Productio__Part___690797E6" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Part_Blue__Part___49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Part_Supp__Part___7C4F7684" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Part_Supp__Suppl__7B5B524B" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Recipe__Part_Typ__43D61337" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Supplier___Part___2B0A656D" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Supplier___Part___30C33EC3" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Productio__Produ__6AEFE058" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Sub_Contr__Provi__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Supplier__Provin__787EE5A0" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Raw_Mater__Raw_M__7F2BE32F" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Supplier___Raw_M__3587F3E0" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Supplier___Raw_M__40058253" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Unique_Ra__Raw_M__46B27FE2" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Raw_Mater__Suppl__00200768" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Sub_Contr__Sub_C__10566F31" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Supplier___Suppl__02FC7413" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Supplier___Suppl__09A971A2" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Supplier___Suppl__0A9D95DB" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Supplier___Suppl__31B762FC" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Supplier___Suppl__3D2915A8" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Supplier___Suppl__40F9A68C" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Supplier___Suppl__4E53A1AA" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Unique_Ra__Suppl__47A6A41B" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Supplier___Suppl__1F98B2C1" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Supplier___Suppl__2A164134" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Supplier___Suppl__3493CFA7" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.FK__Supplier___Suppl__51300E55" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.Job_Card_Detail_Part" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.Machine_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.Manual_Labour_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.Part_Supplier_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="ProteusModel.Supplier_Order_Quote" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,476 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>CUSTOMER ORDER</title>
+    
+    <style>
+    .order-box{
+        max-width:800px;
+        margin:auto;
+        padding:30px;
+        border:1px solid #eee;
+        box-shadow:0 0 10px rgba(0, 0, 0, .15);
+        font-size:10px;
+        line-height:16px;
+        font-family:'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+        color:#555;
+    }
+    
+    .order-box table{
+        width:100%;
+        line-height:inherit;
+        text-align:left;
+    }
+    
+    .order-box table td{
+        padding:5px;
+        vertical-align:top;
+    }
+    
+    .order-box table tr td:nth-child(6){
+        text-align:right;
+    }
+    
+	.order-box table tr.DocType table td{
+		 padding:5px;
+		 text-align:center;
+		 font-weight:bold;
+		 border-top:1px solid #eee;
+		 border-bottom:1px solid #eee;
+	}
+	
+	
+	
+    .order-box table tr.top table td{
+        padding-bottom:20px;
+    }
+    
+    .order-box table tr.top table td.title{
+        font-size:8px;
+        line-height:18px;
+        color:#333;
+    }
+    
+    .order-box table tr.information table td{
+        padding-bottom:40px;
+    }
+    
+    .order-box table tr.heading td{
+        background:#eee;
+        border-bottom:1px solid #ddd;
+        font-weight:bold;
+    }
+    
+    .order-box table tr.details td{
+        padding-bottom:20px;
+    }
+    
+    .order-box table tr.item td{
+        border-bottom:1px solid #eee;
+    }
+    
+    .order-box table tr.item.last td{
+        border-bottom:none;
+    }
+	
+	.order-box table tr.totalR td{
+		font-size:15px;
+		border-bottom: 4px solid #eee;
+	}
+	
+	.order-box table tr.totalR td:nth-child(1){
+		border-left: 4px solid #eee;
+	}
+	
+	.order-box table tr.totalR td:nth-child(4){
+        border-top:4px solid #eee;
+        font-weight:bold;
+		font-size:15px;
+		border-left: 4px solid #eee;
+	}
+	
+    .order-box table tr.totalR td:nth-child(5){
+        border-top:4px solid #eee;
+        font-weight:bold;
+		font-size:15px;
+		
+    }
+	.order-box table tr.totalR td:nth-child(6){
+        border-top:4px solid #eee;
+        font-weight:bold;
+		font-size:15px;
+		border-right: 3px solid#eee;
+		
+    }
+	.order-box table tr.total td{
+		border-top:3px solid #eee;
+	}
+	
+	.order-box table tr.total td:nth-child(1){
+		border-left: 4px solid #eee;
+	}  
+	
+    .order-box table tr.total td:nth-child(4){
+        border-top:3px solid #eee;
+		border-left: 3px solid#eee;
+        font-weight:bold;
+	}
+	
+    .order-box table tr.total td:nth-child(5){
+        border-top:3px solid #eee;
+        font-weight:bold;
+    }
+	.order-box table tr.total td:nth-child(6){
+        border-top:3px solid #eee;
+		border-right: 3px solid#eee;
+        font-weight:bold;
+    }
+    
+    @media only screen and (max-width: 150px) {
+        .order-box table tr.top table td{
+            width:100%;
+            display:block;
+            text-align:center;
+        }
+        
+        
+        .order-box table tr.information table td{
+            width:100%;
+            display:block;
+            text-align:center;
+        }
+	.wrapper{ 
+		width: 100%;
+		height: 100%;
+		display:table;
+	}
+	
+    }
+    </style>
+</head>
+
+<body id="content">
+    <script src="scripts/jquery-1.9.1.min.js"></script>
+    <script>
+
+        var passed_obj;
+
+        var s_parts;
+        var client_details;
+
+        $(document).ready(function () {
+
+            client_details = passed_obj.client;
+            s_parts = passed_obj.s_parts;
+
+            var date = (new Date()).toISOString().split("T");
+
+            $("#Client_Order_Date").html(date[0]);
+
+            $("#Client_Order_ID").html(passed_obj.Order_ID);
+            $("#Page_Num").html("1");
+            $("#Total_Pages").html("1");
+            $("#Contact_Name").html(passed_obj.c_name);
+            $("#Contact_Number").html(passed_obj.c_num);
+
+			$("#Client_Name").html(client_details.Name);
+			$("#Client_Address").html(client_details.Address);
+			$("#Client_City").html(client_details.City);
+			$("#Client_Zip").html(client_details.Zip);
+			$("#Vat_Number").html(client_details.Vat_Number);
+			$("#Job_Card_ID").html(client_details.Job_Card_ID);
+			$("#Reference_ID").html(passed_obj.Reference);
+			$("#Vat_Number2").html(client_details.Vat_Number);
+			
+			$("#Account_Name").html(client_details.Account_Name);
+
+			$("#VAT_Inclu").html(passed_obj.VAT_Exemp);
+
+
+			var total = 0;
+
+			for (var a = 0; a < s_parts.length; a++) {
+			    var ID = s_parts[a].Part_Type_ID;
+
+			    total += s_parts[a].Part_Price * s_parts[a].Quantity;
+			    var net = s_parts[a].Quantity * s_parts[a].Part_Price / (1 + s_parts[a].Client_Discount_Rate/100);
+
+			    var row = '<tr><td>'+ID+'</td>'
+                    + '<td>' + passed_obj.p_names[a] + '</td>' +
+                    '<td>'+s_parts[a].Quantity+'</td>' +
+                    '<td>'+s_parts[a].Part_Price+'</td>' +
+                    '<td>'+s_parts[a].Client_Discount_Rate+'</td>' +
+                    '<td>'+ net.toFixed(2) +'</td>' +
+                    '</tr>';
+
+			    $("#Items").append(row);
+
+			}
+
+			var discount_rate = 0;
+
+			if (parseInt(passed_obj.order_type) == 2)
+			    discount_rate = client_details.Contract_Discount_Rate;
+
+
+			var vat_rate = passed_obj.VAT;
+
+			if (passed_obj.VAT_Exemp == true)
+			    vat_rate = 0;
+
+			var discount = total * discount_rate / 100;
+			var sub = total - discount;
+			var vat = sub * vat_rate / 100;
+			var total2 = sub + vat;
+
+
+			$("#VAT_Rate").html(vat_rate);
+            
+
+			    $("#Contract_Discount_Rate").html(discount_rate);
+
+
+			$("#total").html(total.toFixed(2));
+			$("#discount").html(discount.toFixed(2));
+			$("#sub").html(sub.toFixed(2));
+			$("#vat").html(vat.toFixed(2));
+			$("#Calculated_total").html(total2.toFixed(2));
+
+
+            console.log(passed_obj);
+        });
+
+
+
+    </script>
+    <div class="order-box">
+        <table cellpadding="0" cellspacing="0">
+			<tr class="DocType">
+				<td colspan="7">
+					<table>
+					<tr>
+					<td>
+					</td>
+					<td>
+					</td>
+					<td>
+					</td>
+						<td>
+						CUSTOMER ORDER
+						</td>
+					<td>
+					</td>
+					<td>
+					</td>
+					</tr>
+					</table>
+				<td>
+			</tr>
+			<tr class="top">
+                <td colspan="7">
+                    <table>
+                        <tr>
+                            <td class="title">
+                                <img src="images/WME.bmp" style="width:100%; max-width:150px;">
+								
+                            </td>
+							<td>
+								
+								Cnr. Aquila & Orion Streets<br>
+								Germiston Extension 17<br>
+								Ph: (011) 873 8620 Fax: 011 825 1401<br>
+								VAT 4690153962 <br>
+								Reg. 9509224/07
+							</td>	
+                            <td>
+							</td>
+							<td>
+							</td>
+                            <td>
+								Date :<br> 
+								Document No. :<br> 
+								Page :<br> 
+                                
+                            </td>
+							<td>
+								<span id="Client_Order_Date"></span><br>
+								<span id="Client_Order_ID"></span><br>
+								<span id="Page_Num"></span> of <span id="Total_Pages"></span>
+                                
+                            </td>
+							
+                    </table>
+                </td>
+            </tr>
+            
+            <tr class="information">
+                <td colspan="8">
+                    <table>
+                        <tr>
+						
+                            <td>
+								From:<br>
+                                Walter Meano Engineering Pty (Ltd)<br>
+                                P.O. Box 797<br>
+                                Germiston<br>
+								1400<br>
+								South Africa
+                            </td>
+                            <td>
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+							<td>
+							<!-- Add span elements to td elemnts that have text in but which i also need to add text to. -->
+								Deliver to: <br>
+								<span id="Client_Address"></span> <br>
+								<span id="Client_City"></span> <br>
+								<span id="Client_Zip"></span> <br>
+								VAT No <span id="Vat_Number"></span> <br>
+								PJC<span id="Job_Card_ID"></span>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            
+            <tr class="heading">
+                <td >
+                    Account
+                </td>
+                
+                <td >
+                    Your Reference
+                </td>
+				<!-- ADD id's to the empty td elemnts here. -->
+				<td>
+                    
+                </td>
+				<td >
+                    Tax Exempt
+                </td>
+				<td >
+                    Tax Reference 
+                </td>
+            </tr>
+            
+            <tr class="details">
+                 <td>
+                    <span id="Account_Name"></span>
+                </td>
+                
+                <td>
+                    <span id="Reference_ID"></span>
+                </td>
+				<td>
+                    
+                </td>
+				<td>
+                    <span id="VAT_Inclu"></span>
+                </td>
+				<td>
+                    <span id="Vat_Number2"></span>
+                </td>
+				<td>
+                     <span id="Calculated_Order_Completion_Time"></span>
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+        </table>
+		<table cellpadding="0" cellspacing="0">
+           <thead> 
+            <tr class="heading">
+                <td> Code </td>
+                <td> Name </td>
+                <td> Quantity </td>
+                <td> Unit Price R </td>
+                <td> Disc % </td>
+                <td> Net Price R (VAT Excl.) </td>
+				
+            </tr>
+			</thead>
+			<tbody id = "Items">
+			</tbody>
+		</table>
+		<table cellpadding="0" cellspacing="0">
+            <tr class="total">
+                <td>
+				<br>
+				Standard Bank<br>
+				Bedford Gardens: 018305<br>
+				Account: 022525068<br>
+				<br>
+				<br>
+				<br>
+				Signed: __________________
+				</td>
+                <td>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				Date: __________________
+				</td>
+				<td></td>
+                <td>
+					<br>
+					<br>
+					<br>
+					<br>
+					Amount Excl. VAT<br>
+					Contract Discount @ <br>
+					Subtotal<br>
+					VAT<br>
+                    
+                </td>
+				<td>
+				 <br>
+				 <br>
+				<br>
+				<br>
+				<br>
+				  <span id="Contract_Discount_Rate"></span>%<br> <!-- Contracted_Client_Orders -->
+				 <br>
+				  <span id="VAT_Rate"></span>%<br>
+				 
+				</td>
+				 <td>
+				 <br>
+				<br>
+				<br>
+				<br>
+					 <span id="total"></span><br>
+                    <span id="discount"></span><br>
+                    <span id="sub"></span><br>
+                    <span id="vat"></span><br>
+                    
+                </td>
+            </tr>
+			<tr class="totalR">
+			<td></td>
+				<td></td>
+				<td></td>
+				<td>
+					Total:
+                </td>
+				<td>
+				ZAR
+				 </td>
+				 <td id="Calculated_total">
+					 
+                </td>
+			</tr>
+        </table>
+    </div>
+</body>
+</html>

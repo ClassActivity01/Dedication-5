@@ -1,0 +1,486 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>COPY OF Customer quote</title>
+    
+    <style>
+    .quote-box{
+        max-width:800px;
+        margin:auto;
+        padding:30px;
+        border:1px solid #eee;
+        box-shadow:0 0 10px rgba(0, 0, 0, .15);
+        font-size:10px;
+        line-height:16px;
+        font-family:'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+        color:#555;
+    }
+    
+    .quote-box table{
+        width:100%;
+        line-height:inherit;
+        text-align:left;
+    }
+    
+    .quote-box table td{
+        padding:5px;
+        vertical-align:top;
+    }
+    
+    .quote-box table tr td:nth-child(7){
+        text-align:right;
+    }
+    
+	.quote-box table tr.DocType table td{
+		 padding:5px;
+		 text-align:center;
+		 font-weight:bold;
+		 border-top:1px solid #eee;
+		 border-bottom:1px solid #eee;
+	}
+	
+	
+	
+    .quote-box table tr.top table td{
+        padding-bottom:20px;
+    }
+    
+    .quote-box table tr.top table td.title{
+        font-size:8px;
+        line-height:18px;
+        color:#333;
+    }
+    
+    .quote-box table tr.information table td{
+        padding-bottom:40px;
+    }
+    
+    .quote-box table tr.heading td{
+        background:#eee;
+        border-bottom:1px solid #ddd;
+        font-weight:bold;
+    }
+    
+    .quote-box table tr.details td{
+        padding-bottom:20px;
+    }
+    
+    .quote-box table tr.item td{
+        border-bottom:1px solid #eee;
+    }
+    
+    .quote-box table tr.item.last td{
+        border-bottom:none;
+    }
+	
+	.quote-box table tr.totalR td{
+		font-size:15px;
+		border-bottom: 4px solid #eee;
+	}
+	
+	.quote-box table tr.totalR td:nth-child(1){
+		border-left: 4px solid #eee;
+	}
+	
+	.quote-box table tr.totalR td:nth-child(5){
+        border-top:4px solid #eee;
+        font-weight:bold;
+		font-size:15px;
+		border-left: 4px solid #eee;
+	}
+	
+    .quote-box table tr.totalR td:nth-child(6){
+        border-top:4px solid #eee;
+        font-weight:bold;
+		font-size:15px;
+		
+    }
+	.quote-box table tr.totalR td:nth-child(7){
+        border-top:4px solid #eee;
+        font-weight:bold;
+		font-size:15px;
+		border-right: 3px solid#eee;
+		
+    }
+	.quote-box table tr.total td{
+		border-top:3px solid #eee;
+	}
+	
+	.quote-box table tr.total td:nth-child(1){
+		border-left: 4px solid #eee;
+	}  
+	
+    .quote-box table tr.total td:nth-child(5){
+        border-top:3px solid #eee;
+		border-left: 3px solid#eee;
+        font-weight:bold;
+	}
+	
+    .quote-box table tr.total td:nth-child(6){
+        border-top:3px solid #eee;
+        font-weight:bold;
+    }
+	.quote-box table tr.total td:nth-child(7){
+        border-top:3px solid #eee;
+		border-right: 3px solid#eee;
+        font-weight:bold;
+    }
+    
+    @media only screen and (max-width: 150px) {
+        .quote-box table tr.top table td{
+            width:100%;
+            display:block;
+            text-align:center;
+        }
+        
+        
+        .quote-box table tr.information table td{
+            width:100%;
+            display:block;
+            text-align:center;
+        }
+	.wrapper{ <!-- I'm unsure about what I must declare in here... wrapper div -->
+		width: 100%;
+		height: 100%;
+		display:table;
+	}
+	
+    }
+    </style>
+</head>
+
+<body>
+    <script src="scripts/jquery-1.9.1.min.js"></script>
+    <script>
+
+        var passed_obj;
+
+        var s_parts;
+        var client_details;
+
+        $(document).ready(function () {
+
+            client_details = passed_obj.client;
+            s_parts = passed_obj.s_parts;
+
+            var date = (new Date()).toISOString().split("T");
+
+            $("#Client_Quote_Date").html(date[0]);
+            
+            $("#Client_Qoute_ID").html(passed_obj.Quote_ID);
+            $("#Page_Num").html("1");
+            $("#Total_Pages").html("1");
+            $("#Contact_Name").html(passed_obj.c_name);
+            $("#Contact_Number").html(passed_obj.c_num);
+
+			$("#Client_Name").html(client_details.Name);
+			$("#Client_Address").html(client_details.Address);
+			$("#Client_City").html(client_details.City);
+			$("#Client_Zip").html(client_details.Zip);
+			$("#Vat_Number").html(client_details.Vat_Number);
+
+			var total = 0;
+            
+			for (var a = 0; a < s_parts.length; a++) {
+			    var ID = s_parts[a].Part_Type_ID;
+
+			    //	    total += s_parts[a].Part_Price;
+			    
+			    var net = s_parts[a].Quantity * s_parts[a].Part_Price / (1 + s_parts[a].Client_Discount_Rate/100);
+			    total += net;
+			    var row = '<tr><td>' + passed_obj.p_names[a] + '</td>' +
+                    '<td>'+s_parts[a].Quantity+'</td>' +
+                    '<td>'+s_parts[a].Part_Price+'</td>' +
+                    '<td>'+s_parts[a].Client_Discount_Rate+'</td>' +
+                    '<td>'+ net.toFixed(2) +'</td>' +
+                    '</tr>';
+
+			    $("#Items").append(row);
+
+			}
+
+			var vat_rate = passed_obj.VAT;
+
+			var discount = total * client_details.Contract_Discount_Rate / 100;
+			var sub = total - discount;
+			var vat = sub * vat_rate / 100;
+			var total2 = sub + vat;
+            
+
+			$("#VAT_Rate").html(vat_rate);
+			$("#Contract_Discount_Rate").html(client_details.Contract_Discount_Rate);
+
+			$("#total").html(total.toFixed(2));
+			$("#discount").html(discount.toFixed(2));
+			$("#sub").html(sub.toFixed(2));
+			$("#vat").html(vat.toFixed(2));
+			$("#Calculated_Total").html(total2.toFixed(2));
+			
+
+            console.log(passed_obj);
+        });
+
+
+
+    </script>
+    <div class="quote-box">
+        <table cellpadding="0" cellspacing="0">
+			<tr class="DocType">
+				<td colspan="7">
+					<table>
+					<tr>
+					<td>
+					</td>
+					
+					<td>
+					</td>
+					<td>
+					</td>
+						<td>
+						QUOTATION
+						</td>
+					<td>
+					</td>
+					<td></td>
+					<td>
+					</td>
+					</tr>
+					</table>
+				<td>
+			</tr>
+			<tr class="top">
+                <td colspan="7">
+                    <table>
+                        <tr>
+                            <td class="title">
+                                <img src="images/WME.bmp" style="width:100%; max-width:150px;">
+								
+                            </td>
+							<td>
+								
+								Cnr. Aquila & Orion Streets<br>
+								Germiston Extension 17<br>
+								Ph: (011) 873 8620 Fax: 011 825 1401<br>
+								VAT 4690153962 <br>
+								Reg. 9509224/07
+							</td>	
+                            <td>
+							</td>
+							<td></td>
+							<td>
+							</td>
+                            <td>
+								Date :<br> 
+								Document No. :<br> 
+								Page :<br> 
+                                
+                            </td>
+							<td>
+								<span id="Client_Quote_Date"></span><br>
+								RFQ<span id="Client_Qoute_ID"></span><br>
+								<span id="Page_Num"></span> of <span id="Total_Pages"></span>
+                                
+                            </td>
+							
+                    </table>
+                </td>
+            </tr>
+            
+            <tr class="information">
+                <td colspan="7">
+                    <table>
+                        <tr>
+						
+                            <td>
+								From:<br>
+                                Walter Meano Engineering Pty (Ltd)<br>
+                                P.O. Box 797<br>
+                                Germiston<br>
+								1400<br>
+								South Africa
+                            </td>
+                            <td>
+							Attention:<br>
+								<span id="Contact_Name"></span> <br>
+								<span id="Contact_Number"></span> <br>
+								<br>
+							</td>
+							<td>
+							
+							</td>
+							<td>
+							
+							</td>
+							<td></td>
+							<td>
+							</td>
+							<td>
+							<!-- Add span elements to td elemnts that have text in but which i also need to add text to. -->
+								
+								To: <br>
+								<span id="Client_Name"></span> <br>
+								<span id="Client_Address"></span> <br>
+								<span id="Client_City"></span> <br>
+								<span id="Client_Zip"></span> <br>
+								VAT No <span id="Vat_Number"></span>
+								
+								
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            
+            <tr class="heading">
+                <td id="Estimated completion time">
+                   Estimated Delivery  
+                </td>
+				<td>
+                    
+                </td>
+                
+                <td>
+                    
+                </td>
+				<!-- ADD id's to the empty td elemnts here. -->
+				<td>
+                    
+                </td>
+				<td>
+                  
+                </td>
+				<td>
+                </td>
+				
+            </tr>
+            
+            <tr class="details">
+                 <td>
+                    <span id="Estimated completion time"></span>  
+                </td>
+                
+                <td>
+                   
+                </td>
+				<td>
+                    
+                </td>
+				<td>
+                    
+                </td>
+				<td>
+                </td>
+				<td>
+                   
+                </td>
+            </tr>
+            
+            
+			
+		</table>
+        <table cellpadding="0" cellspacing="0">
+            <tbody id="Items">
+                <!-- Add a wrapper div around the part where the order details are meant to go -->
+                <tr class="heading">
+                    <td>
+                        <!-- Or Part_Type_Name.. whichever you decided to use -->
+                        Description
+                    </td>
+                    <td >
+                        <!--Deliver_Note_Details table-->
+                        Quantity
+                    </td>
+                    <td >
+                        <!--Client_Order_Detail table -->
+                        Unit Price R
+                    </td>
+                    <td >
+                        <!-- CLient_Order_Detail -->
+                        Disc%
+                    </td>
+                    <td>
+                        Net Price R (VAT Excl.)
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+             <!-- end item last div -->
+        <table cellpadding="0" cellspacing="0">
+            <tr class="total">
+                <td>
+                    <br>
+                    <br>
+                    Thank you for the enquiry and we have pleasure in submitting the following quote.<br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    Signed: __________________
+                </td>
+                <td>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    Date: __________________
+                </td>
+                <td></td>
+                <td></td>
+                <td>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    Amount Excl. VAT<br>
+                    Contract Discount @ <br>
+                    Subtotal<br>
+                    VAT<br>
+
+                </td>
+
+                <td>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <span id="Contract_Discount_Rate"></span>%<br> <!-- Contracted_Client_Orders -->
+                    <br>
+                    <span id="VAT_Rate"></span>%<br>
+
+                </td>
+                <td>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <span id="total"></span><br>
+                    <span id="discount"></span><br>
+                    <span id="sub"></span><br>
+                    <span id="vat"></span><br>
+
+                </td>
+            </tr>
+            <tr class="totalR">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    Total:
+                </td>
+                <td>
+                    ZAR
+                </td>
+                <td>
+                    <span id="Calculated_Total"></span>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

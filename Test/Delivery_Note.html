@@ -1,0 +1,390 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>COPY OF DELIVERY NOTE</title>
+    
+    <style>
+    .delivnote-box{
+        max-width:800px;
+        margin:auto;
+        padding:30px;
+        border:1px solid #eee;
+        box-shadow:0 0 10px rgba(0, 0, 0, .15);
+        font-size:10px;
+        line-height:16px;
+        font-family:'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+        color:#555;
+    }
+    
+    .delivnote-box table{
+        width:100%;
+        line-height:inherit;
+        text-align:left;
+    }
+    
+    .delivnote-box table td{
+        padding:5px;
+        vertical-align:top;
+    }
+    
+    .delivnote-box table tr td:nth-child(6){
+        text-align:right;
+    }
+    
+	.delivnote-box table tr.DocType table td{
+		 padding:5px;
+		 text-align:center;
+		 font-weight:bold;
+		 border-top:1px solid #eee;
+		 border-bottom:1px solid #eee;
+	}
+	
+	
+	
+    .delivnote-box table tr.top table td{
+        padding-bottom:20px;
+    }
+    
+    .delivnote-box table tr.top table td.title{
+        font-size:8px;
+        line-height:18px;
+        color:#333;
+    }
+    
+    .delivnote-box table tr.information table td{
+        padding-bottom:40px;
+    }
+    
+    .delivnote-box table tr.heading td{
+         
+		background:#eee;
+        border-bottom:1px solid #ddd;
+        font-weight:bold;
+    }
+    
+    .delivnote-box table tr.details td{
+        padding-bottom:20px;
+    }
+    
+    .delivnote-box table tr.item td{
+        border-bottom:1px solid #eee;
+		 line-height:18px;
+    }
+	
+    
+    .delivnote-box table tr.item.last td{
+        border-bottom:none;
+    }
+	 
+
+
+   
+	
+	.delivnote-box table tr.total td{
+		border-top:3px solid #eee;
+		border-bottom: 4px solid #eee;
+	}
+	
+	.delivnote-box table tr.total td:nth-child(1){
+		border-left: 4px solid #eee;
+	}  
+	
+  
+	
+   
+	.delivnote-box table tr.total td:nth-child(6){
+        border-top:3px solid #eee;
+		border-right: 3px solid#eee;
+        font-weight:bold;
+    }
+    
+    @media only screen and (max-width: 150px) {
+        .delivnote-box table tr.top table td{
+            width:100%;
+            display:block;
+            text-align:center;
+        }
+        
+        
+        .delivnote-box table tr.information table td{
+            width:100%;
+            display:block;
+            text-align:center;
+        }
+	.wrapper{ <!-- I'm unsure about what I must declare in here... wrapper div -->
+		width: 100%;
+		height: 100%;
+		display:table;
+	}
+	
+    }
+    </style>
+</head>
+
+<body>
+    <script src="scripts/jquery-1.9.1.min.js"></script>
+    <script>
+
+        var passed_obj;
+
+        var s_parts;
+        var client_details;
+
+        $(document).ready(function () {
+
+            client_details = passed_obj.client;
+            s_parts = passed_obj.s_parts;
+
+            var date = (new Date()).toISOString().split("T");
+
+            $("#Delivery_Note_Date").html(date[0]);
+
+            $("#Delivery_Note_ID").html(passed_obj.Del_Note_ID);
+            $("#Page_Num").html("1");
+            $("#Total_Pages").html("1");
+            $("#Contact_Name").html(passed_obj.c_name);
+            $("#Contact_Number").html(passed_obj.c_num);
+
+			$("#Client_Name").html(client_details.Name);
+			$("#Client_Address").html(client_details.Address);
+			$("#Client_City").html(client_details.City);
+			$("#Client_Zip").html(client_details.Zip);
+			$("#Vat_Number").html(client_details.Vat_Number);
+			$("#Reference_ID").html(passed_obj.Reference);
+
+			$("#Account_Name").html(client_details.Account_Name);
+
+			$("#VAT_Inclu").html(passed_obj.VAT_Exemp);
+			$("#Vat_Number").html(client_details.Vat_Number);
+
+			var total = 0;
+
+			for (var a = 0; a < s_parts.length; a++) {
+			    var ID = s_parts[a].Part_Type_ID;
+
+			    if (s_parts[a].Quantity_Delivered > 0)
+			    {
+			        total += s_parts[a].Part_Price * s_parts[a].Quantity;
+			        var net = s_parts[a].Quantity * s_parts[a].Part_Price / (1 + s_parts[a].Client_Discount_Rate / 100);
+
+			        var row = '<tr><td>' + s_parts[a].Part_Type_Name + '</td>' +
+                        '<td>' + s_parts[a].Quantity + '</td>' +
+                        '<td>' + s_parts[a].Quantity_Delivered + '</td>' +
+                        '<td>' + s_parts[a].To_Deliver + '</td>' +
+                        '</tr>';
+
+			        $("#Items").append(row);
+			    }
+			    
+
+			}
+
+            console.log(passed_obj);
+        });
+
+
+
+    </script>
+    <div class="delivnote-box">
+        <table cellpadding="0" cellspacing="0">
+			<tr class="DocType">
+				<td colspan="7">
+					<table>
+					<tr>
+					<td>
+					</td>
+					<td>
+					</td>
+					<td>
+					</td>
+						<td>
+						DELIVERY NOTE
+						</td>
+					<td>
+					</td>
+					<td>
+					</td>
+					</tr>
+					</table>
+				<td>
+			</tr>
+			<tr class="top">
+                <td colspan="7">
+                    <table>
+                        <tr>
+                            <td class="title">
+                                <img src="images/WME.bmp" style="width:100%; max-width:150px;">
+								
+                            </td>
+							<td>
+								
+								Cnr. Aquila & Orion Streets<br>
+								Germiston Extension 17<br>
+								Ph: (011) 873 8620 Fax: 011 825 1401<br>
+								VAT 4690153962 <br>
+								Reg. 9509224/07
+							</td>	
+                            <td>
+							</td>
+							<td>
+							</td>
+                            <td>
+								Date :<br> 
+								Document No. :<br> 
+								Page :<br> 
+                                
+                            </td>
+							<td>
+								<span id="Delivery_Note_Date"></span><br>
+								PDE<span id="Delivery_Note_ID"></span><br>
+								<span id="Page_Num"></span> of <span id="Total_Pages"></span>
+                                
+                            </td>
+							
+                    </table>
+                </td>
+            </tr>
+            
+            <tr class="information">
+                <td colspan="8">
+                    <table>
+                        <tr>
+						
+                            <td>
+								From:<br>
+                                Walter Meano Engineering Pty (Ltd)<br>
+                                P.O. Box 797<br>
+                                Germiston<br>
+								1400<br>
+								South Africa
+                            </td>
+                            <td>
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+							<td>
+							<!-- Add span elements to td elemnts that have text in but which i also need to add text to. -->
+								Deliver to: <br>
+								<span id="Client_Address"></span> <br>
+								<span id="Client_City"></span> <br>
+								<span id="Client_Zip"></span><br>
+								VAT No <span id="Vat_Number"></span> <br>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            
+            <tr class="heading">
+                <td>
+                    Account
+                </td>
+                
+                <td>
+                    Your Reference
+                </td>
+				<!-- ADD id's to the empty td elemnts here. -->
+				
+				<td>
+                  
+                </td>
+				<td>
+                    Tax Reference 
+                </td>
+				<td>
+                   Delivery  
+                </td>
+				<td>
+                    
+                </td>
+            </tr>
+            
+            <tr class="details">
+                 <td>
+                    <span id="Account_Name"></span>
+                </td>
+                
+                <td>
+                    <span id="Reference_ID"></span>
+                </td>
+				
+				<td>
+                    <span id="VAT_Inclu"></span>
+                </td>
+				<td>
+                    <span id="Vat_Number"></span>
+                </td>
+				<td>
+                     <span id="Delivery_Note_Date"></span>
+                </td>
+				<td>
+                    
+                </td>
+            </tr>
+      </table>		
+	 <table cellpadding="0" cellspacing="0">
+        <thead id="Items">
+            <tr class="heading">
+                <td >
+                    Code
+                </td>
+				<td> <!--Deliver_Note_Details table-->
+                    Quantity Ordered
+                </td>
+				<td> 
+                    Quantity Delivered
+                </td>
+				 
+				<td>
+                  Quantity to be Delivered
+                </td>
+
+            </tr>
+		</thead>
+		<tbody id="Items">
+		</tbody>	
+	</table>		
+	 <table cellpadding="0" cellspacing="0">
+		<tr class="total">
+                <td>
+				<br>
+				Name: _____________________<br>
+				Signature: __________________<br>
+				Date: ______________________<br>
+				<br>
+				Received in good order<br>
+				<br>
+				Signed: __________________
+				</td>
+                <td>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				Date: __________________
+				</td>
+				<td></td>
+                <td>
+				  
+                </td>
+				<td>
+				 
+				</td>
+				 <td>
+				 
+                </td>
+           </tr>
+	</table>	
+	</div> 
+        
+    
+</body>
+</html>

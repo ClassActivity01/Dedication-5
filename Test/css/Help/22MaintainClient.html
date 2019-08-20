@@ -1,0 +1,256 @@
+﻿<html>
+	
+<head>
+	<title>2.2.Maintain Client</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Personal Edition 4.9.2.132">
+	<meta name="keywords" content="">
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "Emit Proteus.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("22MaintainClient");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	</head>
+
+<body>
+
+<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">2.2.Maintain Client</h1>
+				
+				<div id="topic_breadcrumb">
+					<a href="Subsystems.html">Sub-systems</a> &rsaquo;&rsaquo; <a href="2ClientSubsystem.html">2.Client Sub-system</a> &rsaquo;&rsaquo; </div>
+				</div>
+			<div id="topic_header_nav">
+				<a href="2ClientSubsystem.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				<a href="21AddClient.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				<a href="23SearchClient.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				</div>
+			<div class="clear"></div>
+		</div>
+	<div id="topic_content">
+		
+<p></p>
+<h3 class="rvps17"><span class="rvts0"><span class="rvts29">2.2 Maintain Customer</span></span></h3>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts19">Purpose of this function:</span><span class="rvts14"> To update a customer’s details to the system to be used when processing orders and generating financial documents, or to delete the customer from the system.</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<h2 class="rvps9"><span class="rvts0"><span class="rvts23">Navigation to add a new customer</span></span></h2>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem110.png"></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14">The </span><span class="rvts25">Maintain Customer </span><span class="rvts14">screen is where you will first input the customer’s details for the system to use as search criteria. You will then select the customer you need to maintain from the displayed customers that the system found, and then provide the new customer’s details.</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem114.png"></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<h2 class="rvps9"><span class="rvts0"><span class="rvts23">Screen Controls</span></span></h2>
+<p class="rvps2"><span class="rvts28"><br/></span></p>
+<p class="rvps2"><img width="598" height="572" alt="" style="padding : 1px;" src="lib/NewItem112.png"></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14">The numbers indicated on the screens represent the following controls</span></p>
+<ol style="text-indent: 0px; margin-left: 48px; list-style-position: outside; list-style-type: decimal;">
+<li value="1" class="rvps18"><span class="rvts26">Search Criteria textbox: </span><span class="rvts27">information about the customer is entered here to be used as a keyword for </span><span class="rvts31">Proteus</span><span class="rvts27"> to use to find the customer you are searching for.</span></li>
+<li value="2" class="rvps18"><span class="rvts26">Search by drop-down list: </span><span class="rvts27">select the option which describes the information you typed in the </span><span class="rvts31">Search Criteria </span><span class="rvts27">textbox which </span><span class="rvts31">Proteus</span><span class="rvts27"> will search through to find the customer.</span></li>
+<li value="3" class="rvps18"><span class="rvts26">Search Method radio</span><span class="rvts27">-</span><span class="rvts26">edit box: </span><span class="rvts27">select the option which defines how </span><span class="rvts31">Proteus </span><span class="rvts27">should search using the search criteria you provided.</span></li>
+<li value="4" class="rvps18"><span class="rvts26">Search button</span><span class="rvts27">: click this button to search for the customer</span></li>
+<li value="5" class="rvps18"><span class="rvts26">Customer tab</span><span class="rvts27">: on the click of the of this tab the required customer information will be displayed.</span></li>
+<li value="6" class="rvps18"><span class="rvts26">Discounts tab</span><span class="rvts27">: on the click of this tab the required customer discount information will be displayed</span></li>
+<li value="7" class="rvps18"><span class="rvts26">Customer Name textbox</span><span class="rvts27">: enter the customer’s company name here</span></li>
+<li value="8" class="rvps18"><span class="rvts26">Account Name</span><span class="rvts27">: enter the customer’s account name here</span></li>
+<li value="9" class="rvps18"><span class="rvts26">VAT Number</span><span class="rvts27">: enter the customer’s VAT number here</span></li>
+<li value="10" class="rvps18"><span class="rvts26">Status drop-down list: </span><span class="rvts27">select the customer’s status here</span></li>
+<li value="11" class="rvps18"><span class="rvts26">Address textbox:</span><span class="rvts27"> enter the customer’s delivery street address here</span></li>
+<li value="12" class="rvps18"><span class="rvts26">City textbox:</span><span class="rvts27"> enter the customer’s delivery address’s city name here</span></li>
+<li value="13" class="rvps18"><span class="rvts26">Province drop-down list: </span><span class="rvts27">select the customer’s delivery address’s province name here</span></li>
+<li value="14" class="rvps18"><span class="rvts26">Zip code drop-down list:</span><span class="rvts27"> select the customer’s postal code here</span></li>
+<li value="15" class="rvps18"><span class="rvts26">Add Contact button: </span><span class="rvts27">click this button to add another contact person for the customer</span></li>
+<li value="16" class="rvps18"><span class="rvts26">Remove contact button: </span><span class="rvts27">select the contact and then click this button to remove the contact</span><span class="rvts26"> </span><span class="rvts27">person for the customer</span></li>
+<li value="17" class="rvps18"><span class="rvts26">Contact Name textbox:</span><span class="rvts27"> enter the contact person’s name here</span></li>
+<li value="18" class="rvps18"><span class="rvts26">Contact Number textbox:</span><span class="rvts27"> enter the contact person’s contact number here</span></li>
+<li value="19" class="rvps18"><span class="rvts26">Contact Email textbox:</span><span class="rvts27"> enter the contact person’s email address here</span></li>
+<li value="20" class="rvps18"><span class="rvts26">Job Description textbox:</span><span class="rvts27"> enter the contact person’s job description here</span></li>
+<li value="21" class="rvps18"><span class="rvts26">Update Customer button:</span><span class="rvts27"> click this button to save the updated customer details</span></li>
+<li value="22" class="rvps18"><span class="rvts26">Remove Customer button:</span><span class="rvts27"> click this button to remove the all the customer’s details from the system</span></li>
+</ol>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><img width="601" height="296" alt="" style="padding : 1px;" src="lib/NewItem111.png"></p>
+<p class="rvps2"><span class="rvts24"><br/></span></p>
+<p class="rvps2"><span class="rvts14">The numbers indicated on the screen represent the following controls:</span></p>
+<ol style="text-indent: 0px; margin-left: 48px; list-style-position: outside; list-style-type: decimal;">
+<li value="1" class="rvps18"><span class="rvts26">Customer tab: </span><span class="rvts27">on the click of this tab the required customer information will be displayed</span></li>
+<li value="2" class="rvps18"><span class="rvts26">Discount tab: </span><span class="rvts27">on the click of this tab the required customer discount information will be displayed</span></li>
+<li value="3" class="rvps18"><span class="rvts26">Contract Discount Rate numeric up-down: </span><span class="rvts27">enter the contract discount rate offered to the customer here</span></li>
+<li value="4" class="rvps18"><span class="rvts26">Settlement Discount Rate numeric up-down:</span><span class="rvts27"> enter the settlement discount rate offered to the customer here</span></li>
+<li value="5" class="rvps18"><span class="rvts26">Add Discount to Part Type button:</span><span class="rvts27"> click this button to search for a part type to select and add a part discount rate for it</span></li>
+<li value="6" class="rvps18"><span class="rvts26">Discount % textbox: </span><span class="rvts27">enter the part discount rate here</span></li>
+<li value="7" class="rvps18"><span class="rvts26">‘Pompie Pump’ button:</span><span class="rvts27"> this button name depends on the part type listed for discount, click this button to remove the part type from the part discounts list</span></li>
+</ol>
+<p class="rvps18"><span class="rvts27"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem115.png"></p>
+<h2 class="rvps9"><span class="rvts0"><span class="rvts23">Process to follow:</span></span></h2>
+<p class="rvps2"><span class="rvts28"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem119.png"></p>
+<p class="rvps2"><span class="rvts24"><br/></span></p>
+<p class="rvps2"><span class="rvts14">Enter the customer’s company name, &nbsp;VAT number, Account Number or customer number into the </span><span class="rvts25">Search Criteria </span><span class="rvts14">textbox for it to be used as search criteria. </span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem120.png"></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14">Select an option from the </span><span class="rvts25">Search By </span><span class="rvts14">drop-down list which describes the information you typed in the </span><span class="rvts25">Search Criteria </span><span class="rvts14">textbox. The option you have selected is what </span><span class="rvts25">Proteus </span><span class="rvts14">will search through the database to find customers with details that match the information you provided in the </span><span class="rvts25">Search Criteria </span><span class="rvts14">textbox, i.e. if you select name then </span><span class="rvts25">Proteus </span><span class="rvts14">will search through all the customer’s names to find and display one/s that match the name you provided as search criteria. If you select the ‘All’ option, then </span><span class="rvts25">Proteus </span><span class="rvts14">will search through all the information stored about the customer for matching information and not just one specific detail about the customer like it would if you selected a different option.</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem121.png"></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14">Select an option in the </span><span class="rvts25">Search Method </span><span class="rvts14">radio-edit box which defines how </span><span class="rvts25">Proteus </span><span class="rvts14">should search using the search criteria you provided. Selecting ‘Exact’ means that any customer/s with details that match the search criteria you provided exactly. Selecting ‘Contains’ means that any customer/s with details that contain the information you provided will be found and displayed, i.e. if the customer’s details contain the search criteria you provided as a part within its whole detail then it will be selected, an example being if you provided “Prot” as search criteria and selected ‘Contains’ as the search method, then a customer “Proteus” would be found and displayed if it were an existing customer.</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem122.png"></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14">Click the </span><span class="rvts25">Search </span><span class="rvts14">button once you have provided information in the </span><span class="rvts25">Search Criteria </span><span class="rvts14">textbox and selected options in the </span><span class="rvts25">Search By </span><span class="rvts14">list-box and the </span><span class="rvts25">Search Method </span><span class="rvts14">radio-edit box. Where any matches have been found with the information you provided it will be displayed for you to view and select the exact customer you are searching for.</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem124.png"></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14">The </span><span class="rvts25">Select a Customer </span><span class="rvts14">message-box will be displayed once you have clicked the </span><span class="rvts25">Search </span><span class="rvts14">button and a list of all the customer’s that matched the search information that you provided (see above screen controls) will be shown in the list-box. Click on the customer that you want to maintain in the list-box and then click the </span><span class="rvts25">Load Customer Details </span><span class="rvts14">button to proceed to change that customer’s details or delete the customer. Click on the </span><span class="rvts25">Close </span><span class="rvts14">button if you want to close the message-box and change your provided search information or to discontinue the process of maintaining a customer’s details and select a different action to perform from the navigation bar. </span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem125.png"></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14">After you selected the customer in the list-box and clicked the </span><span class="rvts25">Load Customer Details</span><span class="rvts14"> button on the </span><span class="rvts25">Select a Customer </span><span class="rvts14">message-box, this </span><span class="rvts25">Maintain Customer </span><span class="rvts14">screen will display with the above controls containing all the details saved for the selected customer. All the details for this customer may be changed excluding it’s allocated Customer Number. Select on any of the textboxes and update the customer’s details. </span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem126.png"></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14">Change the </span><span class="rvts25">Status</span><span class="rvts14"> drop-down list to ‘In-Active’ if this customer no longer exists or if you no longer process continue to do business with the customer but have previously processed orders for this customer. Change the </span><span class="rvts25">Status </span><span class="rvts14">drop-down list to ‘Active’ if it was previously set to ‘In-Active’ and you now would like to be able to perform business together and process customer orders for this customer.</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem128.png"></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14">Click the </span><span class="rvts25">Add Contact </span><span class="rvts14">button to add another contact persons details for this customer. Once you have clicked this button the required form controls with appear for you to fill in the necessary details for the contact person.</span></p>
+<p class="rvps2"><span class="rvts14">Select a specific contact person and click the </span><span class="rvts25">Remove Contact </span><span class="rvts14">button to remove the selected contact person’s details as a contact person for this customer.</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem129.png"></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14">Click on the </span><span class="rvts25">Discounts </span><span class="rvts14">tab to change this discounts offered to this customer. Click on the relevant textboxes to update the details. Click on the ‘Pompie Pump’ button in the </span><span class="rvts25">Parts with Discounts </span><span class="rvts14">table to remove the part type from the list, this button will be named according to the part type it represents.</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem130.png"></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14">Click on the </span><span class="rvts25">Add Discount to Part Type </span><span class="rvts14">button to add a new part discount rate. An </span><span class="rvts25">Add Part Type </span><span class="rvts14">message-box will appear for you to search for the part type which you would like to provide a discount for this specific customer. This discount will only be used when this customer orders the selected part type.</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem131.png"></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14">Once you’ve clicked the </span><span class="rvts25">Add Discount to Part Type </span><span class="rvts14">button, the </span><span class="rvts25">Add Part Type </span><span class="rvts14">message-box will display. Input the part type’s search criteria in the textbox, and then select what the criteria should be filtered by in the drop-down list. Click the </span><span class="rvts25">Filter </span><span class="rvts14">button to then have the search results displayed in the listbox. </span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem132.png"></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14">Click on one of the parts displayed in the listbox so that it is highlighted blue, and then click the</span><span class="rvts25"> Add Part Type to Discounts</span><span class="rvts14"> button to add the part’s details to the part discounts list and later set the discount. </span></p>
+<p class="rvps2"><span class="rvts14">If the part type you are looking for does not display in the listbox then click the </span><span class="rvts25">Add New Part Type to System </span><span class="rvts14">button to then open the screen to add a new part type and then return to this </span><span class="rvts25">Add Customer </span><span class="rvts14">screen. Once you have added all the part type’s details on the screen and then returned to this one, you will then need to repeat the search (see above paragraph on how to search for a part type) and can then continue to click on the part type and click the </span><span class="rvts25">Add Part Type to Discounts </span><span class="rvts14">button.</span></p>
+<p class="rvps2"><span class="rvts14">Once you are finished searching and adding the part types to provide discounts for, you can click the close</span><span class="rvts25"> </span><span class="rvts14">button on the top right corner of the messagebox, this will then close </span><span class="rvts25">Add Part Type </span><span class="rvts14">message-box and allow you to set the part type’s discount rate in the relevant textbox in the table.</span></p>
+<p class="rvps2"><span class="rvts14">Close the message-box and then type in the discount rate for each part that you added in the </span><span class="rvts25">Discount %&nbsp;</span><span class="rvts14"> textbox.</span></p>
+<p class="rvps2"><span class="rvts14">Click the </span><span class="rvts25">Customer </span><span class="rvts14">tab to return to the customer’s details information once you are done setting the discounts.</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem133.png"></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14">Click on the </span><span class="rvts25">Customer </span><span class="rvts14">tab to return to it, this tab contain the customer’s details and the contact persons’ details. To save the newly updated details you will need to return to this tab.</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem134.png"></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14">Click the </span><span class="rvts25">Update Customer </span><span class="rvts14">button to save all the customer’s updated details. All textboxes must contain information for a customer to be successfully updated.</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem135.png"></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14">A confirmation message will display if the customer’s details have been successfully updated.</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem136.png"></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14">Click the </span><span class="rvts25">Remove Customer </span><span class="rvts14">button to delete the customer from the database. This action is permanent and may only be allowed if no orders have been processed for this customer.</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem137.png"></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14">Click </span><span class="rvts25">OK </span><span class="rvts14">if you want to confirm the deletion of this customer. Click </span><span class="rvts25">CANCEL </span><span class="rvts14">if you want to return to the </span><span class="rvts25">Maintain Customer </span><span class="rvts14">screen.</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem138.png"></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14">Once you’ve clicked the </span><span class="rvts25">OK </span><span class="rvts14">button to confirm the deletion of the customer this confirmation message-box will appear meaning the customer has been successfully deleted from the system. Click the </span><span class="rvts25">OK </span><span class="rvts14">button to dismiss the message-box.</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts28">System Error Notifications and Troubleshooting</span></p>
+<h3 class="rvps17"><span class="rvts0"><span class="rvts30">**error message for if +100% discount is given</span></span></h3>
+<h3 class="rvps17"><img alt="" style="padding : 1px;" src="lib/NewItem139.png"></h3>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14">The system will highlight empty fields that require information to be provided, as well as fields which have the wrong information in. A customer may only be successfully maintained if all the required information has been provided and the information is in the correct format.</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem140.png"></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14">An error message similar to the one above may also be displayed at the bottom left of the screen near the </span><span class="rvts25">Update Customer</span><span class="rvts14"> button, describing the type of error to explain to you why the customer cannot be added. Read the error message to understand what is wrong and click on the textboxes which have the wrong information causing the error, and correct the information. Once all the incorrect information in the textboxes has been corrected, click on the </span><span class="rvts25">Update Customer </span><span class="rvts14">button to then try again to successfully add the customer’s details. The ‘One or more fields are empty’ error will always be displayed over any other error, so you will first have to ensure that all the fields have been filled in and then only the invalid information errors will display.</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem141.png"></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14">When searching for a customer to maintain, if you click the </span><span class="rvts25">Load Customer Details </span><span class="rvts14">button on the </span><span class="rvts25">Select a Customer </span><span class="rvts14">message-box without having selected a customer from the list of customers displayed, this error will come up. Click the </span><span class="rvts25">OK </span><span class="rvts14">button to dismiss the error message and then click on a customer’s name from the list displayed so that it highlights blue (see image below), then click the </span><span class="rvts25">Load Customer Details </span><span class="rvts14">button to maintain the selected customer.</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem142.png"></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps19"><span class="rvts14">If you cannot find the customer you are searching for in the list displayed, then click the </span><span class="rvts25">Close </span><span class="rvts14">button and enter new information for </span><span class="rvts25">Proteus </span><span class="rvts14">to search for through the database of customers. Consider the fact that the customer may not exist on the system and that you might have to instead go to the </span><span class="rvts25">Add Customer </span><span class="rvts14">screen, otherwise try make the search a bit less specific for example only typing a portion of the customer’s name and the selecting ‘Contains’ as the </span><span class="rvts25">Search Method</span><span class="rvts14">, or select ‘All’ from the </span><span class="rvts25">Search By </span><span class="rvts14">drop-down list.</span></p>
+<p class="rvps19"><span class="rvts14"><br/></span></p>
+<p class="rvps19"><span class="rvts14"><br/></span></p>
+<p class="rvps19"><img alt="" style="padding : 1px;" src="lib/NewItem143.png"></p>
+<p class="rvps19"><span class="rvts14"><br/></span></p>
+<p class="rvps20"><span class="rvts14">This error message displays when you try to delete the last contact person. A customer must have at least one contact person. Click the </span><span class="rvts25">OK </span><span class="rvts14">button to dismiss the notification.</span></p>
+<p class="rvps20"><span class="rvts14"><br/></span></p>
+<p class="rvps20"><img alt="" style="padding : 1px;" src="lib/NewItem144.png"></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14">This error message displays when you haven’t selected a part type from the </span><span class="rvts25">Add Part Type </span><span class="rvts14">message-box but clicked the </span><span class="rvts25">Add Part Type to Discounts </span><span class="rvts14">button. Click the </span><span class="rvts25">OK </span><span class="rvts14">button to dismiss the error message and then select a part type name from the list displayed so that it is highlighted blue, and then click the </span><span class="rvts25">Add Part Type to Discounts </span><span class="rvts14">button (see example below).</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem145.png"></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps19"><span class="rvts6"><br/></span></p>
+<p></p>
+<p class="rvps4"><span class="rvts11">Created with the Personal Edition of HelpNDoc: </span><a class="rvts12" href="http://www.helpndoc.com">Easy EPub and documentation editor</a></p>
+</div>
+	
+	<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; 10th of October 2016  by Emit Proteus Group 9. All Rights Reserved.</div>
+		</div>
+	</body>
+	
+</html>
+

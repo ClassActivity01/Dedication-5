@@ -1,0 +1,155 @@
+﻿<html>
+	
+<head>
+	<title>2.3.Search Client</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Personal Edition 4.9.2.132">
+	<meta name="keywords" content="">
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "Emit Proteus.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("23SearchClient");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	</head>
+
+<body>
+
+<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">2.3.Search Client</h1>
+				
+				<div id="topic_breadcrumb">
+					<a href="Subsystems.html">Sub-systems</a> &rsaquo;&rsaquo; <a href="2ClientSubsystem.html">2.Client Sub-system</a> &rsaquo;&rsaquo; </div>
+				</div>
+			<div id="topic_header_nav">
+				<a href="2ClientSubsystem.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				<a href="22MaintainClient.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				<a href="3InventorySubsystem.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				</div>
+			<div class="clear"></div>
+		</div>
+	<div id="topic_content">
+		
+<p></p>
+<h1 class="rvps8"><span class="rvts0"><span class="rvts16">2.3 Search Customers</span></span></h1>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts19">Purpose of this function: </span><span class="rvts14">To search for an existing customer and view all the saved details of the customer.</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<h2 class="rvps9"><span class="rvts0"><span class="rvts23">Navigation to search for a customer:</span></span></h2>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem160.png"></p>
+<p class="rvps2"><span class="rvts14"></span><br/><span class="rvts14">The </span><span class="rvts25">Search Customers </span><span class="rvts14">screen will display where you will be required to input information for </span><span class="rvts25">Proteus </span><span class="rvts14">to use as search criteria to find and display a list of customers that match the information you provided.</span></p>
+<p class="rvps2"><img width="598" height="214" alt="" style="padding : 1px;" src="lib/NewItem152.png"></p>
+<p class="rvps21"><span class="rvts14"> &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<h2 class="rvps9"><span class="rvts0"><span class="rvts23">Screen Controls</span></span></h2>
+<p class="rvps21"><img width="595" height="215" alt="" style="padding : 1px;" src="lib/NewItem151.png"></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14">The numbers indication on the screen represent the following controls:</span></p>
+<ol style="text-indent: 0px; margin-left: 48px; list-style-position: outside; list-style-type: decimal;">
+<li value="1" class="rvps18"><span class="rvts26">Search Criteria textbox: </span><span class="rvts27">enter information here which will be used as search criteria to find the customer</span></li>
+<li value="2" class="rvps18"><span class="rvts26">Search By drop-down list: </span><span class="rvts27">select the option which describes the information you typed in the </span><span class="rvts31">Search Criteria </span><span class="rvts27">textbox which </span><span class="rvts31">Proteus&nbsp;</span><span class="rvts27"> will search through to find the customer</span></li>
+<li value="3" class="rvps18"><span class="rvts26">Search Method radio</span><span class="rvts27">-</span><span class="rvts26">edit box: </span><span class="rvts27">select the option which defines how </span><span class="rvts31">Proteus </span><span class="rvts27">should search using the search criteria you provided.</span></li>
+<li value="4" class="rvps18"><span class="rvts26">Search button</span><span class="rvts27">: click this button to search for the customer</span></li>
+<li value="5" class="rvps18"><span class="rvts26">Clear Criteria button: </span><span class="rvts27">click this button to clear all the fields and set them to default</span></li>
+</ol>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><img width="596" height="193" alt="" style="padding : 1px;" src="lib/NewItem150.png"></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps22"><img width="463" height="310" alt="" style="padding : 1px;" src="lib/NewItem149.png"></p>
+<p class="rvps22"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14">The numbers indicated on the screen represent the following controls:</span></p>
+<ol style="text-indent: 0px; margin-left: 48px; list-style-position: outside; list-style-type: decimal;">
+<li value="1" class="rvps18"><span class="rvts26">Close button: </span><span class="rvts27">click to close the message-box and return to the </span><span class="rvts31">Search Customers </span><span class="rvts27">screen</span></li>
+<li value="2" class="rvps18"><span class="rvts26">Maintain this Customer button:</span><span class="rvts27"> click to go to the </span><span class="rvts31">Maintain Customer&nbsp;</span><span class="rvts27"> screen and maintain the selected customer’s details</span></li>
+</ol>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><img width="598" height="214" alt="" style="padding : 1px;" src="lib/NewItem148.png"></p>
+<p class="rvps2"><span class="rvts28"><br/></span></p>
+<h2 class="rvps9"><span class="rvts0"><span class="rvts23">Process to follow:</span></span></h2>
+<p class="rvps2"><span class="rvts25"><br/></span></p>
+<p class="rvps2"><span class="rvts14">Enter the customer’s company name, VAT number, Account Number or customer number into the </span><span class="rvts25">Search Criteria </span><span class="rvts14">textbox for it to be used as search criteria. </span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><img width="278" height="111" alt="" style="padding : 1px;" src="lib/NewItem147.png"></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14">Select an option from the </span><span class="rvts25">Search By </span><span class="rvts14">drop-down list which describes the information you typed in the </span><span class="rvts25">Search Criteria </span><span class="rvts14">textbox. The option you have selected is what </span><span class="rvts25">Proteus </span><span class="rvts14">will search through the database to find customers with details that match the information you provided in the </span><span class="rvts25">Search Criteria </span><span class="rvts14">textbox, i.e. if you select name then </span><span class="rvts25">Proteus </span><span class="rvts14">will search through all the customer’s names to find and display one/s that match the name you provided as search criteria. If you select the ‘All’ option, then </span><span class="rvts25">Proteus </span><span class="rvts14">will search through all the information stored about the customer for matching information and not just one specific detail about the customer like it would if you selected a different option.</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><img width="150" height="97" alt="" style="padding : 1px;" src="lib/NewItem146.png"></p>
+<p class="rvps2"><span class="rvts14">Select an option in the </span><span class="rvts25">Search Method </span><span class="rvts14">radio-edit box which defines how </span><span class="rvts25">Proteus </span><span class="rvts14">should search using the search criteria you provided. Selecting ‘Exact’ means that any customer/s with details that match the search criteria you provided exactly. Selecting ‘Contains’ means that any customer/s with details that contain the information you provided will be found and displayed, i.e. if the customer’s details contain the search criteria you provided as a part within its whole detail then it will be selected, an example being if you provided “Prot” as search criteria and selected ‘Contains’ as the search method, then a customer “Proteus” would be found and displayed if it were an existing customer.</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem154.png"></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14">Click the </span><span class="rvts25">Search </span><span class="rvts14">button once you have provided information in the </span><span class="rvts25">Search Criteria </span><span class="rvts14">textbox and selected options in the </span><span class="rvts25">Search By </span><span class="rvts14">list-box and the </span><span class="rvts25">Search Method </span><span class="rvts14">radio-edit box. Where any matches have been found with the information you provided it will be displayed for you to view and select the exact customer you are searching for.</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem155.png"></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14">Click the </span><span class="rvts25">Clear Criteria </span><span class="rvts14">button to clear the </span><span class="rvts25">Search Criteria </span><span class="rvts14">textbox, and set the </span><span class="rvts25">Search By </span><span class="rvts14">drop-down list and the </span><span class="rvts25">Search Method </span><span class="rvts14">radio-edit box to their default values, as well as to clear the list of </span><span class="rvts25">Search Results </span><span class="rvts14">found</span><span class="rvts25">.</span></p>
+<p class="rvps2"><span class="rvts25"><br/></span></p>
+<p class="rvps2"><img width="600" height="407" alt="" style="padding : 1px;" src="lib/NewItem159.png"></p>
+<p class="rvps2"><span class="rvts14">Once you have entered the information to search for the customer and clicked the </span><span class="rvts25">Search </span><span class="rvts14">button, the </span><span class="rvts25">Search Results </span><span class="rvts14">will display which is all the customers that </span><span class="rvts25">Proteus </span><span class="rvts14">found that match the search information you provided.</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem158.png"></p>
+<p class="rvps2"><span class="rvts25"><br/></span></p>
+<p class="rvps2"><span class="rvts14">Select an option to order the list matching customers by. They will be ordered in alphabetical/ numerical order depending on the option you select.</span></p>
+<p class="rvps2"><img width="797" height="565" alt="" style="padding : 1px;" src="lib/NewItem157.png"></p>
+<p class="rvps2"><span class="rvts14">Click the ‘+’ button under the </span><span class="rvts25">More Info </span><span class="rvts14">column in the table to view that specific customer’s details. The </span><span class="rvts25">Customer, Contact Details and Part Discounts </span><span class="rvts14">message box will display.</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><img width="408" height="295" alt="" style="padding : 1px;" src="lib/NewItem156.png"></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14">The </span><span class="rvts25">Customer, Contact Details and Part Discounts </span><span class="rvts14">message-box will display once you’ve clicked the </span><span class="rvts25">More Info </span><span class="rvts14">button. This message-box displays all the details relating to the customer.</span></p>
+<p class="rvps2"><span class="rvts14">Click the </span><span class="rvts25">Maintain this Customer </span><span class="rvts14">button to go to the </span><span class="rvts25">Maintain Customer </span><span class="rvts14">screen and update the customer’s details or delete the selected customer.</span></p>
+<p class="rvps2"><span class="rvts14">Click the </span><span class="rvts25">Close </span><span class="rvts14">button to close the message-box and return to the </span><span class="rvts25">Search Customers </span><span class="rvts14">screen.</span></p>
+<h2 class="rvps9"><span class="rvts0"><span class="rvts23">System Error Notifications and Troubleshooting</span></span></h2>
+<p class="rvps2"><span class="rvts32">** No customers found message</span></p>
+<h2 class="rvps9"><span class="rvts0"><span class="rvts18"><br/></span></span></h2>
+<h2 class="rvps9"><span class="rvts0"><span class="rvts18"><br/></span></span></h2>
+<p></p>
+<p class="rvps4"><span class="rvts11">Created with the Personal Edition of HelpNDoc: </span><a class="rvts12" href="http://www.helpndoc.com/help-authoring-tool">Free help authoring tool</a></p>
+</div>
+	
+	<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; 10th of October 2016  by Emit Proteus Group 9. All Rights Reserved.</div>
+		</div>
+	</body>
+	
+</html>
+

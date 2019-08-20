@@ -1,0 +1,792 @@
+﻿********** 2016-09-12 11:59:49 AM **********
+Exception Type: System.Data.Entity.Validation.DbEntityValidationException
+Exception: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+Source: Customer Controller POST
+Stack Trace: 
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at Test.Controller.CustomerController.Post(HttpRequestMessage value) in D:\Dropbox\University\3rd Year\Year\INF 370\Deliverable 8\Proteus_25\Proteus\Test\Test\Controller\Customer\CustomerController.cs:line 266
+
+********** 2016-09-12 2:42:17 PM **********
+Exception Type: System.ArgumentException
+Exception: Can not convert Array to Int32.
+Source: SupplierOrderController POST
+Stack Trace: 
+   at Newtonsoft.Json.Linq.JToken.op_Explicit(JToken value)
+   at Test.Controller.Supplier.SupplierOrderController.Post(HttpRequestMessage value) in D:\Dropbox\University\3rd Year\Year\INF 370\Deliverable 8\Proteus_26\Proteus\Test\Test\Controller\Supplier\SupplierOrderController.cs:line 262
+
+********** 2016-09-12 2:45:09 PM **********
+Exception Type: System.ArgumentException
+Exception: Can not convert Array to Int32.
+Source: SupplierOrderController POST
+Stack Trace: 
+   at Newtonsoft.Json.Linq.JToken.op_Explicit(JToken value)
+   at Test.Controller.Supplier.SupplierOrderController.Post(HttpRequestMessage value) in D:\Dropbox\University\3rd Year\Year\INF 370\Deliverable 8\Proteus_26\Proteus\Test\Test\Controller\Supplier\SupplierOrderController.cs:line 262
+
+********** 2016-09-12 2:46:18 PM **********
+Exception Type: System.ArgumentException
+Exception: Can not convert Array to Int32.
+Source: SupplierOrderController POST
+Stack Trace: 
+   at Newtonsoft.Json.Linq.JToken.op_Explicit(JToken value)
+   at Test.Controller.Supplier.SupplierOrderController.Post(HttpRequestMessage value) in D:\Dropbox\University\3rd Year\Year\INF 370\Deliverable 8\Proteus_26\Proteus\Test\Test\Controller\Supplier\SupplierOrderController.cs:line 262
+
+********** 2016-09-12 3:00:33 PM **********
+Inner Exception Type: System.Data.Entity.Core.UpdateException
+Inner Exception: An error occurred while updating the entries. See the inner exception for details.
+Inner Source: EntityFramework
+Inner Stack Trace: 
+   at System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   at System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.<Update>b__2(UpdateTranslator ut)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update[T](T noChangesResult, Func`2 updateFunction)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update()
+   at System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesToStore>b__35()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass2a.<SaveChangesInternal>b__27()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)
+   at System.Data.Entity.Core.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+Exception Type: System.Data.Entity.Infrastructure.DbUpdateException
+Exception: An error occurred while updating the entries. See the inner exception for details.
+Source: CustomerQuoteController POST
+Stack Trace: 
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at Test.Controller.Ordering.CustomerQuoteController.Post(HttpRequestMessage value) in D:\Dropbox\University\3rd Year\Year\INF 370\Deliverable 8\Proteus_26\Proteus\Test\Test\Controller\Ordering\CustomerQuoteController.cs:line 166
+
+********** 2016-09-20 10:38:14 AM **********
+Exception Type: System.ArgumentNullException
+Exception: Value cannot be null.
+Parameter name: value
+Source: CustomerQuoteController POST
+Stack Trace: 
+   at Newtonsoft.Json.Linq.JToken.EnsureValue(JToken value)
+   at Newtonsoft.Json.Linq.JToken.op_Explicit(JToken value)
+   at Test.Controller.Ordering.CustomerQuoteController.Post(HttpRequestMessage value) in D:\Downloads\Proteus_29\Test\Test\Controller\Ordering\CustomerQuoteController.cs:line 149
+
+********** 2016-09-20 11:01:24 AM **********
+Exception Type: System.Net.Mail.SmtpException
+Exception: The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.5.1 Authentication Required. Learn more at
+Source: Email
+Stack Trace: 
+   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, MailAddress from, Boolean allowUnicode)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at Test.Controller.Email.SendEmail(String to, String subject, String body) in D:\Downloads\Proteus_29\Test\Test\Controller\Email.cs:line 32
+
+********** 2016-09-20 11:02:52 AM **********
+Exception Type: System.Net.Mail.SmtpException
+Exception: The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.5.1 Authentication Required. Learn more at
+Source: Email
+Stack Trace: 
+   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, MailAddress from, Boolean allowUnicode)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at Test.Controller.Email.SendEmail(String to, String subject, String body) in D:\Downloads\Proteus_29\Test\Test\Controller\Email.cs:line 32
+
+********** 2016-09-20 11:34:53 AM **********
+Exception Type: System.NullReferenceException
+Exception: Object reference not set to an instance of an object.
+Source: PriceListController
+Stack Trace: 
+   at Test.Controller.Ordering.PriceListController.Post(HttpRequestMessage value) in D:\Downloads\Proteus_29\Test\Test\Controller\Ordering\PriceListController.cs:line 35
+
+********** 2016-09-20 11:35:16 AM **********
+Exception Type: System.NullReferenceException
+Exception: Object reference not set to an instance of an object.
+Source: PriceListController
+Stack Trace: 
+   at Test.Controller.Ordering.PriceListController.Post(HttpRequestMessage value) in D:\Downloads\Proteus_29\Test\Test\Controller\Ordering\PriceListController.cs:line 35
+
+********** 2016-09-20 11:55:55 AM **********
+Exception Type: System.InvalidOperationException
+Exception: Sequence contains no elements
+Source: CustomerOrderController POST
+Stack Trace: 
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__0[TResult](IEnumerable`1 sequence)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.First[TSource](IQueryable`1 source)
+   at Test.Controller.Ordering.CustomerOrderController.checkForChildren(Int32 part_type_ID, Int32 quantity_requested, Int32 job_card_ID, String type) in D:\Downloads\Proteus_29\Test\Test\Controller\Ordering\CustomerOrderController.cs:line 313
+   at Test.Controller.Ordering.CustomerOrderController.Post(HttpRequestMessage value) in D:\Downloads\Proteus_29\Test\Test\Controller\Ordering\CustomerOrderController.cs:line 226
+
+********** 2016-09-20 12:11:41 PM **********
+Inner Exception Type: System.Data.Entity.Core.UpdateException
+Inner Exception: An error occurred while updating the entries. See the inner exception for details.
+Inner Source: EntityFramework
+Inner Stack Trace: 
+   at System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   at System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.<Update>b__2(UpdateTranslator ut)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update[T](T noChangesResult, Func`2 updateFunction)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update()
+   at System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesToStore>b__35()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass2a.<SaveChangesInternal>b__27()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)
+   at System.Data.Entity.Core.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+Exception Type: System.Data.Entity.Infrastructure.DbUpdateException
+Exception: An error occurred while updating the entries. See the inner exception for details.
+Source: CustomerOrderController POST
+Stack Trace: 
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at Test.Controller.Ordering.CustomerOrderController.Post(HttpRequestMessage value) in D:\Downloads\Proteus_29\Test\Test\Controller\Ordering\CustomerOrderController.cs:line 223
+
+********** 2016-09-20 12:58:24 PM **********
+Exception Type: System.ArgumentNullException
+Exception: Value cannot be null.
+Parameter name: to
+Source: Email
+Stack Trace: 
+   at System.Net.Mail.MailMessage..ctor(String from, String to)
+   at System.Net.Mail.MailMessage..ctor(String from, String to, String subject, String body)
+   at Test.Controller.Email.SendEmail(String to, String subject, String body) in D:\Downloads\Proteus_29\Test\Test\Controller\Email.cs:line 28
+
+********** 2016/09/23 1:50:07 PM **********
+Exception Type: Newtonsoft.Json.JsonReaderException
+Exception: Unexpected character encountered while parsing value: d. Path '', line 0, position 0.
+Source: ProductionScheduleController POST
+Stack Trace: 
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonTextReader.Read()
+   at Newtonsoft.Json.Linq.JObject.Load(JsonReader reader, JsonLoadSettings settings)
+   at Newtonsoft.Json.Linq.JObject.Parse(String json, JsonLoadSettings settings)
+   at Newtonsoft.Json.Linq.JObject.Parse(String json)
+   at Test.Controller.Manufacturing.ProductionScheduleController.Post(HttpRequestMessage value) in C:\Users\akamf_000\Documents\Dropbox\University\3rd Year\Year\INF 370\Deliverable 8\Proteus_32\Test\Controller\Manufacturing\ProductionScheduleController.cs:line 24
+
+********** 2016/09/23 1:50:09 PM **********
+Exception Type: System.NotSupportedException
+Exception: The method 'First' can only be used as a final query operation. Consider using the method 'FirstOrDefault' in this instance instead.
+Source: PartsRawProdController
+Stack Trace: 
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.FirstTranslator.TranslateUnary(ExpressionConverter parent, DbExpression operand, MethodCallExpression call)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.UnarySequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.SequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call, SequenceMethod sequenceMethod)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.TypedTranslate(ExpressionConverter parent, MethodCallExpression linq)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MemberAccessTranslator.TypedTranslate(ExpressionConverter parent, MemberExpression linq)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MemberAccessTranslator.TypedTranslate(ExpressionConverter parent, MemberExpression linq)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateLambda(LambdaExpression lambda, DbExpression input)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateLambda(LambdaExpression lambda, DbExpression input, DbExpressionBinding& binding)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.OneLambdaTranslator.Translate(ExpressionConverter parent, MethodCallExpression call, DbExpression& source, DbExpressionBinding& sourceBinding, DbExpression& lambda)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.SelectTranslator.Translate(ExpressionConverter parent, MethodCallExpression call)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.SequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call, SequenceMethod sequenceMethod)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.TypedTranslate(ExpressionConverter parent, MethodCallExpression linq)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.NewTranslator.TypedTranslate(ExpressionConverter parent, NewExpression linq)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateLambda(LambdaExpression lambda, DbExpression input)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateLambda(LambdaExpression lambda, DbExpression input, DbExpressionBinding& binding)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.OneLambdaTranslator.Translate(ExpressionConverter parent, MethodCallExpression call, DbExpression& source, DbExpressionBinding& sourceBinding, DbExpression& lambda)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.SelectTranslator.Translate(ExpressionConverter parent, MethodCallExpression call)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.SequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call, SequenceMethod sequenceMethod)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.TypedTranslate(ExpressionConverter parent, MethodCallExpression linq)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.Convert()
+   at System.Data.Entity.Core.Objects.ELinq.ELinqQueryState.GetExecutionPlan(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Serialize(JsonWriter jsonWriter, Object value)
+   at Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   at Newtonsoft.Json.Linq.JObject.FromObject(Object o, JsonSerializer jsonSerializer)
+   at Newtonsoft.Json.Linq.JObject.FromObject(Object o)
+   at Test.Controller.Inventory.PartsRawProdController.Get() in C:\Users\akamf_000\Documents\Dropbox\University\3rd Year\Year\INF 370\Deliverable 8\Proteus_32\Test\Controller\Inventory\PartsRawProdController.cs:line 21
+
+********** 2016/09/23 1:50:13 PM **********
+Exception Type: Newtonsoft.Json.JsonReaderException
+Exception: Unexpected character encountered while parsing value: d. Path '', line 0, position 0.
+Source: ProductionScheduleController POST
+Stack Trace: 
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonTextReader.Read()
+   at Newtonsoft.Json.Linq.JObject.Load(JsonReader reader, JsonLoadSettings settings)
+   at Newtonsoft.Json.Linq.JObject.Parse(String json, JsonLoadSettings settings)
+   at Newtonsoft.Json.Linq.JObject.Parse(String json)
+   at Test.Controller.Manufacturing.ProductionScheduleController.Post(HttpRequestMessage value) in C:\Users\akamf_000\Documents\Dropbox\University\3rd Year\Year\INF 370\Deliverable 8\Proteus_32\Test\Controller\Manufacturing\ProductionScheduleController.cs:line 24
+
+********** 9/25/2016 9:43:22 AM **********
+Exception Type: System.ArgumentOutOfRangeException
+Exception: startIndex cannot be larger than length of string.
+Parameter name: startIndex
+Source: EmployeeController POST
+Stack Trace: 
+   at System.String.Substring(Int32 startIndex, Int32 length)
+   at System.String.Substring(Int32 startIndex)
+   at Test.Controller.EmployeeController.Post(HttpRequestMessage value) in C:\Users\lenovo\Downloads\Proteus_34\Test\Controller\Employee\EmployeeController.cs:line 117
+
+********** 9/25/2016 10:11:23 AM **********
+Exception Type: System.ArgumentNullException
+Exception: Value cannot be null.
+Parameter name: s
+Source: EmployeeController POST
+Stack Trace: 
+   at System.Convert.FromBase64String(String s)
+   at Test.Controller.EmployeeController.saveImage(String in_image, String ID) in C:\Users\lenovo\Downloads\Proteus_34\Test\Controller\Employee\EmployeeController.cs:line 101
+
+********** 9/25/2016 12:50:08 PM **********
+Exception Type: Newtonsoft.Json.JsonReaderException
+Exception: Unexpected character encountered while parsing value: o. Path 'employee_type.access', line 1, position 47.
+Source: EmployeeTypeController POST
+Stack Trace: 
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonTextReader.ReadInternal()
+   at Newtonsoft.Json.JsonTextReader.Read()
+   at Newtonsoft.Json.Linq.JContainer.ReadContentFrom(JsonReader r)
+   at Newtonsoft.Json.Linq.JContainer.ReadTokenFrom(JsonReader reader)
+   at Newtonsoft.Json.Linq.JObject.Load(JsonReader reader)
+   at Newtonsoft.Json.Linq.JObject.Parse(String json)
+   at Test.Controller.EmployeeTypeController.Post(HttpRequestMessage value) in C:\Users\lenovo\Downloads\Proteus_34\Test\Controller\Employee\EmployeeTypeController.cs:line 80
+
+********** 9/25/2016 12:55:59 PM **********
+Exception Type: System.NullReferenceException
+Exception: Object reference not set to an instance of an object.
+Source: EmployeeTypeController POST
+Stack Trace: 
+   at Test.Controller.EmployeeTypeController.Post(HttpRequestMessage value) in C:\Users\lenovo\Downloads\Proteus_34\Test\Controller\Employee\EmployeeTypeController.cs:line 95
+
+********** 9/25/2016 12:59:10 PM **********
+Exception Type: System.ArgumentNullException
+Exception: Value cannot be null.
+Parameter name: s
+Source: EmployeeTypeController POST
+Stack Trace: 
+   at System.IO.StringReader..ctor(String s)
+   at Newtonsoft.Json.Linq.JArray.Parse(String json)
+   at Test.Controller.EmployeeTypeController.Post(HttpRequestMessage value) in C:\Users\lenovo\Downloads\Proteus_34\Test\Controller\Employee\EmployeeTypeController.cs:line 92
+
+********** 9/25/2016 1:00:07 PM **********
+Exception Type: System.ArgumentNullException
+Exception: Value cannot be null.
+Parameter name: s
+Source: EmployeeTypeController POST
+Stack Trace: 
+   at System.IO.StringReader..ctor(String s)
+   at Newtonsoft.Json.Linq.JArray.Parse(String json)
+   at Test.Controller.EmployeeTypeController.Post(HttpRequestMessage value) in C:\Users\lenovo\Downloads\Proteus_34\Test\Controller\Employee\EmployeeTypeController.cs:line 92
+
+********** 9/25/2016 1:00:30 PM **********
+Exception Type: Newtonsoft.Json.JsonReaderException
+Exception: After parsing a value an unexpected character was encountered: I. Path 'employee_type.access', line 1, position 50.
+Source: EmployeeTypeController POST
+Stack Trace: 
+   at Newtonsoft.Json.JsonTextReader.ParsePostValue()
+   at Newtonsoft.Json.JsonTextReader.ReadInternal()
+   at Newtonsoft.Json.JsonTextReader.Read()
+   at Newtonsoft.Json.Linq.JContainer.ReadContentFrom(JsonReader r)
+   at Newtonsoft.Json.Linq.JContainer.ReadTokenFrom(JsonReader reader)
+   at Newtonsoft.Json.Linq.JObject.Load(JsonReader reader)
+   at Newtonsoft.Json.Linq.JObject.Parse(String json)
+   at Test.Controller.EmployeeTypeController.Post(HttpRequestMessage value) in C:\Users\lenovo\Downloads\Proteus_34\Test\Controller\Employee\EmployeeTypeController.cs:line 80
+
+********** 2016-09-25 6:14:59 PM **********
+Exception Type: System.InvalidOperationException
+Exception: Sequence contains no elements
+Source: JobCardController POST
+Stack Trace: 
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__0[TResult](IEnumerable`1 sequence)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.First[TSource](IQueryable`1 source)
+   at Test.Controller.Manufacturing.JobCardController.checkForChildren(Int32 part_type_ID, Int32 quantity_requested, Int32 job_card_ID, String type) in D:\Dropbox\University\3rd Year\Year\INF 370\Deliverable 8\Proteus_35\Test\Controller\Manufacturing\JobCardController.cs:line 151
+   at Test.Controller.Manufacturing.JobCardController.Post(HttpRequestMessage value) in D:\Dropbox\University\3rd Year\Year\INF 370\Deliverable 8\Proteus_35\Test\Controller\Manufacturing\JobCardController.cs:line 118
+
+********** 9/29/2016 8:52:31 AM **********
+Exception Type: System.NullReferenceException
+Exception: Object reference not set to an instance of an object.
+Source: SearchPartController
+Stack Trace: 
+   at Test.Controller.Inventory.SearchPartController.Post(HttpRequestMessage value) in C:\Users\lenovo\Downloads\Proteus_38\Proteus_38\Test\Controller\Inventory\SearchPartController.cs:line 238
+
+********** 9/29/2016 8:53:50 AM **********
+Exception Type: System.NullReferenceException
+Exception: Object reference not set to an instance of an object.
+Source: SearchPartController
+Stack Trace: 
+   at Test.Controller.Inventory.SearchPartController.Post(HttpRequestMessage value) in C:\Users\lenovo\Downloads\Proteus_38\Proteus_38\Test\Controller\Inventory\SearchPartController.cs:line 238
+
+********** 9/29/2016 8:55:20 AM **********
+Exception Type: System.NullReferenceException
+Exception: Object reference not set to an instance of an object.
+Source: SearchPartController
+Stack Trace: 
+   at Test.Controller.Inventory.SearchPartController.Post(HttpRequestMessage value) in C:\Users\lenovo\Downloads\Proteus_38\Proteus_38\Test\Controller\Inventory\SearchPartController.cs:line 238
+
+********** 9/29/2016 9:14:46 AM **********
+Exception Type: System.NullReferenceException
+Exception: Object reference not set to an instance of an object.
+Source: SearchPartController
+Stack Trace: 
+   at Test.Controller.Inventory.SearchPartController.Post(HttpRequestMessage value) in C:\Users\lenovo\Downloads\Proteus_38\Proteus_38\Test\Controller\Inventory\SearchPartController.cs:line 242
+
+********** 10/3/2016 11:03:57 AM **********
+Exception Type: System.ArgumentException
+Exception: Can not convert Array to Int32.
+Source: SupplierController GET ID
+Stack Trace: 
+   at Newtonsoft.Json.Linq.JToken.op_Explicit(JToken value)
+   at Test.Controller.Supplier.PrefSupplierController.Post(HttpRequestMessage value) in C:\Users\lenovo\Downloads\Proteus_44\Test\Controller\Supplier\PrefSupplierController.cs:line 26
+
+********** 10/4/2016 11:23:02 AM **********
+Exception Type: System.Data.Entity.Validation.DbEntityValidationException
+Exception: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+Source: SubContractorController POST
+Stack Trace: 
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at Test.Controller.Sub_Contractor.SubContractorController.Post(HttpRequestMessage value) in C:\Users\lenovo\Downloads\Proteus_46\Proteus_46\Test\Controller\SubContractor\SubContractorController.cs:line 170
+
+********** 10/4/2016 11:29:17 AM **********
+Exception Type: System.Data.Entity.Validation.DbEntityValidationException
+Exception: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+Source: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. The validation errors are: The Email field is required.; The Email field is required.
+Stack Trace: 
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at Test.Controller.Sub_Contractor.SubContractorController.Post(HttpRequestMessage value) in C:\Users\lenovo\Downloads\Proteus_46\Proteus_46\Test\Controller\SubContractor\SubContractorController.cs:line 171
+
+********** 10/5/2016 10:57:41 AM **********
+Exception Type: System.Data.SqlClient.SqlException
+Exception: The file 'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\Proteus.mdf' cannot be overwritten.  It is being used by database 'Proteus'.
+File 'Proteus' cannot be restored to 'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\Proteus.mdf'. Use WITH MOVE to identify a valid location for the file.
+The file 'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\Proteus_log.ldf' cannot be overwritten.  It is being used by database 'Proteus'.
+File 'Proteus_log' cannot be restored to 'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\Proteus_log.ldf'. Use WITH MOVE to identify a valid location for the file.
+Problems were identified while planning for the RESTORE statement. Previous messages provide details.
+RESTORE DATABASE is terminating abnormally.
+Source: Restore
+Stack Trace: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Test.Controller.BackUpController.Get() in C:\Users\lenovo\Downloads\Proteus_46\Proteus_46\Test\Controller\BackUpController.cs:line 52
+
+********** 10/5/2016 10:59:00 AM **********
+Exception Type: System.Data.SqlClient.SqlException
+Exception: The file 'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\Proteus.mdf' cannot be overwritten.  It is being used by database 'Proteus'.
+File 'Proteus' cannot be restored to 'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\Proteus.mdf'. Use WITH MOVE to identify a valid location for the file.
+The file 'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\Proteus_log.ldf' cannot be overwritten.  It is being used by database 'Proteus'.
+File 'Proteus_log' cannot be restored to 'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\Proteus_log.ldf'. Use WITH MOVE to identify a valid location for the file.
+Problems were identified while planning for the RESTORE statement. Previous messages provide details.
+RESTORE DATABASE is terminating abnormally.
+Source: Restore
+Stack Trace: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Test.Controller.BackUpController.Get() in C:\Users\lenovo\Downloads\Proteus_46\Proteus_46\Test\Controller\BackUpController.cs:line 52
+
+********** 10/5/2016 11:05:18 AM **********
+Exception Type: System.Data.SqlClient.SqlException
+Exception: The file 'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\Proteus.mdf' cannot be overwritten.  It is being used by database 'Proteus'.
+File 'Proteus' cannot be restored to 'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\Proteus.mdf'. Use WITH MOVE to identify a valid location for the file.
+The file 'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\Proteus_log.ldf' cannot be overwritten.  It is being used by database 'Proteus'.
+File 'Proteus_log' cannot be restored to 'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\Proteus_log.ldf'. Use WITH MOVE to identify a valid location for the file.
+Problems were identified while planning for the RESTORE statement. Previous messages provide details.
+RESTORE DATABASE is terminating abnormally.
+Source: Restore
+Stack Trace: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Test.Controller.BackUpController.Get() in C:\Users\lenovo\Downloads\Proteus_46\Proteus_46\Test\Controller\BackUpController.cs:line 59
+
+********** 10/5/2016 11:06:48 AM **********
+Exception Type: System.Data.SqlClient.SqlException
+Exception: Cannot drop database "Proteus" because it is currently in use.
+Source: Restore
+Stack Trace: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Test.Controller.BackUpController.Get() in C:\Users\lenovo\Downloads\Proteus_46\Proteus_46\Test\Controller\BackUpController.cs:line 52
+
+********** 10/5/2016 11:09:11 AM **********
+Inner Exception Type: System.ComponentModel.Win32Exception
+Inner Exception: The wait operation timed out
+Inner Source: 
+Exception Type: System.Data.SqlClient.SqlException
+Exception: Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ALTER DATABASE statement failed.
+Source: Restore
+Stack Trace: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Test.Controller.BackUpController.Get() in C:\Users\lenovo\Downloads\Proteus_46\Proteus_46\Test\Controller\BackUpController.cs:line 52
+
+********** 10/5/2016 11:14:34 AM **********
+Exception Type: System.Data.SqlClient.SqlException
+Exception: The file 'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\Proteus.mdf' cannot be overwritten.  It is being used by database 'Proteus'.
+File 'Proteus' cannot be restored to 'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\Proteus.mdf'. Use WITH MOVE to identify a valid location for the file.
+The file 'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\Proteus_log.ldf' cannot be overwritten.  It is being used by database 'Proteus'.
+File 'Proteus_log' cannot be restored to 'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\Proteus_log.ldf'. Use WITH MOVE to identify a valid location for the file.
+Problems were identified while planning for the RESTORE statement. Previous messages provide details.
+RESTORE DATABASE is terminating abnormally.
+Source: Restore
+Stack Trace: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Test.Controller.BackUpController.Get() in C:\Users\lenovo\Downloads\Proteus_46\Proteus_46\Test\Controller\BackUpController.cs:line 60
+
+********** 10/6/2016 7:27:59 AM **********
+Exception Type: System.Net.Mail.SmtpException
+Exception: The operation has timed out.
+Source: Email
+Stack Trace: 
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at Test.Controller.Email.SendEmail(String to, String subject, String body) in C:\Users\lenovo\Downloads\Proteus_46\Proteus_46\Test\Controller\Email.cs:line 32
+
+********** 10/6/2016 12:48:27 PM **********
+Exception Type: System.ArgumentNullException
+Exception: Value cannot be null.
+Parameter name: value
+Source: DeliveryNoteController POST
+Stack Trace: 
+   at Newtonsoft.Json.Linq.JToken.EnsureValue(JToken value)
+   at Newtonsoft.Json.Linq.JToken.op_Explicit(JToken value)
+   at Test.Controller.Ordering.DeliveryNoteController.Post(HttpRequestMessage value) in C:\Users\lenovo\Downloads\Proteus_46\Proteus_46\Test\Controller\Ordering\DeliveryNoteController.cs:line 70
+
+********** 2019/08/06 15:05:04 **********
+Inner Exception Type: System.Data.Entity.Core.UpdateException
+Inner Exception: An error occurred while updating the entries. See the inner exception for details.
+Inner Source: EntityFramework
+Inner Stack Trace: 
+   at System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   at System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.<Update>b__2(UpdateTranslator ut)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update[T](T noChangesResult, Func`2 updateFunction)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update()
+   at System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesToStore>b__35()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass2a.<SaveChangesInternal>b__27()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)
+   at System.Data.Entity.Core.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+Exception Type: System.Data.Entity.Infrastructure.DbUpdateException
+Exception: An error occurred while updating the entries. See the inner exception for details.
+Source: CustomerController POST
+Stack Trace: 
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at Test.Controller.CustomerController.Post(HttpRequestMessage value) in C:\Users\VEx\Documents\Modules\Y3\INF 370\ДЕЛ 567\DEliv\Test\Controller\Customer\CustomerController.cs:line 266
+
+********** 2019/08/06 15:16:17 **********
+Exception Type: System.ArgumentNullException
+Exception: Value cannot be null.
+Parameter name: s
+Source: EmployeeController POST
+Stack Trace: 
+   at System.Convert.FromBase64String(String s)
+   at Test.Controller.EmployeeController.saveImage(String in_image, String ID) in C:\Users\VEx\Documents\Modules\Y3\INF 370\ДЕЛ 567\DEliv\Test\Controller\Employee\EmployeeController.cs:line 101
+
+********** 2019/08/06 15:23:32 **********
+Exception Type: System.ArgumentNullException
+Exception: Value cannot be null.
+Parameter name: s
+Source: EmployeeController POST
+Stack Trace: 
+   at System.Convert.FromBase64String(String s)
+   at Test.Controller.EmployeeController.saveImage(String in_image, String ID) in C:\Users\VEx\Documents\Modules\Y3\INF 370\ДЕЛ 567\DEliv\Test\Controller\Employee\EmployeeController.cs:line 101
+
+********** 2019/08/06 15:24:02 **********
+Exception Type: System.ArgumentNullException
+Exception: Value cannot be null.
+Parameter name: s
+Source: EmployeeController POST
+Stack Trace: 
+   at System.Convert.FromBase64String(String s)
+   at Test.Controller.EmployeeController.saveImage(String in_image, String ID) in C:\Users\VEx\Documents\Modules\Y3\INF 370\ДЕЛ 567\DEliv\Test\Controller\Employee\EmployeeController.cs:line 101
+
+********** 2019/08/06 15:24:16 **********
+Exception Type: System.ArgumentNullException
+Exception: Value cannot be null.
+Parameter name: s
+Source: EmployeeController POST
+Stack Trace: 
+   at System.Convert.FromBase64String(String s)
+   at Test.Controller.EmployeeController.saveImage(String in_image, String ID) in C:\Users\VEx\Documents\Modules\Y3\INF 370\ДЕЛ 567\DEliv\Test\Controller\Employee\EmployeeController.cs:line 101
+
+********** 2019/08/06 15:24:35 **********
+Exception Type: System.ArgumentNullException
+Exception: Value cannot be null.
+Parameter name: s
+Source: EmployeeController POST
+Stack Trace: 
+   at System.Convert.FromBase64String(String s)
+   at Test.Controller.EmployeeController.saveImage(String in_image, String ID) in C:\Users\VEx\Documents\Modules\Y3\INF 370\ДЕЛ 567\DEliv\Test\Controller\Employee\EmployeeController.cs:line 101
+
+********** 2019/08/06 15:27:20 **********
+Exception Type: System.Data.SqlClient.SqlException
+Exception: Cannot open backup device 'C:\Users\VEx\Documents\Modules\Y3\INF 370\ДЕЛ 567\DEliv\Test\Backup\backup.bak'. Operating system error 5(Access is denied.).
+RESTORE DATABASE is terminating abnormally.
+Source: Restore
+Stack Trace: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Test.Controller.BackUpController.Get() in C:\Users\VEx\Documents\Modules\Y3\INF 370\ДЕЛ 567\DEliv\Test\Controller\BackUpController.cs:line 60
+
+********** 2019/08/07 17:09:31 **********
+Inner Exception Type: System.Data.SqlClient.SqlException
+Inner Exception: Cannot open database "Proteus" requested by the login. The login failed.
+Login failed for user 'LAPTOP-19U77K4P\VEx'.
+Inner Source: .Net SqlClient Data Provider
+Inner Stack Trace: 
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+Exception Type: System.Data.Entity.Core.EntityException
+Exception: The underlying provider failed on Open.
+Source: SearchCustomerOrderController
+Stack Trace: 
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   at Newtonsoft.Json.Linq.JObject.FromObject(Object o, JsonSerializer jsonSerializer)
+   at Newtonsoft.Json.Linq.JObject.FromObject(Object o)
+   at Test.Controller.Ordering.SearchCustomerOrderController.Post(HttpRequestMessage value) in C:\Users\VEx\Documents\Modules\Y3\INF 370\ДЕЛ 567\DEliv\Test\Controller\Ordering\SearchCustomerOrderController.cs:line 32
+
+********** 2019/08/07 17:17:30 **********
+Inner Exception Type: System.Data.SqlClient.SqlException
+Inner Exception: Cannot open database "Proteus" requested by the login. The login failed.
+Login failed for user 'LAPTOP-19U77K4P\VEx'.
+Inner Source: .Net SqlClient Data Provider
+Inner Stack Trace: 
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+Exception Type: System.Data.Entity.Core.EntityException
+Exception: The underlying provider failed on Open.
+Source: SearchEmployeeController
+Stack Trace: 
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   at Newtonsoft.Json.Linq.JObject.FromObject(Object o, JsonSerializer jsonSerializer)
+   at Newtonsoft.Json.Linq.JObject.FromObject(Object o)
+   at Test.Controller.SearchEmployeeController.Post(HttpRequestMessage value) in C:\Users\VEx\Documents\Modules\Y3\INF 370\ДЕЛ 567\DEliv\Test\Controller\Employee\SearchEmployeeController.cs:line 251
+
+********** 2019/08/07 19:20:59 **********
+Inner Exception Type: System.Data.SqlClient.SqlException
+Inner Exception: A connection was successfully established with the server, but then an error occurred during the pre-login handshake. (provider: SSL Provider, error: 0 - The wait operation timed out.)
+Inner Source: .Net SqlClient Data Provider
+Inner Stack Trace: 
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+Exception Type: System.Data.Entity.Core.EntityException
+Exception: The underlying provider failed on Open.
+Source: LowStockController GET
+Stack Trace: 
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   at Newtonsoft.Json.Linq.JObject.FromObject(Object o, JsonSerializer jsonSerializer)
+   at Newtonsoft.Json.Linq.JObject.FromObject(Object o)
+   at Test.Controller.Inventory.LowStockController.Get() in C:\Users\VEx\Documents\Modules\Y3\INF 370\ДЕЛ 567\DEliv\Test\Controller\Inventory\LowStockController.cs:line 21
+
+********** 2019/08/19 11:06:54 **********
+Inner Exception Type: System.Data.SqlClient.SqlException
+Inner Exception: Cannot open database "Proteus" requested by the login. The login failed.
+Login failed for user 'LAPTOP-19U77K4P\VEx'.
+Inner Source: .Net SqlClient Data Provider
+Inner Stack Trace: 
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+Exception Type: System.Data.Entity.Core.EntityException
+Exception: The underlying provider failed on Open.
+Source: SearchCustomerOrderController
+Stack Trace: 
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   at Newtonsoft.Json.Linq.JObject.FromObject(Object o, JsonSerializer jsonSerializer)
+   at Newtonsoft.Json.Linq.JObject.FromObject(Object o)
+   at Test.Controller.Ordering.SearchCustomerOrderController.Post(HttpRequestMessage value) in C:\Users\VEx\Documents\Modules\Y3\INF 370\ДЕЛ 567\DEliv\Test\Controller\Ordering\SearchCustomerOrderController.cs:line 32
+

@@ -1,0 +1,352 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="navigation.master.cs" Inherits="Test.navigation" %>
+
+<%if (HttpContext.Current.Session["Employee_ID"] == null)
+      Response.Redirect("Login"); %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <script src="scripts/jquery-1.9.1.min.js"></script>
+	<link rel="stylesheet" href="Content/bootstrap.min.css"/>
+	<script src="scripts/bootstrap.js"></script>
+	<!--<link rel="stylesheet" type="text/css" href="css/fonts.css" />-->
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" />
+	
+    <!-- Custom -->
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/general_and_landing.css" />
+    <link rel="stylesheet" type="text/css" href="css/default-form.css" />
+    <script src="scripts/MyScripts/generalFormValidation.js"></script>
+    <script src="scripts/MyScripts/orders_script.js"></script>
+    <script src="scripts/MyScripts/timer.js"></script>
+    <script src="scripts/MyScripts/getterScripts.js"></script>
+    
+    <!-- Alertify -->
+    <script src="alertify/alertify.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="alertify/css/alertify.css" />
+    <link rel="stylesheet" type="text/css" href="alertify/css/default.css" />
+   
+    <!-- Jquery UI -->
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <script src="scripts/jquery-ui.min.js"></script>
+
+    <script>
+
+        function logout()
+            {
+                var url1 = '<%=ResolveUrl("~/Login.aspx/logout") %>';
+
+			    $.ajax({
+			        type: "POST",
+			        url: url1,
+			        contentType: "application/json; charset=utf-8",
+			        dataType: "json",
+			        error: function (xhr, ajaxOptions, thrownError) {
+			            alert(xhr.status);
+			            alert(xhr.responseText);
+			            alert(thrownError);
+			        },
+			        success: function (msg) {
+			            var result = msg.d.split("|");
+
+			            if (result[0] == "true") {
+			                alertify.alert('Successful', result[1], function () { window.location = "Login"; });
+			            }
+			            else {
+			                alertify.alert('Error', result[1], function () { });
+			            }
+			        }
+			    });
+            }
+
+        $(document).ready(function ($) {
+            var Employee_ID = '<%= Session["Employee_ID"] %>';
+            var Access_Level = '<%= Session["Access_Level"] %>'.split("~");
+
+            var location = window.location.pathname;
+
+            //var deadline = setDeadline("");
+            var timeInMinutes = 10;
+            var currentTime = Date.parse(new Date());
+            var deadline = new Date(currentTime + timeInMinutes * 60 * 1000);
+            initializeClock(deadline);
+
+            var TIMER = 1000000;
+            var logoutHandler = setTimeout(logout, TIMER);
+           
+            for (x = 0; x < Access_Level.length ; x++)
+            {
+                Access_Level[x] = Access_Level[x].split(",");
+
+                if(Access_Level[x][1] == "False")
+                    $("a[href='" + Access_Level[x][0] + "']").parent().remove();
+            }
+
+            for (x = 1; x < 9; x++)
+            {
+                if ($("#collapse" + x + " li").length == 0)
+                    $("#SS" + x).remove();
+            }
+
+		    $("a").click(function () {
+				var original = $(this).children().children("i:nth-child(2)").attr("class");
+				$(this).children().children("i:nth-child(2)").attr("class", original == 'fa fa-chevron-down pull-right' ? 'fa fa-chevron-up pull-right' : 'fa fa-chevron-down pull-right');
+		    });
+
+		    var current = window.location.href;
+		    var n = -1;
+		    n = current.lastIndexOf("help");
+
+            if(n < 0)
+		        $(".default-form-header").append("<span class='form_header_question'> <a href='#'><i class='fa fa-question-circle-o' aria-hidden='true'></i></a></span>");
+
+		    $(".default-form-header").on("click", ".form_header_question", function (event)
+		    {
+		        event.preventDefault();
+		        var url = getHelpURL();
+		        window.open(url, '_blank');
+
+
+		    });
+
+		    $("body").keydown(function (key) {
+		        if (key.which == 112) {
+		            var url = getHelpURL();
+		            window.open(url, '_blank');
+		        }
+
+		    });
+
+		    $("body").on("click", function () {
+		        window.clearTimeout(logoutHandler);
+		        logoutHandler = setTimeout(logout, TIMER);
+		        //deadline = setDeadline("new_set");
+		        timeInMinutes = 10;
+		        currentTime = Date.parse(new Date());
+		        deadline = new Date(currentTime + timeInMinutes * 60 * 1000);
+		        initializeClock(deadline);
+
+		    });
+        });
+
+        function getHelpURL()
+        {
+            var current = window.location.href;
+            var n = current.lastIndexOf("/");
+            var str = current.substr(n + 1, current.length);
+            console.log(str);
+            var url = "/help.aspx?where=" + str;
+
+            return url;
+
+        }
+
+        function addNewItem(item)
+        {
+            var url = "/" + item;
+            window.open(url, '_blank');
+        }
+	</script>
+    <style>
+        select[multiple]
+        {
+            height: 200px;
+        }
+
+
+    </style>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+     <nav class="navbar navbar-inverse navbar-fixed-top">
+		  <div class="container-fluid">
+			<div class="navbar-header">
+			  <a class="navbar-brand" href="Home">Proteus</a>
+			</div>
+			<ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><i class="fa fa-time" aria-hidden="true"></i>Log Out In: <span id="minutes"></span>:<span id="seconds"></span></a></li>
+				<li><a href="Help/Introduction.html" target ="_blank" title ="Click here to get some help"><i class="fa fa-question" aria-hidden="true"></i> Help</a></li>
+				<li><a href="#" id="sign-out-link" onclick="logout()"title ="Click here to log out"><i class="fa fa-sign-out" aria-hidden="true"></i> Log Out</a></li>
+			</ul>
+		  </div>
+		</nav>
+		
+		<ul class="vertical" id="links">
+			<li><a href="Home" title ="Click here to return home"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+			<li id="SS1">
+				<div>
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+						<div title ="Click here to view the employee sub-system"><i class="fa fa-user" aria-hidden="true"></i> Employees <i class="fa fa-chevron-down pull-right" aria-hidden="true"></i></div>
+                    </a>
+                </div>
+                <div id="collapse1" class="collapse secondary">
+					<ul>
+						<li title ="Click here to add an employee"><a href="AddEmployee">Add Employee</a></li>
+                        <li title ="Click here to maintain an employee"><a href="MaintainEmployee">Maintain Employee</a></li>
+						<li title ="Click here to add an employee category"><a href="AddEmployeeCategory">Add Employee Category</a></li>
+						<li title ="Click here to maintain an employee category"><a href="MaintainEmployeeCategory">Maintain Employee Category</a></li>
+						<li title ="Click here to search for an employee"><a href="SearchEmployee">Search Employees</a></li>
+                    </ul>
+                </div>
+			</li>
+            
+			<li id="SS2">
+				<div>
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+						<div title ="Click here to view the customer sub-system"><i class="fa fa-users" aria-hidden="true"></i> Customers <i class="fa fa-chevron-down pull-right" aria-hidden="true"></i></div>
+                    </a>
+                </div>
+                <div id="collapse2" class="collapse secondary">
+					<ul>
+						<li title ="Click here to add a customer"><a href="AddCustomer">Add Customer</a></li>
+                        <li title ="Click here to maintain a customer"><a href="MaintainCustomer">Maintain Customer</a></li>
+						<li title ="Click here to search for a customer"><a href="SearchCustomer">Search Customers</a></li>
+                    </ul>
+                </div>
+			</li>
+			
+			<li id="SS3">
+				<div>
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+						<div title ="Click here to view the inventory sub-system"><i class="fa fa-cubes" aria-hidden="true"></i> Inventory <i class="fa fa-chevron-down pull-right" aria-hidden="true"></i></div>
+                    </a>
+                </div>
+                <div id="collapse3" class="collapse secondary">
+					<ul>
+						<li title ="Click here to add a raw material"><a href="AddRawMaterial">Add Raw Material</a></li>
+                        <li title ="Click here to maintain a raw material"><a href="MaintainRawMaterial">Maintain Raw Material</a></li>
+                        <li title ="Click here to add a unqiue raw material"><a href="AddUniqueRawMaterial">Add Unique Raw Material</a></li>
+						<li title ="Click here to maintain a unique raw material"><a href="MaintainUniqueRawMaterial">Maintain Unique Raw Material</a></li>
+						<li title ="Click here to add a part type"><a href="AddPartType">Add Part Type</a></li>
+						<li title ="Click here to maintain a part type"><a href="MaintainPartType">Maintain Part Type</a></li>
+						<li title ="Click here to add a part"><a href="AddPart">Add Part</a></li>
+						<li title ="Click here to maintain a part"><a href="MaintainPart">Maintain Part</a></li>
+						<li title ="Click here to add a part status"><a href="AddPartStatus">Add Part Status</a></li>
+						<li title ="Click here to maintain a part status"><a href="MaintainPartStatus">Maintain Part Status</a></li>
+						<li title ="Click here to add a component"><a href="AddComponent">Add Component</a></li>
+						<li title ="Click here to maintain a component"><a href="MaintainComponent">Maintain Component</a></li>
+						<li title ="Click here to update a part status"><a href="UpdatePartStatuses">Update Part Statuses</a></li>
+                        <li title ="Click here to search inventory"><a href="SearchInventory">Search Inventory</a></li>
+                    </ul>
+                </div>
+			</li>
+			
+			<li id="SS4">
+				<div>
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+						<div title ="Click here to view the manufacturing sub-system"><i class="fa fa-gears" aria-hidden="true"></i> Manufacturing <i class="fa fa-chevron-down pull-right" aria-hidden="true"></i></div>
+                    </a>
+                </div>
+                <div id="collapse4" class="collapse secondary">
+					<ul>
+						<li title ="Click here to generate a job card"><a href="GenerateJobCard">Generate Job Card</a></li>
+                        <li title ="Click here to maintain a job card"><a href="MaintainJobCard">Maintain Job Card</a></li>
+                        <li title ="Click here view job cards in production"><a href="ViewJobCards">View Job Cards in Production</a></li>
+						<li title ="Click here to add a manual labour type"><a href="AddManualLabourType">Add Manual Labour Type</a></li>
+						<li title ="Click here to maintain a manual labour type"><a href="MaintainManualLabourType">Maintain Manual Labour Type</a></li>
+                        <li title ="Click here to generate the production schedule"><a href="GenerateProductionSchedule">Generate the Production Schedule</a></li>
+						<li title ="Click here to view the production schedule"><a href="ViewProductionSchedule">View Production Schedule</a></li> 
+                        <li title ="Click here to maintain the production schedule"><a href="MaintainProductionSchedule">Maintain Production Schedule</a></li>
+                    </ul>
+                </div>
+			</li>
+			
+			<li id="SS5">
+				<div>
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+						<div title ="Click here to view the supplier sub-system"><i class="fa fa-truck" aria-hidden="true"></i> Supplier <i class="fa fa-chevron-down pull-right" aria-hidden="true"></i></div>
+                    </a>
+                </div>
+                <div id="collapse5" class="collapse secondary">
+					<ul>
+						<li title ="Click here to add a supplier"><a href="AddSupplier">Add Supplier</a></li>
+                        <li title ="Click here to maintain a supplier"><a href="MaintainSupplier">Maintain Supplier</a></li>
+						<li title ="Click here to add a supplier quote"><a href="AddSupplierQuote">Receive Supplier Quote</a></li>
+						<li title ="Click here to place a supplier order"><a href="PlaceSupplierOrder">Place Purchase Order</a></li>
+						<li title ="Click here to maintain a supplier order"><a href="MaintainSupplierOrder">Maintain Purchase Order</a></li>
+						<li title ="Click here to view a supplier order"><a href="SearchSupplierOrder">Search Supplier Quote/Purchase Order</a></li>
+						<li title ="Click here to recieve a purchase order"><a href="ReceivePurchaseOrder">Receive Purchase Order</a></li>
+						<li title ="Click here to view outstanding purchase orders"><a href="ViewOustandingPurchaseOrders">View Outstanding Purchase Orders</a></li>
+                        <li title ="Click here to generate a goods returned note"><a href="GenerateGoodsReturnedNote">Generate Goods Returned Note</a></li>
+						<li title ="Click here to search for a supplier"><a href="SearchSupplier">Search Suppliers</a></li>
+                    </ul>
+                </div>
+			</li>
+			
+			<li id="SS6">
+				<div>
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+						<div title ="Click here to view the ordering sub-system"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ordering <i class="fa fa-chevron-down pull-right" aria-hidden="true"></i></div>
+                    </a>
+                </div>
+                <div id="collapse6" class="collapse secondary">
+					<ul>
+						<li title ="Click here to generate a customer quote"><a href="GenerateCustomerQuote">Generate Customer Quote</a></li>
+                        <li title ="Click here to place a customer order"><a href="PlaceCustomerOrder">Place Customer Order</a></li>
+						<li title ="Click here to maintain a customer order"><a href="MaintainCustomerOrder">Maintain Customer Order</a></li>
+						<li title ="Click here to generate a price list"><a href="GeneratePriceList">Generate Price List</a></li>
+						<li title ="Click here to generate a delivery note"><a href="GenerateDeliveryNote">Generate Delivery Note</a></li>
+						<li title ="Click here to generate a invoice"><a href="GenerateInvoice">Generate Invoice</a></li>
+						<li title ="Click here to view outstanding customer orders"><a href="ViewOutstandingCustomerOrders">View Outstanding Customer Orders</a></li>
+                        <li title ="Click here to finalise a customer order"><a href="FinaliseCustomerOrder">Finalise Customer Order</a></li>
+                        <li title ="Click here to generate a credit note"><a href="GenerateCreditNote">Generate Customer Credit Note</a></li>
+						<li title ="Click here to search for a customer order"><a href="SearchCustomerOrders">Search Customer Quote/Order</a></li>
+						<li title ="Click here to maintain VAT"><a href="MaintainVAT">Maintain VAT</a></li>
+                    </ul>
+                </div>
+			</li>
+			
+			<li id="SS7">
+				<div>
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapse7">
+						<div title ="Click here to view the sub-contractor sub-system"><i class="fa fa-suitcase" aria-hidden="true"></i> Sub-Contactors <i class="fa fa-chevron-down pull-right" aria-hidden="true"></i></div>
+                    </a>
+                </div>
+                <div id="collapse7" class="collapse secondary">
+					<ul>
+						<li title ="Click here to add a sub-contractor"><a href="AddSubContractor">Add Sub-Contractor</a></li>
+                        <li title ="Click here to maintain a sub-contractor"><a href="MaintainSubContractor">Maintain Sub-Contractor</a></li>
+						<li title ="Click here to search for a sub-contractor"><a href="SearchSubContractor">Search Sub-Contractors</a></li>
+                    </ul>
+                </div>
+			</li>
+			
+			<li id="SS8">
+				<div>
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapse8">
+						<div title ="Click here to view the equipment sub-system" ><i class="fa fa-plug" aria-hidden="true"></i> Equipment <i class="fa fa-chevron-down pull-right" aria-hidden="true"></i></div>
+                    </a>
+                </div>
+                <div id="collapse8" class="collapse secondary">
+					<ul>
+						<li title ="Click here to add a machine"><a href="AddMachine">Add New Machine</a></li>
+                        <li title ="Click here to maintain a machine"><a href="MaintainMachine">Maintain Machine</a></li>
+						<li title ="Click here to add a unique machine"><a href="AddUniqueMachine">Add Unique Machine</a></li>
+						<li title ="Click here to maintain a unique machine"><a href="MaintainUniqueMachine">Maintain Unique Machine</a></li>
+						<li title ="Click here to maintain a unique machine status"><a href="MaintainUniqueMachineStatus">Maintain Unique Machine Status</a></li>
+						<li title ="Click here to search for a machine"><a href="SearchMachine">Search Machines</a></li>
+                    </ul>
+                </div>
+			</li>
+			
+			<li id="SS9">
+				<div>
+					<a href="http://localhost/Reports">
+						<div title ="Click here to view the reporting sub-system"><i class="fa fa-area-chart" aria-hidden="true"></i> Reporting </div>
+                    </a>
+                </div>
+			</li>
+		</ul>
+<div class="container custom_container">
+    <asp:ContentPlaceHolder ID="maincontent" runat="server">
+       
+    </asp:ContentPlaceHolder>
+</div>
+
+</body>
+</html>

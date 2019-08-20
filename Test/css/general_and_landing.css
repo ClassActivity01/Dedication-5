@@ -1,0 +1,340 @@
+/* Navigation */
+body {
+	margin: 0;
+}
+
+.vertical {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 20%;
+	background-color: #333333;
+	position: fixed;
+	height: 100%;
+	overflow: auto;
+}
+
+.vertical li a {
+	display: block;
+	color: #cccccc;
+	padding: 8px 0 8px 16px;
+	text-decoration: none;
+}
+
+.vertical li a.active {
+	background-color: #809dff;
+	color: white;
+}
+
+.vertical li a:hover:not(.active) {
+	background-color: #555;
+	color: white;
+}
+
+.secondary {
+	background-color: #444444;
+}
+
+.secondary ul {
+	list-style-type: none;
+}
+
+.panel-heading a {
+	color: black;
+	text-decoration: none;
+}
+
+.panel-heading a:hover {
+	text-decoration: none;
+}
+
+a div {
+	padding-right: 10px;
+}
+
+/* BODY 
+https://unsplash.com/
+https://www.behance.net/search?field=102&content=projects&sort=appreciations&time=week
+https://material.google.com/style/color.html#color-color-palette
+http://experiments.wemakesites.net/css3-treeview.html
+
+COLORS:
+#1b184e
+#fdd400;
+#ec2066;
+
+*/
+
+.custom_container
+{
+	margin-left:20%;
+	padding:1px 16px;
+	min-height:600px;
+	margin-top:50px;
+	max-width: 1100px;
+}
+
+
+.icon_link
+{
+	color: #eeeeee;
+}
+
+.icon_link:hover
+{
+	color: #fdd400;
+}
+
+.card 
+{
+  background: #fff;
+  border-radius: 2px;
+  color: #eeeeee;
+}
+
+.card-2 {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.row_2_card_1
+{
+	line-height: 18px;
+	font-size: 16px;
+	font-weight: 700;
+}
+
+.headerRow_1
+{
+	background-color: #CE3613; 
+	width: 100%; 
+	margin:0; 
+	padding: 10px;
+	
+}
+
+.icon-col
+{
+	padding: 0 auto;
+	text-align: center;
+	font-size: 30pt;
+	
+}
+
+.social-row
+{
+	margin-top: 15%;
+}
+
+.logo-img
+{
+	left: 75%;
+	position: relative;
+	height: 120px;
+	width: auto;
+	-ms-transform: rotate(-25deg); /* IE 9 */
+    -webkit-transform: rotate(-25deg); /* Chrome, Safari, Opera */
+    transform: rotate(-25deg);
+}
+
+.top_text, .bottom_text
+{
+	width: 60%;
+	position: absolute;
+	top: 26%;
+	line-height: 20px;
+	font-size: 18px;
+	padding: 2%;
+}
+
+.bottom_text
+{
+	border-top: #eee solid 2px;
+	top: 50%;
+}
+
+.custom_link_landing
+{
+	color: #eee;
+}
+
+.custom_link_landing:hover
+{
+	color: #333333;
+	text-decoration: none;
+	
+}
+
+.row_1_card_1, .row_1_card_2, .row_1_card_3
+{
+	background-color: #259094;
+	overflow: hidden;
+	margin: 0;
+	padding-left: 10%;
+}
+
+.row_1_card_2
+{
+	background-color: #F86915;
+}
+
+
+.row_1_card_3
+{
+	background-color: #CE3613;
+}
+
+.row_2_card_2
+{
+	color: #333;
+	
+}
+
+.col-inner
+{
+	margin:0;
+	padding: 0;
+}
+
+.headerRow_2
+{
+	background-color: #FABB27; 
+	width: 100%; 
+	margin: 0; 
+	padding: 10px;
+
+}
+
+
+.todolistItems
+{
+	overflow-y: scroll;
+	max-height: 520px;
+	padding:0;
+}
+
+.todoCheck 
+{
+	position: relative;
+	top: 14px;
+	right: 12px;
+	float: right;
+}
+
+.todoCheck:checked + label
+{
+	text-decoration: line-through;
+	color: rgba(0,0,0,.3);
+}
+
+.list{
+	list-style: none;
+	color: rgba(0,0,0,.7);
+	padding:0;
+}
+
+.list li:nth-child(odd){
+	background: rgba(0,0,50,.1);
+}
+
+.list li
+{
+	float: left;
+	width: 100%;
+}
+
+.todoChecklabel
+{
+	padding: 10px;
+	float: left;
+	width: 95%;
+	transition: all .3s ease;
+}
+
+#exTab1 .tab-content 
+{
+  color: #333;
+  background-color: #ffffff;
+  font-family: 'Oswald', sans-serif;
+  height: 230px;
+}
+
+
+/* remove border radius for the tab */
+
+#exTab1 .nav-pills > li > a 
+{
+  border-radius: 0;
+  
+}
+
+
+#exTab1 .nav-pills > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus
+{
+	background-color: #F86915;  
+	color: #eee;
+} 
+
+.col-outer
+{
+	margin-right: 0;
+	padding-right: 0;
+}
+
+.col1, .col2, .col3, .colrowcustom
+{
+	margin:0;
+	padding: 0;
+	text-align: center;
+}
+
+.col1, .col2, .col3
+{
+	padding: 5px;
+	color: #eee;
+}
+
+.tab-pane-above
+{
+	width: 100%;
+	padding: 5%;
+	margin-bottom: 2.8%;
+}
+
+.img-custom-employee
+{
+	width: 20%;
+	height: auto;
+	
+}
+
+.row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  margin : 0;
+  margin-top: 2%;
+}
+
+.col1 {background-color: #465F61; }
+.col2 {background-color: #F86915; }
+.col3 {background-color: #FABB27; }
+
+.row_2_card_3
+{
+	
+	
+}
+
+
+
+
+
+
+
+
+
+

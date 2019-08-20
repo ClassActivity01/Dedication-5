@@ -1,0 +1,724 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+	<title>Emit Proteus- Table of Contents</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Personal Edition 4.9.2.132">
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/silver-theme/jquery-ui-1.8.12.custom.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/dynatree/chm/ui.dynatree.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/toc.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#tabs .ui-widget-header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="js/jquery.dynatree.min.js"></script>
+	<script type="text/javascript" src="js/hndjsse.js"></script>
+	<script type="text/javascript">
+	
+		window.bSearchDataLoaded = false;
+		var sHelpIdToActivate = '';
+	
+		$(document).ready(function()
+		{
+			var sAnchorName = '';
+			try { sAnchorName = top.location.href.substring(top.location.href.lastIndexOf("#") + 1, top.location.href.length); }
+			catch(err) { sAnchorName = ''; }
+			var nSelectedTab = 0;
+			if (sAnchorName == '_index') nSelectedTab = 1
+			else if (sAnchorName == '_search') nSelectedTab = 2;			
+			$("#tabs").tabs({
+				selected: nSelectedTab,
+				select: function(event, ui) { HideKwPopup(); }
+			});
+			
+			// Toc
+			if ($("#tab-toc").length) {
+				$("#tab-toc").dynatree({
+					clickFolderMode: 1,
+					debugLevel: 0,
+					imagePath: 'css/dynatree/chm/',
+					onActivate: function(node){
+						if ($("#tab-keywords").length && $("#tab-keywords").dynatree && $("#tab-keywords").dynatree("getTree") && $("#tab-keywords").dynatree("getTree").activateKey)
+							$("#tab-keywords").dynatree("getTree").activateKey(null);
+						if(node.data.href && node.data.href != '#'){
+							window.open(node.data.href, node.data.target);
+						}
+					}
+				});
+				// Expand all nodes if required
+				$("#tab-toc").dynatree("getRoot").visit(function(node){
+						node.expand(true);
+					});
+				// Select the active help id
+				if (sHelpIdToActivate != '') $("#tab-toc").dynatree("getTree").activateKey(sHelpIdToActivate);
+			}
+			
+			// Keywords
+			
+			if ($("#tab-keywords").length) {
+				$("#tab-keywords").dynatree({
+					clickFolderMode: 1,
+					debugLevel: 0,
+					imagePath: 'css/dynatree/chm/',
+					onClick: function(node, event){
+						HideKwPopup();
+						if (node.data && node.data.click)
+						{
+							var aRefList = null;
+							eval('aRefList=' + node.data.click);
+							if (ShowKwPopup(node.li, aRefList))
+							{
+								if ($("#tab-toc") && $("#tab-toc").dynatree && $("#tab-toc").dynatree("getTree") && $("#tab-toc").dynatree("getTree").activateKey)
+									$("#tab-toc").dynatree("getTree").activateKey(null);
+								if(node.data.href && node.data.href != '#'){
+									window.open(node.data.href, node.data.target);
+								}
+							}
+						}
+					}
+				});
+				// Expand all nodes if required
+				$("#tab-keywords").dynatree("getRoot").visit(function(node){
+						node.expand(true);
+					});
+				}
+			
+			// Load search data
+			(function() {
+				var se = document.createElement('script'); se.type = 'text/javascript'; se.async = true;
+				se.src = 'js/hndsd.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(se, s);
+			})();
+		});
+		
+		$('body').click(function() {
+			HideKwPopup();
+		});
+		
+		function SelectTocItem(sHelpId)
+		{
+			if ($("#tab-toc").length && $("#tab-toc").dynatree && $("#tab-toc").dynatree("getTree") && $("#tab-toc").dynatree("getTree").getNodeByKey) {
+				$("#tab-toc").dynatree("getTree").getNodeByKey(sHelpId).activateSilently();
+			}
+			else {
+				sHelpIdToActivate = sHelpId;
+			}
+		}
+		
+		function HideKwPopup()
+		{
+			if($("#popupMenu")) $("#popupMenu").remove();
+		}
+		
+		function ShowKwPopup(oSender, aLinks)
+		{
+			HideKwPopup();
+			if (!aLinks || !aLinks.length || aLinks.length == 0) return false
+			else if (aLinks.length == 1) return true
+			else
+			{
+				var oParentDiv = document.createElement("DIV");
+				oParentDiv.id = "popupMenu";
+				var oLink = null;
+				// Close button
+				oLink = document.createElement("SPAN");
+				oLink.className = "close-button";
+				oLink.innerHTML = "X";
+				oLink.href = "#";
+				oLink.onclick = HideKwPopup;
+				oParentDiv.appendChild(oLink);
+				// Items
+				for (var nCnt=0; nCnt<aLinks.length; nCnt++)
+				{
+					oLink = document.createElement("A");
+					oLink.innerHTML = aLinks[nCnt][0];
+					oLink.href = aLinks[nCnt][1];
+					oLink.target = "FrameMain";
+					oLink.onclick = HideKwPopup;
+					oParentDiv.appendChild(oLink);
+				}
+				document.body.appendChild(oParentDiv);
+				var pos = $(oSender).offset(); 
+				var height = $(oSender).height();
+				$(oParentDiv).css({
+					"left": (pos.left+20) + "px",
+					"top": (pos.top + height + 5) + "px"
+				});
+				$(oParentDiv).show();
+				return false;
+			}
+		}
+		
+		function PerformSearch()
+		{
+			if (!window.bSearchDataLoaded) {
+				$("#search_results").html("Search engine data hasn't been fully loaded yet or an error occurred while loading it. This usually happens when documentation is browsed locally.");
+				return;
+			}
+			sValue = $("#search_value").val();
+			$("#search_results").html('Searching...');
+			var oSearchEngine = new HndJsSe;
+			oSearchEngine.ParseInput(sValue);			
+			oSearchEngine.PerformSearch();
+			if (!oSearchEngine.aResults || !oSearchEngine.aResults.length)
+			{
+				$("#search_results").html('No results found.');
+			}
+			else
+			{
+				$("#search_results").html('<div id="search_results_content"></div>');
+				var oUl = $("#search_results_content").append("<ul id='lr'></ul>").find("ul");
+				for (var nCnt = 0; nCnt < oSearchEngine.aResults.length; nCnt++)
+				{
+					if (oSearchEngine.aResults[nCnt][0] < aTl.length)
+					{
+						oUl.append("<li><a href='" + aTl[oSearchEngine.aResults[nCnt][0]][0] + "?search=" + escape(sValue) + "' target='FrameMain'>" + unescape(aTl[oSearchEngine.aResults[nCnt][0]][1]) + "</a></li>");
+					}
+				}
+				// Tree
+				$("#search_results_content").dynatree({
+					clickFolderMode: 1,
+					debugLevel: 0,
+					imagePath: 'css/dynatree/chm/',
+					onActivate: function(node){
+						if ($("#search_results_content") && $("#search_results_content").dynatree && $("#search_results_content").dynatree("getTree") && $("#search_results_content").dynatree("getTree").activateKey)
+							$("#search_results_content").dynatree("getTree").activateKey(null);
+						if(node.data.href && node.data.href != '#'){
+							window.open(node.data.href, node.data.target);
+						}
+					}
+				});
+			}
+		}
+	</script>
+</head>
+
+<body>
+
+	<div id="tabs">
+		<ul>
+			<li><a href="#tab-toc">Contents</a></li>
+			<li><a href="#tab-keywords">Index</a></li>
+			<li><a href="#tab-search">Search</a></li>
+			</ul>
+		<div id="tab-toc">
+			<ul id="toc" class="">
+
+				<li class="folder" id="Introduction" data="">
+							<a
+							href="Introduction.html"
+							target="FrameMain">
+								Introduction</a>
+
+				<ul><li class="" id="Welcome" data="icon: '10.png'">
+							<a
+							href="Welcome.html"
+							target="FrameMain">
+								Welcome</a>
+
+				</li></ul></li><li class="folder" id="GettingStarted" data="">
+							<a
+							href="GettingStarted.html"
+							target="FrameMain">
+								Getting Started</a>
+
+				<ul><li class="" id="Systemrequirements" data="icon: '10.png'">
+							<a
+							href="Systemrequirements.html"
+							target="FrameMain">
+								System requirements</a>
+
+				</li><li class="" id="Gettinghelp" data="icon: '10.png'">
+							<a
+							href="Gettinghelp.html"
+							target="FrameMain">
+								Getting help</a>
+
+				</li></ul></li><li class="folder" id="EmitProteus1" data="">
+							<a
+							href="EmitProteus1.html"
+							target="FrameMain">
+								Emit Proteus</a>
+
+				<ul><li class="" id="GeneralNavigation" data="icon: '10.png'">
+							<a
+							href="GeneralNavigation.html"
+							target="FrameMain">
+								General Navigation</a>
+
+				</li><li class="" id="Login" data="icon: '10.png'">
+							<a
+							href="Login.html"
+							target="FrameMain">
+								Login</a>
+
+				</li><li class="" id="Logout" data="icon: '10.png'">
+							<a
+							href="Logout.html"
+							target="FrameMain">
+								Logout</a>
+
+				</li></ul></li><li class="folder" id="Subsystems" data="">
+							<a
+							href="Subsystems.html"
+							target="FrameMain">
+								Sub-systems</a>
+
+				<ul><li class="folder" id="1EmployeeSubsystem" data="">
+							<a
+							href="1EmployeeSubsystem.html"
+							target="FrameMain">
+								1.Employee Sub-system</a>
+
+				<ul><li class="" id="11AddEmployee" data="icon: '10.png'">
+							<a
+							href="11AddEmployee.html"
+							target="FrameMain">
+								1.1.Add Employee</a>
+
+				</li><li class="" id="12MaintainEmployee" data="icon: '10.png'">
+							<a
+							href="12MaintainEmployee.html"
+							target="FrameMain">
+								1.2.Maintain Employee</a>
+
+				</li><li class="" id="13AddEmployeeType" data="icon: '10.png'">
+							<a
+							href="13AddEmployeeType.html"
+							target="FrameMain">
+								1.3.Add Employee Type</a>
+
+				</li><li class="" id="14MaintainEmployeeType" data="icon: '10.png'">
+							<a
+							href="14MaintainEmployeeType.html"
+							target="FrameMain">
+								1.4.Maintain Employee Type</a>
+
+				</li><li class="" id="15SearchEmployee" data="icon: '10.png'">
+							<a
+							href="15SearchEmployee.html"
+							target="FrameMain">
+								1.5.Search Employee</a>
+
+				</li></ul></li><li class="folder" id="2ClientSubsystem" data="">
+							<a
+							href="2ClientSubsystem.html"
+							target="FrameMain">
+								2.Client Sub-system</a>
+
+				<ul><li class="" id="21AddClient" data="icon: '10.png'">
+							<a
+							href="21AddClient.html"
+							target="FrameMain">
+								2.1.Add Client</a>
+
+				</li><li class="" id="22MaintainClient" data="icon: '10.png'">
+							<a
+							href="22MaintainClient.html"
+							target="FrameMain">
+								2.2.Maintain Client</a>
+
+				</li><li class="" id="23SearchClient" data="icon: '10.png'">
+							<a
+							href="23SearchClient.html"
+							target="FrameMain">
+								2.3.Search Client</a>
+
+				</li></ul></li><li class="folder" id="3InventorySubsystem" data="icon: '1.png'">
+							<a
+							href="3InventorySubsystem.html"
+							target="FrameMain">
+								3.Inventory Sub-system</a>
+
+				<ul><li class="" id="31AddRawMaterial" data="icon: '10.png'">
+							<a
+							href="31AddRawMaterial.html"
+							target="FrameMain">
+								3.1.Add Raw Material</a>
+
+				</li><li class="" id="32MaintainRawMaterial" data="icon: '10.png'">
+							<a
+							href="32MaintainRawMaterial.html"
+							target="FrameMain">
+								3.2.Maintain Raw Material</a>
+
+				</li><li class="" id="33AddPartType" data="icon: '10.png'">
+							<a
+							href="33AddPartType.html"
+							target="FrameMain">
+								3.3.Add Part Type</a>
+
+				</li><li class="" id="34MaintainPartType" data="icon: '10.png'">
+							<a
+							href="34MaintainPartType.html"
+							target="FrameMain">
+								3.4.Maintain Part Type</a>
+
+				</li><li class="" id="35AddPart" data="icon: '10.png'">
+							<a
+							href="35AddPart.html"
+							target="FrameMain">
+								3.5.Add Part</a>
+
+				</li><li class="" id="36MaintainPart" data="icon: '10.png'">
+							<a
+							href="36MaintainPart.html"
+							target="FrameMain">
+								3.6.Maintain Part</a>
+
+				</li><li class="" id="37SearchInventory" data="icon: '10.png'">
+							<a
+							href="37SearchInventory.html"
+							target="FrameMain">
+								3.7.Search Inventory</a>
+
+				</li><li class="" id="38AddPartStatus" data="icon: '10.png'">
+							<a
+							href="38AddPartStatus.html"
+							target="FrameMain">
+								3.8.Add Part Status</a>
+
+				</li><li class="" id="39MaintainPartStatus" data="icon: '10.png'">
+							<a
+							href="39MaintainPartStatus.html"
+							target="FrameMain">
+								3.9.Maintain Part Status</a>
+
+				</li><li class="" id="310AddComponent" data="icon: '10.png'">
+							<a
+							href="310AddComponent.html"
+							target="FrameMain">
+								3.10.Add Component</a>
+
+				</li><li class="" id="311MaintainComponent" data="icon: '10.png'">
+							<a
+							href="311MaintainComponent.html"
+							target="FrameMain">
+								3.11.Maintain Component</a>
+
+				</li><li class="" id="312AddUniqueRawMaterial" data="icon: '10.png'">
+							<a
+							href="312AddUniqueRawMaterial.html"
+							target="FrameMain">
+								3.12.Add Unique Raw Material</a>
+
+				</li><li class="" id="313MaintainUniqueRawMaterial" data="icon: '10.png'">
+							<a
+							href="313MaintainUniqueRawMaterial.html"
+							target="FrameMain">
+								3.13.Maintain Unique Raw Material</a>
+
+				</li><li class="" id="314UpdatePartStatus" data="icon: '10.png'">
+							<a
+							href="314UpdatePartStatus.html"
+							target="FrameMain">
+								3.14.Update Part Status</a>
+
+				</li></ul></li><li class="folder" id="4ManufacturingSubsystem" data="icon: '1.png'">
+							<a
+							href="4ManufacturingSubsystem.html"
+							target="FrameMain">
+								4.Manufacturing Sub-system</a>
+
+				<ul><li class="" id="41GenerateJobCard" data="icon: '10.png'">
+							<a
+							href="41GenerateJobCard.html"
+							target="FrameMain">
+								4.1.Generate Job Card</a>
+
+				</li><li class="" id="42MaintainJobCard" data="icon: '10.png'">
+							<a
+							href="42MaintainJobCard.html"
+							target="FrameMain">
+								4.2.Maintain Job Card</a>
+
+				</li><li class="" id="43AddManualLabourType" data="icon: '10.png'">
+							<a
+							href="43AddManualLabourType.html"
+							target="FrameMain">
+								4.3.Add Manual Labour Type</a>
+
+				</li><li class="" id="44MaintainManualLabourType" data="icon: '10.png'">
+							<a
+							href="44MaintainManualLabourType.html"
+							target="FrameMain">
+								4.4.Maintain Manual Labour Type</a>
+
+				</li><li class="" id="45GenerateProductionSchedule" data="icon: '10.png'">
+							<a
+							href="45GenerateProductionSchedule.html"
+							target="FrameMain">
+								4.5.Generate Production Schedule</a>
+
+				</li><li class="" id="46MaintainProductionSchedule" data="icon: '10.png'">
+							<a
+							href="46MaintainProductionSchedule.html"
+							target="FrameMain">
+								4.6.Maintain Production Schedule</a>
+
+				</li><li class="" id="47ViewProductionSchedule" data="icon: '10.png'">
+							<a
+							href="47ViewProductionSchedule.html"
+							target="FrameMain">
+								4.7.View Production Schedule</a>
+
+				</li><li class="" id="48ViewJobCardsinProduction" data="icon: '10.png'">
+							<a
+							href="48ViewJobCardsinProduction.html"
+							target="FrameMain">
+								4.8.View Job Cards in Production</a>
+
+				</li></ul></li><li class="folder" id="5SupplierSubsystem" data="icon: '1.png'">
+							<a
+							href="5SupplierSubsystem.html"
+							target="FrameMain">
+								5.Supplier Sub-system</a>
+
+				<ul><li class="" id="51AddSupplier" data="icon: '10.png'">
+							<a
+							href="51AddSupplier.html"
+							target="FrameMain">
+								5.1.Add Supplier</a>
+
+				</li><li class="" id="52MaintainSupplier" data="icon: '10.png'">
+							<a
+							href="52MaintainSupplier.html"
+							target="FrameMain">
+								5.2.Maintain Supplier</a>
+
+				</li><li class="" id="53ReceiveSupplierQuote" data="icon: '10.png'">
+							<a
+							href="53ReceiveSupplierQuote.html"
+							target="FrameMain">
+								5.3.Receive Supplier Quote</a>
+
+				</li><li class="" id="54PlacePurchaseOrder" data="icon: '10.png'">
+							<a
+							href="54PlacePurchaseOrder.html"
+							target="FrameMain">
+								5.4.Place Purchase Order</a>
+
+				</li><li class="" id="55MaintainPurchaseOrder" data="icon: '10.png'">
+							<a
+							href="55MaintainPurchaseOrder.html"
+							target="FrameMain">
+								5.5.Maintain Purchase Order</a>
+
+				</li><li class="" id="56SearchSupplierQuote" data="icon: '10.png'">
+							<a
+							href="56SearchSupplierQuote.html"
+							target="FrameMain">
+								5.6.Search Supplier Quote</a>
+
+				</li><li class="" id="57ReceivePurchaseOrder" data="icon: '10.png'">
+							<a
+							href="57ReceivePurchaseOrder.html"
+							target="FrameMain">
+								5.7.Receive Purchase Order</a>
+
+				</li><li class="" id="58ViewOutstandingPurchaseOrders" data="icon: '10.png'">
+							<a
+							href="58ViewOutstandingPurchaseOrders.html"
+							target="FrameMain">
+								5.8.View Outstanding Purchase Orders</a>
+
+				</li><li class="" id="59GenerateGoodsReturnedNote" data="icon: '10.png'">
+							<a
+							href="59GenerateGoodsReturnedNote.html"
+							target="FrameMain">
+								5.9.Generate Goods Returned Note</a>
+
+				</li><li class="" id="510SearchSupplier" data="icon: '10.png'">
+							<a
+							href="510SearchSupplier.html"
+							target="FrameMain">
+								5.10.Search Supplier</a>
+
+				</li></ul></li><li class="folder" id="6OrderingSubsystem" data="icon: '1.png'">
+							<a
+							href="6OrderingSubsystem.html"
+							target="FrameMain">
+								6.Ordering Sub-system</a>
+
+				<ul><li class="" id="61GenerateCustomerQuote" data="icon: '10.png'">
+							<a
+							href="61GenerateCustomerQuote.html"
+							target="FrameMain">
+								6.1.Generate Customer Quote</a>
+
+				</li><li class="" id="62PlaceCustomerOrder" data="icon: '10.png'">
+							<a
+							href="62PlaceCustomerOrder.html"
+							target="FrameMain">
+								6.2.Place Customer Order</a>
+
+				</li><li class="" id="63MaintainCustomerOrder" data="icon: '10.png'">
+							<a
+							href="63MaintainCustomerOrder.html"
+							target="FrameMain">
+								6.3.Maintain Customer Order</a>
+
+				</li><li class="" id="64GeneratePriceList" data="icon: '10.png'">
+							<a
+							href="64GeneratePriceList.html"
+							target="FrameMain">
+								6.4.Generate Price List</a>
+
+				</li><li class="" id="65GenerateDeliveryNote" data="icon: '10.png'">
+							<a
+							href="65GenerateDeliveryNote.html"
+							target="FrameMain">
+								6.5.Generate Delivery Note</a>
+
+				</li><li class="" id="66GenerateInvoice" data="icon: '10.png'">
+							<a
+							href="66GenerateInvoice.html"
+							target="FrameMain">
+								6.6.Generate Invoice</a>
+
+				</li><li class="" id="67ViewOutstandingCustomerOrders" data="icon: '10.png'">
+							<a
+							href="67ViewOutstandingCustomerOrders.html"
+							target="FrameMain">
+								6.7.View Outstanding Customer Orders</a>
+
+				</li><li class="" id="68FinaliseCustomerOrder" data="icon: '10.png'">
+							<a
+							href="68FinaliseCustomerOrder.html"
+							target="FrameMain">
+								6.8.Finalise Customer Order</a>
+
+				</li><li class="" id="69GenerateCustomerCreditNote" data="icon: '10.png'">
+							<a
+							href="69GenerateCustomerCreditNote.html"
+							target="FrameMain">
+								6.9.Generate Customer Credit Note</a>
+
+				</li><li class="" id="610SearchCustomerQuoteOrder" data="icon: '10.png'">
+							<a
+							href="610SearchCustomerQuoteOrder.html"
+							target="FrameMain">
+								6.10.Search Customer Quote/Order</a>
+
+				</li><li class="" id="611MaintainVAT" data="icon: '10.png'">
+							<a
+							href="611MaintainVAT.html"
+							target="FrameMain">
+								6.11.Maintain VAT</a>
+
+				</li></ul></li><li class="folder" id="7SubContractorSubsystem" data="icon: '1.png'">
+							<a
+							href="7SubContractorSubsystem.html"
+							target="FrameMain">
+								7.Sub-Contractor Sub-system</a>
+
+				<ul><li class="" id="71AddSubContractor" data="icon: '10.png'">
+							<a
+							href="71AddSubContractor.html"
+							target="FrameMain">
+								7.1.Add Sub-Contractor</a>
+
+				</li><li class="" id="72MaintainSubContractor" data="icon: '10.png'">
+							<a
+							href="72MaintainSubContractor.html"
+							target="FrameMain">
+								7.2.Maintain Sub-Contractor</a>
+
+				</li><li class="" id="73SearchSubContractor" data="icon: '10.png'">
+							<a
+							href="73SearchSubContractor.html"
+							target="FrameMain">
+								7.3.Search Sub-Contractor</a>
+
+				</li></ul></li><li class="folder" id="8EquipmentSubsystem" data="icon: '1.png'">
+							<a
+							href="8EquipmentSubsystem.html"
+							target="FrameMain">
+								8.Equipment Sub-system</a>
+
+				<ul><li class="" id="81AddMachine" data="icon: '10.png'">
+							<a
+							href="81AddMachine.html"
+							target="FrameMain">
+								8.1.Add Machine</a>
+
+				</li><li class="" id="82MaintainMachine" data="icon: '10.png'">
+							<a
+							href="82MaintainMachine.html"
+							target="FrameMain">
+								8.2.Maintain Machine</a>
+
+				</li><li class="" id="83AddUniqueMachine" data="icon: '10.png'">
+							<a
+							href="83AddUniqueMachine.html"
+							target="FrameMain">
+								8.3.Add Unique Machine</a>
+
+				</li><li class="" id="84MaintainUniqueMachine" data="icon: '10.png'">
+							<a
+							href="84MaintainUniqueMachine.html"
+							target="FrameMain">
+								8.4.Maintain Unique Machine</a>
+
+				</li><li class="" id="85MaintainUniqueMachineStatus" data="icon: '10.png'">
+							<a
+							href="85MaintainUniqueMachineStatus.html"
+							target="FrameMain">
+								8.5.Maintain Unique Machine Status</a>
+
+				</li><li class="" id="86SearchMachines" data="icon: '10.png'">
+							<a
+							href="86SearchMachines.html"
+							target="FrameMain">
+								8.6.Search Machines</a>
+
+				</li></ul></li><li class="" id="9ReportingSubsystem" data="icon: '1.png'">
+							<a
+							href="9ReportingSubsystem.html"
+							target="FrameMain">
+								9.Reporting Sub-system</a>
+
+				</li></ul></li></ul>
+		</div>
+		
+		<div id="tab-keywords">
+			<ul id="keywords">
+
+				<li class="file" data="click:'[[\'3.2.Maintain Raw Material\',\'32MaintainRawMaterial.html\']]'">
+							<a
+								href="32MaintainRawMaterial.html"
+								target="FrameMain"
+								onClick="[['3.2.Maintain Raw Material','32MaintainRawMaterial.html']]"
+								>
+								New keyword</a>
+
+				</li></ul>
+		</div>
+		
+		<div id="tab-search">
+			<form onsubmit="PerformSearch(); return false;">
+				<label for="search_value">Search:</label>
+				<input id="search_value" name="search_value"></input>
+				<input type="submit" value="Search"/>
+			</form>
+			<div id="search_results"></div>
+		</div>
+		
+		</div>
+    
+</body>
+
+</html>
+

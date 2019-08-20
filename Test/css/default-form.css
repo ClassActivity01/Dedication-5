@@ -1,0 +1,286 @@
+legend
+{
+	font-size: 14pt;
+	margin: 0;
+	padding: 0;
+	margin-left: 2%;
+	margin-right: 2%;
+	padding-right: 0.5%;
+	padding-left: 0.5%;
+	width: auto;
+}
+
+.form_header_question {
+
+    cursor: pointer;
+}
+
+.form_header_question:hover {
+
+    color: #ff4000;
+
+}
+
+.form_header_question a:hover {
+    color: #ff4000;
+}
+
+.form_header_question a {
+    color: #333;
+    text-decoration : none;
+}
+
+.empty {
+    border: 2px solid #ff4000;
+}
+
+.Warning_Info 
+{
+    color: #ff4000;
+}
+
+#results_Div {
+    display: none;
+}
+
+
+input
+{
+	margin-bottom: 1%;
+}
+
+form
+{
+	width: 90%;
+	left: 5%;
+	position: relative;
+}
+
+.default-form-header
+{
+	font-size: 18pt;
+	text-align: center;
+}
+
+.row
+{
+	margin: 0%;
+	margin-bottom: 0;
+    margin-top: 1%;
+}
+
+.form-custom-button
+{
+	background-color: #333;
+	color: #ccc;
+	width: 20%;
+	height: 50px;
+	border: none;
+}
+
+.form-custom-button:hover
+{
+	background-color: #444;
+	color: #ff4000;
+}
+
+.form-custom-button-columns
+{
+	background-color: #333;
+	color: #ccc;
+	width: 100%;
+	height: 50px;
+	border: none;
+}
+
+.form-custom-button-columns:hover
+{
+	background-color: #444;
+	color: #ff4000;
+}
+
+.form-custom-button-modal 
+{
+    background-color: #333;
+	color: #ccc;
+	width: 100%;
+	height: 100%;
+	border: 1px solid #ccc;
+}
+
+.form-custom-button-modal:hover
+{
+	background-color: #444;
+	color: #ff4000;
+}
+
+form
+{
+	border: 1px solid #333;
+	padding: 2%;
+}
+
+.modalbutton
+{
+	background-color: #333;
+	color: #ccc;
+}
+
+.modalbutton:hover
+{
+	background-color: #444;
+	color: #ff4000;
+	border: none;
+}
+
+.modal-content
+{
+	background-color: #333;
+	color: #ccc;
+}
+
+.form_details_heading
+{
+	font-size: 14pt;
+}
+
+.Add_extra_things
+{
+	border: none;
+	background: none;
+}
+
+.Add_extra_things:hover
+{
+	color: #ff4000;
+	font-weight: bold;
+}
+
+.searchButton
+{
+	background-color: #333;
+	color: #ccc;
+	width: 100%;
+	border: none;
+	height: 32px;
+}
+			
+.searchButton:hover
+{
+	background-color: #444;
+	color: #ff4000;
+}
+
+.BigSearchButton
+{
+
+}
+
+h3
+{
+	font-size: 14pt;
+	font-weight: bold;
+}
+
+.makeDivScrollable
+{
+	max-height: 200px;
+	overflow-y: auto;
+}
+
+.makeDivScrollable_search {
+    max-height: 500px;
+	overflow-y: auto;
+}
+
+.addToList
+{
+	background: none;
+	border: none;
+	
+}
+
+.addToList:hover{
+	color: #ff4000;
+}
+
+th
+{
+	font-weight: none;
+}
+
+.resultsOfSearch
+{
+	font-size: 16pt;
+	
+}
+
+.results
+{
+	width: 90%;
+	left: 5%;
+	position: relative;
+}
+
+.FormHeader_1
+{
+	text-align: center;
+	font-size: 16pt;
+}
+
+.modalSecondTitle
+{
+	text-align: center;
+	font-size: 14pt;
+	
+}
+
+legend a
+{
+	color: black;
+}
+
+legend a:hover{
+	color: black;
+	
+}
+
+.Add_extra_things_link
+{
+	color: #333;
+	text-decoration: none;
+}
+
+.Add_extra_things_link:hover
+{
+	color: #ff4000;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.Quote_Total
+{
+	font-size: 14t;
+	font-weight: bold;
+	
+}
+
+.modalSearchButton
+{
+	color:white;
+	background-color: #333;
+	border: 2px solid #555555;
+	width: 100%;
+	height: 100%;
+}
+
+.modalSearchButton:hover
+{
+	color:#ff4000;
+}
+
+
+
+
+
+

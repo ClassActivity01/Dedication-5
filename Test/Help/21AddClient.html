@@ -1,0 +1,208 @@
+﻿<html>
+	
+<head>
+	<title>2.1.Add Client</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Personal Edition 4.9.2.132">
+	<meta name="keywords" content="">
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "Emit Proteus.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("21AddClient");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	</head>
+
+<body>
+
+<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">2.1.Add Client</h1>
+				
+				<div id="topic_breadcrumb">
+					<a href="Subsystems.html">Sub-systems</a> &rsaquo;&rsaquo; <a href="2ClientSubsystem.html">2.Client Sub-system</a> &rsaquo;&rsaquo; </div>
+				</div>
+			<div id="topic_header_nav">
+				<a href="2ClientSubsystem.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				<a href="2ClientSubsystem.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				<a href="22MaintainClient.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				</div>
+			<div class="clear"></div>
+		</div>
+	<div id="topic_content">
+		
+<p></p>
+<h1 class="rvps12"><span class="rvts0"><span class="rvts16">2.1 Add New Customer</span></span></h1>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><span class="rvts19">Purpose of this function:</span><span class="rvts6"> </span><span class="rvts14">To add a customers details to the system to be used when processing orders and generating financial documents. </span></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<h2 class="rvps13"><span class="rvts0"><span class="rvts23">Navigation to add a new customer</span></span></h2>
+<p class="rvps14"><img width="440" height="194" alt="" style="padding : 1px;" src="lib/NewItem95.png"></p>
+<p class="rvps15"><span class="rvts20"><br/></span></p>
+<p class="rvps11"><span class="rvts14">The </span><span class="rvts25">Add New Customer </span><span class="rvts14">screen will display where you will be required to input all the required information about the customer.</span></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><img width="505" height="211" alt="" style="padding : 1px;" src="lib/NewItem96.png"></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<h2 class="rvps13"><span class="rvts0"><span class="rvts23">Screen Controls</span></span></h2>
+<p class="rvps11"><span class="rvts24"><br/></span></p>
+<p class="rvps11"><img width="493" height="372" alt="" style="padding : 1px;" src="lib/NewItem97.png"></p>
+<p class="rvps14"><span class="rvts19"><br/></span></p>
+<p class="rvps15"><span class="rvts20"><br/></span></p>
+<p class="rvps11"><span class="rvts6">The numbers indicated on the screen represent the following controls:</span></p>
+<p class="rvps11"><span class="rvts6"> </span></p>
+<ol style="text-indent: 0px; margin-left: 48px; list-style-position: outside; list-style-type: decimal;">
+<li value="1" class="rvps16"><span class="rvts26">Customer tab</span><span class="rvts27">: on the click of this tab the required Customer information will be displayed (as shown in the figure above).</span></li>
+<li value="2" class="rvps16"><span class="rvts26">Discount tab</span><span class="rvts27">: on the click of this tab the required Customer discount information will be displayed (as shown in the figure below). </span></li>
+<li value="3" class="rvps16"><span class="rvts26">Customer Name textbox</span><span class="rvts27">: the customer name is entered here.</span></li>
+<li value="4" class="rvps16"><span class="rvts26">Account Name textbox</span><span class="rvts27">: the customer’s account name is entered here.</span></li>
+<li value="5" class="rvps16"><span class="rvts26">VAT Number textbox</span><span class="rvts27">: enter the Customers VAT number here.</span></li>
+<li value="6" class="rvps16"><span class="rvts26">Status combo box</span><span class="rvts27">: select the Customer status from here.</span></li>
+<li value="7" class="rvps16"><span class="rvts26">Address textbox</span><span class="rvts27">: enter the Customer delivery street address here.</span></li>
+<li value="8" class="rvps16"><span class="rvts26">City textbox</span><span class="rvts27">: enter the Customer’s delivery address’s city name here.</span></li>
+<li value="9" class="rvps16"><span class="rvts26">Province combo box</span><span class="rvts27">: select the Customers delivery address’s Province from here.</span></li>
+<li value="10" class="rvps16"><span class="rvts26">Zip Code textbox</span><span class="rvts27">: enter the Customer’s delivery address’s postal code here.</span></li>
+<li value="11" class="rvps16"><span class="rvts26">Add Contact button</span><span class="rvts27">: click here if you wish to add another contact person for the Customer.</span></li>
+<li value="12" class="rvps16"><span class="rvts26">Remove Contact button</span><span class="rvts27">: click here if you wish to remove a contact person for the Customer.</span></li>
+<li value="13" class="rvps16"><span class="rvts26">Contact Name textbox</span><span class="rvts27">: enter the contact person’s name here.</span></li>
+<li value="14" class="rvps16"><span class="rvts26">Contact Number textbox</span><span class="rvts27">: enter the contact person’s contact number here.</span></li>
+<li value="15" class="rvps16"><span class="rvts26">Contact Email textbox</span><span class="rvts27">: enter the contact person’s email address here.</span></li>
+<li value="16" class="rvps16"><span class="rvts26">Job Description textbox</span><span class="rvts27">: enter the contact person’s job description here.</span></li>
+<li value="17" class="rvps16"><span class="rvts26">Add New Customer button</span><span class="rvts27">: this button will only be clicked, once all the required information has been entered, in order to add a new Customer.</span></li>
+</ol>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps14"><img width="601" height="296" alt="" style="padding : 1px;" src="lib/NewItem92.png"></p>
+<p class="rvps15"><span class="rvts20"><br/></span></p>
+<p class="rvps11"><span class="rvts14">The numbers indicated on the screen represent the following controls:</span></p>
+<ol style="text-indent: 0px; margin-left: 48px; list-style-position: outside; list-style-type: decimal;">
+<li value="1" class="rvps16"><span class="rvts26">Customer tab: </span><span class="rvts27">on the click of this tab the required customer information will be displayed</span></li>
+<li value="2" class="rvps16"><span class="rvts26">Discount tab: </span><span class="rvts27">on the click of this tab the required customer discount information will be displayed</span></li>
+<li value="3" class="rvps16"><span class="rvts26">Contract Discount Rate numeric up-down: </span><span class="rvts27">enter the contract discount rate offered to the customer here</span></li>
+<li value="4" class="rvps16"><span class="rvts26">Settlement Discount Rate numeric up-down:</span><span class="rvts27"> enter the settlement discount rate offered to the customer here</span></li>
+<li value="5" class="rvps16"><span class="rvts26">Add Discount to Part Type button:</span><span class="rvts27"> click this button to search for a part type to select and add a part discount rate for it</span></li>
+<li value="6" class="rvps16"><span class="rvts26">Discount % textbox: </span><span class="rvts27">enter the part discount rate here</span></li>
+<li value="7" class="rvps16"><span class="rvts26">‘Pompie Pump’ button:</span><span class="rvts27"> this button name depends on the part type listed for discount, click this button to remove the part type from the part discounts list</span></li>
+</ol>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><img alt="" style="padding : 1px;" src="lib/NewItem98.png"></p>
+<p class="rvps15"><span class="rvts20"><br/></span></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><img alt="" style="padding : 1px;" src="lib/NewItem99.png"></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<h2 class="rvps13"><span class="rvts0"><span class="rvts23">Process to follow : </span></span></h2>
+<p class="rvps11"><span class="rvts24"><br/></span></p>
+<p class="rvps11"><img width="599" height="168" alt="" style="padding : 1px;" src="lib/NewItem87.png"></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><span class="rvts14">Input the customer’s relevant details in each textbox, and select the correct options from the drop-down lists. The customer’s company name and physical address must be provided. The customer’s status must be set as ‘Active’ in order to be able to process the orders for the customer, if you set the status as ‘In-Active’ then this means you no longer have provide business services to this customer and so customer orders may not be processed for a customer with and ‘In-Active’ status.</span></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><img width="601" height="180" alt="" style="padding : 1px;" src="lib/NewItem86.png"></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><span class="rvts14">Input the customer’s relevant contact person’s details in each textbox. The contact person’s name and contact details must be provided, as well the job title that they hold in the company. Multiple contact persons can be added under one customer.</span></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><img alt="" style="padding : 1px;" src="lib/NewItem100.png"></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><span class="rvts14">Click the </span><span class="rvts25">Add Contact </span><span class="rvts14">button to add another contact person’s details under the current customer. The same controls will be displayed below the former contact person’s details.</span></p>
+<p class="rvps11"><span class="rvts21"><br/></span></p>
+<p class="rvps11"><span class="rvts21">*remove contact*</span></p>
+<p class="rvps11"><span class="rvts21">Click the </span><span class="rvts22">Remove Contact&nbsp;</span><span class="rvts21"> button to remove the selected contact person … select the person &amp; then click ..</span></p>
+<p class="rvps11"><img width="601" height="296" alt="" style="padding : 1px;" src="lib/NewItem84.png"></p>
+<p class="rvps11"><span class="rvts14">The </span><span class="rvts25">Add Customer Screen </span><span class="rvts14">automatically opens the </span><span class="rvts25">Customer </span><span class="rvts14">tab. To set the contract discount rate, settlement discount rate and part discount rates, click on the </span><span class="rvts25">Discounts </span><span class="rvts14">tab near the top of the page. Set the contract discount rate and settlement discount rate in the relevant textboxes.</span></p>
+<p class="rvps11"><span class="rvts14"><br/></span></p>
+<p class="rvps11"><img alt="" style="padding : 1px;" src="lib/NewItem101.png"></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><span class="rvts14">Click on the </span><span class="rvts25">Add Discount to Part Type </span><span class="rvts14">button to add a new part discount rate. An </span><span class="rvts25">Add Part Type </span><span class="rvts14">message-box will appear for you to search for the part type which you would like to provide a discount for this specific customer. This discount will only be used when this customer orders the selected part type.</span></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><img alt="" style="padding : 1px;" src="lib/NewItem102.png"></p>
+<p class="rvps11"><span class="rvts14"><br/></span></p>
+<p class="rvps11"><span class="rvts14">Once you’ve clicked the </span><span class="rvts25">Add Discount to Part Type </span><span class="rvts14">button, the </span><span class="rvts25">Add Part Type </span><span class="rvts14">message-box will display. Input the part type’s search criteria in the textbox, and then select what the criteria should be filtered by in the drop-down list. Click the </span><span class="rvts25">Filter </span><span class="rvts14">button to then have the search results displayed in the list box. </span></p>
+<p class="rvps11"><span class="rvts14"><br/></span></p>
+<p class="rvps11"><img alt="" style="padding : 1px;" src="lib/NewItem103.png"></p>
+<p class="rvps11"><span class="rvts14"><br/></span></p>
+<p class="rvps11"><span class="rvts14">Click on one of the parts displayed in the listbox so that it is highlighted blue, and then click the</span><span class="rvts25"> Add Part Type to Discounts</span><span class="rvts14"> button to add the part’s details to the part discounts list and later set the discount. </span></p>
+<p class="rvps11"><span class="rvts14"><br/></span></p>
+<p class="rvps11"><span class="rvts14">If the part type you are looking for does not display in the listbox then click the </span><span class="rvts25">Add New Part Type to System </span><span class="rvts14">button to then open the screen to add a new part type and then return to this </span><span class="rvts25">Add Customer </span><span class="rvts14">screen. Once you have added all the part type’s details on the screen and then returned to this one, you will then need to repeat the search (see above paragraph on how to search for a part type) and can then continue to click on the part type and click the </span><span class="rvts25">Add Part Type to Discounts </span><span class="rvts14">button.</span></p>
+<p class="rvps11"><span class="rvts14"><br/></span></p>
+<p class="rvps11"><span class="rvts14">Once you are finished searching and adding the part types to provide discounts for, you can click the </span><span class="rvts25">Close </span><span class="rvts14">button, this will then close </span><span class="rvts25">Add Part Type </span><span class="rvts14">message-box and allow you to set the part type’s discount rate in the relevant textbox in the table.</span></p>
+<p class="rvps11"><span class="rvts14"><br/></span></p>
+<p class="rvps11"><img alt="" style="padding : 1px;" src="lib/NewItem104.png"></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><span class="rvts14"><br/></span></p>
+<p class="rvps11"><span class="rvts14">In the </span><span class="rvts25">Parts with Discounts </span><span class="rvts14">table, each field in the </span><span class="rvts25">Name </span><span class="rvts14">column is a button. In this case the button is named ‘Pompie Pump’, click the ‘Pompie Pump’ button to remove it from the Part Discount rates.</span></p>
+<p class="rvps11"><span class="rvts14"><br/></span></p>
+<p class="rvps11"><span class="rvts14">Click the </span><span class="rvts25">Customer </span><span class="rvts14">tab to return to the customer’s details information once you are done setting the discounts.</span></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><img alt="" style="padding : 1px;" src="lib/NewItem105.png"><span class="rvts14">]</span></p>
+<p class="rvps11"><span class="rvts14"><br/></span></p>
+<p class="rvps11"><span class="rvts14">When you have completed adding the new customer’s details, click the </span><span class="rvts25">Add New Customer </span><span class="rvts14">button to save the information.</span></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><img alt="" style="padding : 1px;" src="lib/NewItem106.png"></p>
+<p class="rvps11"><span class="rvts14"><br/></span></p>
+<p class="rvps11"><span class="rvts14">Once you’ve input all the required details correctly and clicked the </span><span class="rvts25">Add New Customer </span><span class="rvts14">button, this message will display confirming that the new customer’s details were saved successfully. Click the </span><span class="rvts25">OK </span><span class="rvts14">button to dismiss the notification. </span></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><span class="rvts28">System Error Notifications and Troubleshooting</span></p>
+<p class="rvps11"><span class="rvts28"><br/></span></p>
+<p class="rvps11"><img alt="" style="padding : 1px;" src="lib/NewItem107.png"></p>
+<p class="rvps11"><span class="rvts28"><br/></span></p>
+<p class="rvps11"><span class="rvts14">The system will highlight empty fields that require information to be provided, as well as fields which have the wrong information in. A customer may only be successfully added if all the required information has been provided and the information is in the correct format.</span></p>
+<p class="rvps11"><span class="rvts14"><br/></span></p>
+<p class="rvps11"><img alt="" style="padding : 1px;" src="lib/NewItem108.png"></p>
+<p class="rvps11"><span class="rvts14"><br/></span></p>
+<p class="rvps11"><span class="rvts14">An error message similar to the one above may also be displayed at the bottom left of the screen near the </span><span class="rvts25">Add Customer</span><span class="rvts14"> button, describing the type of error to explain to you why the customer cannot be added. Read the error message to understand what is wrong and click on the textboxes which have the wrong information causing the error, and correct the information. Once all the incorrect information in the textboxes has been corrected, click on the </span><span class="rvts25">Add Customer </span><span class="rvts14">button to then try again to successfully add the customer’s details.</span></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><img alt="" style="padding : 1px;" src="lib/NewItem109.png"></p>
+<p class="rvps11"><span class="rvts14"><br/></span></p>
+<p class="rvps11"><span class="rvts14">An error message similar to the above example may also display by the incorrect textbox providing details on what is wrong with the input data. Read the error message to understand what is wrong and click on the textbox that it is referring to and correct the information. Once the incorrect information in the textbox has been corrected, click on the </span><span class="rvts25">Add Customer </span><span class="rvts14">button to then try again to successfully add the customer’s details.</span></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p></p>
+<p class="rvps4"><span class="rvts11">Created with the Personal Edition of HelpNDoc: </span><a class="rvts12" href="http://www.helpndoc.com/feature-tour/create-ebooks-for-amazon-kindle">Full-featured Kindle eBooks generator</a></p>
+</div>
+	
+	<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; 10th of October 2016  by Emit Proteus Group 9. All Rights Reserved.</div>
+		</div>
+	</body>
+	
+</html>
+

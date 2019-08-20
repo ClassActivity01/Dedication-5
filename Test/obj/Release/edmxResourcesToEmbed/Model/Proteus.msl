@@ -1,0 +1,778 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProteusModelStoreContainer" CdmEntityContainer="ProteusEntities">
+    <EntitySetMapping Name="Audits">
+      <EntityTypeMapping TypeName="ProteusModel.Audit">
+        <MappingFragment StoreEntitySet="Audit">
+          <ScalarProperty Name="Audit_ID" ColumnName="Audit_ID" />
+          <ScalarProperty Name="Table" ColumnName="Table" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+          <ScalarProperty Name="Employee_Name" ColumnName="Employee_Name" />
+          <ScalarProperty Name="Audit_Type_ID" ColumnName="Audit_Type_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Audit_Detail">
+      <EntityTypeMapping TypeName="ProteusModel.Audit_Detail">
+        <MappingFragment StoreEntitySet="Audit_Detail">
+          <ScalarProperty Name="Details_ID" ColumnName="Details_ID" />
+          <ScalarProperty Name="Field" ColumnName="Field" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Record_ID" ColumnName="Record_ID" />
+          <ScalarProperty Name="Audit_ID" ColumnName="Audit_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Audit_Type">
+      <EntityTypeMapping TypeName="ProteusModel.Audit_Type">
+        <MappingFragment StoreEntitySet="Audit_Type">
+          <ScalarProperty Name="Audit_Type_ID" ColumnName="Audit_Type_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Audit_Update_Detail">
+      <EntityTypeMapping TypeName="ProteusModel.Audit_Update_Detail">
+        <MappingFragment StoreEntitySet="Audit_Update_Detail">
+          <ScalarProperty Name="Update_Detail_ID" ColumnName="Update_Detail_ID" />
+          <ScalarProperty Name="Update_Field" ColumnName="Update_Field" />
+          <ScalarProperty Name="New_Value" ColumnName="New_Value" />
+          <ScalarProperty Name="Old_Value" ColumnName="Old_Value" />
+          <ScalarProperty Name="Record_ID" ColumnName="Record_ID" />
+          <ScalarProperty Name="Audit_ID" ColumnName="Audit_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="ProteusModel.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="Client_ID" ColumnName="Client_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="Overdue_Payment" ColumnName="Overdue_Payment" />
+          <ScalarProperty Name="Vat_Number" ColumnName="Vat_Number" />
+          <ScalarProperty Name="Account_Name" ColumnName="Account_Name" />
+          <ScalarProperty Name="Contract_Discount_Rate" ColumnName="Contract_Discount_Rate" />
+          <ScalarProperty Name="Client_Status" ColumnName="Client_Status" />
+          <ScalarProperty Name="Province_ID" ColumnName="Province_ID" />
+          <ScalarProperty Name="Settlement_Discount_Rate" ColumnName="Settlement_Discount_Rate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client_Contact_Person_Detail">
+      <EntityTypeMapping TypeName="ProteusModel.Client_Contact_Person_Detail">
+        <MappingFragment StoreEntitySet="Client_Contact_Person_Detail">
+          <ScalarProperty Name="Contact_ID" ColumnName="Contact_ID" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Job_Description" ColumnName="Job_Description" />
+          <ScalarProperty Name="Email_Address" ColumnName="Email_Address" />
+          <ScalarProperty Name="Client_ID" ColumnName="Client_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client_Credit_Order">
+      <EntityTypeMapping TypeName="ProteusModel.Client_Credit_Order">
+        <MappingFragment StoreEntitySet="Client_Credit_Order">
+          <ScalarProperty Name="Client_Credit_Order_ID" ColumnName="Client_Credit_Order_ID" />
+          <ScalarProperty Name="Quantity_Returned" ColumnName="Quantity_Returned" />
+          <ScalarProperty Name="Date_Returned" ColumnName="Date_Returned" />
+          <ScalarProperty Name="Client_Order_Detail_ID" ColumnName="Client_Order_Detail_ID" />
+          <ScalarProperty Name="Return_Comment" ColumnName="Return_Comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client_Discount_Rate">
+      <EntityTypeMapping TypeName="ProteusModel.Client_Discount_Rate">
+        <MappingFragment StoreEntitySet="Client_Discount_Rate">
+          <ScalarProperty Name="Client_ID" ColumnName="Client_ID" />
+          <ScalarProperty Name="Discount_Rate" ColumnName="Discount_Rate" />
+          <ScalarProperty Name="Part_Type_ID" ColumnName="Part_Type_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client_Order">
+      <EntityTypeMapping TypeName="ProteusModel.Client_Order">
+        <MappingFragment StoreEntitySet="Client_Order">
+          <ScalarProperty Name="Client_Order_ID" ColumnName="Client_Order_ID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Reference_ID" ColumnName="Reference_ID" />
+          <ScalarProperty Name="Contact_ID" ColumnName="Contact_ID" />
+          <ScalarProperty Name="Client_ID" ColumnName="Client_ID" />
+          <ScalarProperty Name="Settlement_Discount_Rate" ColumnName="Settlement_Discount_Rate" />
+          <ScalarProperty Name="Client_Order_Type_ID" ColumnName="Client_Order_Type_ID" />
+          <ScalarProperty Name="Client_Order_Status_ID" ColumnName="Client_Order_Status_ID" />
+          <ScalarProperty Name="Delivery_Method_ID" ColumnName="Delivery_Method_ID" />
+          <ScalarProperty Name="Job_Card_ID" ColumnName="Job_Card_ID" />
+          <ScalarProperty Name="VAT_Inclu" ColumnName="VAT_Inclu" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client_Order_Detail">
+      <EntityTypeMapping TypeName="ProteusModel.Client_Order_Detail">
+        <MappingFragment StoreEntitySet="Client_Order_Detail">
+          <ScalarProperty Name="Client_Order_Detail_ID" ColumnName="Client_Order_Detail_ID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Quantity_Delivered" ColumnName="Quantity_Delivered" />
+          <ScalarProperty Name="Part_Price" ColumnName="Part_Price" />
+          <ScalarProperty Name="Client_Discount_Rate" ColumnName="Client_Discount_Rate" />
+          <ScalarProperty Name="Client_Order_ID" ColumnName="Client_Order_ID" />
+          <ScalarProperty Name="Part_Type_ID" ColumnName="Part_Type_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client_Order_Status">
+      <EntityTypeMapping TypeName="ProteusModel.Client_Order_Status">
+        <MappingFragment StoreEntitySet="Client_Order_Status">
+          <ScalarProperty Name="Client_Order_Status_ID" ColumnName="Client_Order_Status_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client_Order_Type">
+      <EntityTypeMapping TypeName="ProteusModel.Client_Order_Type">
+        <MappingFragment StoreEntitySet="Client_Order_Type">
+          <ScalarProperty Name="Client_Order_Type_ID" ColumnName="Client_Order_Type_ID" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client_Quote">
+      <EntityTypeMapping TypeName="ProteusModel.Client_Quote">
+        <MappingFragment StoreEntitySet="Client_Quote">
+          <ScalarProperty Name="Client_Quote_ID" ColumnName="Client_Quote_ID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Client_ID" ColumnName="Client_ID" />
+          <ScalarProperty Name="Contact_ID" ColumnName="Contact_ID" />
+          <ScalarProperty Name="Client_Quote_Expiry_Date" ColumnName="Client_Quote_Expiry_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client_Quote_Detail">
+      <EntityTypeMapping TypeName="ProteusModel.Client_Quote_Detail">
+        <MappingFragment StoreEntitySet="Client_Quote_Detail">
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Part_Price" ColumnName="Part_Price" />
+          <ScalarProperty Name="Client_Discount_Rate" ColumnName="Client_Discount_Rate" />
+          <ScalarProperty Name="Settlement_Discount_Rate" ColumnName="Settlement_Discount_Rate" />
+          <ScalarProperty Name="Client_Quote_ID" ColumnName="Client_Quote_ID" />
+          <ScalarProperty Name="Part_Type_ID" ColumnName="Part_Type_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Components">
+      <EntityTypeMapping TypeName="ProteusModel.Component">
+        <MappingFragment StoreEntitySet="Component">
+          <ScalarProperty Name="Component_ID" ColumnName="Component_ID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Unit_Price" ColumnName="Unit_Price" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Dimension" ColumnName="Dimension" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Component_Supplier">
+      <EntityTypeMapping TypeName="ProteusModel.Component_Supplier">
+        <MappingFragment StoreEntitySet="Component_Supplier">
+          <ScalarProperty Name="is_preferred" ColumnName="is_preferred" />
+          <ScalarProperty Name="unit_price" ColumnName="unit_price" />
+          <ScalarProperty Name="Component_ID" ColumnName="Component_ID" />
+          <ScalarProperty Name="Supplier_ID" ColumnName="Supplier_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contracted_Client_Orders">
+      <EntityTypeMapping TypeName="ProteusModel.Contracted_Client_Orders">
+        <MappingFragment StoreEntitySet="Contracted_Client_Orders">
+          <ScalarProperty Name="Contract_Client_Order_ID" ColumnName="Contract_Client_Order_ID" />
+          <ScalarProperty Name="Client_Order_ID" ColumnName="Client_Order_ID" />
+          <ScalarProperty Name="Mine_Name" ColumnName="Mine_Name" />
+          <ScalarProperty Name="Contract_Discount_Rate" ColumnName="Contract_Discount_Rate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer_Credit">
+      <EntityTypeMapping TypeName="ProteusModel.Customer_Credit">
+        <MappingFragment StoreEntitySet="Customer_Credit">
+          <ScalarProperty Name="Customer_Credit_ID" ColumnName="Customer_Credit_ID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Return_Comment" ColumnName="Return_Comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer_Credit_Detail">
+      <EntityTypeMapping TypeName="ProteusModel.Customer_Credit_Detail">
+        <MappingFragment StoreEntitySet="Customer_Credit_Detail">
+          <ScalarProperty Name="Customer_Credit_ID" ColumnName="Customer_Credit_ID" />
+          <ScalarProperty Name="Part_ID" ColumnName="Part_ID" />
+          <ScalarProperty Name="Client_Order_Detail_ID" ColumnName="Client_Order_Detail_ID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Delivery_Method">
+      <EntityTypeMapping TypeName="ProteusModel.Delivery_Method">
+        <MappingFragment StoreEntitySet="Delivery_Method">
+          <ScalarProperty Name="Delivery_Method_ID" ColumnName="Delivery_Method_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Delivery_Note">
+      <EntityTypeMapping TypeName="ProteusModel.Delivery_Note">
+        <MappingFragment StoreEntitySet="Delivery_Note">
+          <ScalarProperty Name="Delivery_Note_ID" ColumnName="Delivery_Note_ID" />
+          <ScalarProperty Name="Delivery_Note_Date" ColumnName="Delivery_Note_Date" />
+          <ScalarProperty Name="Client_Order_ID" ColumnName="Client_Order_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Delivery_Note_Details">
+      <EntityTypeMapping TypeName="ProteusModel.Delivery_Note_Details">
+        <MappingFragment StoreEntitySet="Delivery_Note_Details">
+          <ScalarProperty Name="Quantity_Delivered" ColumnName="Quantity_Delivered" />
+          <ScalarProperty Name="Client_Order_Detail_ID" ColumnName="Client_Order_Detail_ID" />
+          <ScalarProperty Name="Delivery_Note_ID" ColumnName="Delivery_Note_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="ProteusModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="ID_Number" ColumnName="ID_Number" />
+          <ScalarProperty Name="Contact_Number" ColumnName="Contact_Number" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Salt" ColumnName="Salt" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Employee_Type_ID" ColumnName="Employee_Type_ID" />
+          <ScalarProperty Name="Gender_ID" ColumnName="Gender_ID" />
+          <ScalarProperty Name="Employee_Status" ColumnName="Employee_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employee_Type">
+      <EntityTypeMapping TypeName="ProteusModel.Employee_Type">
+        <MappingFragment StoreEntitySet="Employee_Type">
+          <ScalarProperty Name="Employee_Type_ID" ColumnName="Employee_Type_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Access_Level" ColumnName="Access_Level" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Genders">
+      <EntityTypeMapping TypeName="ProteusModel.Gender">
+        <MappingFragment StoreEntitySet="Gender">
+          <ScalarProperty Name="Gender_ID" ColumnName="Gender_ID" />
+          <ScalarProperty Name="Gender_Name" ColumnName="Gender_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Invoices">
+      <EntityTypeMapping TypeName="ProteusModel.Invoice">
+        <MappingFragment StoreEntitySet="Invoice">
+          <ScalarProperty Name="Invoice_ID" ColumnName="Invoice_ID" />
+          <ScalarProperty Name="Invoice_Date" ColumnName="Invoice_Date" />
+          <ScalarProperty Name="Invoice_Status_ID" ColumnName="Invoice_Status_ID" />
+          <ScalarProperty Name="Delivery_Note_ID" ColumnName="Delivery_Note_ID" />
+          <ScalarProperty Name="amount_noVat" ColumnName="amount_noVat" />
+          <ScalarProperty Name="amount_Vat" ColumnName="amount_Vat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Invoice_Payment">
+      <EntityTypeMapping TypeName="ProteusModel.Invoice_Payment">
+        <MappingFragment StoreEntitySet="Invoice_Payment">
+          <ScalarProperty Name="Payment_ID" ColumnName="Payment_ID" />
+          <ScalarProperty Name="Invoice_ID" ColumnName="Invoice_ID" />
+          <ScalarProperty Name="Payment_Date" ColumnName="Payment_Date" />
+          <ScalarProperty Name="Amount_Paid" ColumnName="Amount_Paid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Invoice_Status">
+      <EntityTypeMapping TypeName="ProteusModel.Invoice_Status">
+        <MappingFragment StoreEntitySet="Invoice_Status">
+          <ScalarProperty Name="Invoice_Status_ID" ColumnName="Invoice_Status_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Job_Card">
+      <EntityTypeMapping TypeName="ProteusModel.Job_Card">
+        <MappingFragment StoreEntitySet="Job_Card">
+          <ScalarProperty Name="Job_Card_ID" ColumnName="Job_Card_ID" />
+          <ScalarProperty Name="Job_Card_Date" ColumnName="Job_Card_Date" />
+          <ScalarProperty Name="Job_Card_Status_ID" ColumnName="Job_Card_Status_ID" />
+          <ScalarProperty Name="Job_Card_Priority_ID" ColumnName="Job_Card_Priority_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Job_Card_Detail">
+      <EntityTypeMapping TypeName="ProteusModel.Job_Card_Detail">
+        <MappingFragment StoreEntitySet="Job_Card_Detail">
+          <ScalarProperty Name="Job_Card_Details_ID" ColumnName="Job_Card_Details_ID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Non_Manual" ColumnName="Non_Manual" />
+          <ScalarProperty Name="Job_Card_ID" ColumnName="Job_Card_ID" />
+          <ScalarProperty Name="Part_Type_ID" ColumnName="Part_Type_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Job_Card_Priority">
+      <EntityTypeMapping TypeName="ProteusModel.Job_Card_Priority">
+        <MappingFragment StoreEntitySet="Job_Card_Priority">
+          <ScalarProperty Name="Job_Card_Priority_ID" ColumnName="Job_Card_Priority_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Job_Card_Status">
+      <EntityTypeMapping TypeName="ProteusModel.Job_Card_Status">
+        <MappingFragment StoreEntitySet="Job_Card_Status">
+          <ScalarProperty Name="Job_Card_Status_ID" ColumnName="Job_Card_Status_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Machines">
+      <EntityTypeMapping TypeName="ProteusModel.Machine">
+        <MappingFragment StoreEntitySet="Machine">
+          <ScalarProperty Name="Machine_ID" ColumnName="Machine_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="Price_Per_Hour" ColumnName="Price_Per_Hour" />
+          <ScalarProperty Name="Run_Time" ColumnName="Run_Time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Machine_Part">
+      <EntityTypeMapping TypeName="ProteusModel.Machine_Part">
+        <MappingFragment StoreEntitySet="Machine_Part">
+          <ScalarProperty Name="Stage_In_Manufacturing" ColumnName="Stage_In_Manufacturing" />
+          <ScalarProperty Name="Machine_ID" ColumnName="Machine_ID" />
+          <ScalarProperty Name="Part_Type_ID" ColumnName="Part_Type_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Machine_Status">
+      <EntityTypeMapping TypeName="ProteusModel.Machine_Status">
+        <MappingFragment StoreEntitySet="Machine_Status">
+          <ScalarProperty Name="Machine_Status_ID" ColumnName="Machine_Status_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Manual_Labour_Type">
+      <EntityTypeMapping TypeName="ProteusModel.Manual_Labour_Type">
+        <MappingFragment StoreEntitySet="Manual_Labour_Type">
+          <ScalarProperty Name="Manual_Labour_Type_ID" ColumnName="Manual_Labour_Type_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="Sub_Contractor" ColumnName="Sub_Contractor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Manual_Labour_Type_Part">
+      <EntityTypeMapping TypeName="ProteusModel.Manual_Labour_Type_Part">
+        <MappingFragment StoreEntitySet="Manual_Labour_Type_Part">
+          <ScalarProperty Name="Stage_In_Manufacturing" ColumnName="Stage_In_Manufacturing" />
+          <ScalarProperty Name="Manual_Labour_Type_ID" ColumnName="Manual_Labour_Type_ID" />
+          <ScalarProperty Name="Part_Type_ID" ColumnName="Part_Type_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Parts">
+      <EntityTypeMapping TypeName="ProteusModel.Part">
+        <MappingFragment StoreEntitySet="Part">
+          <ScalarProperty Name="Part_ID" ColumnName="Part_ID" />
+          <ScalarProperty Name="Part_Serial" ColumnName="Part_Serial" />
+          <ScalarProperty Name="Part_Status_ID" ColumnName="Part_Status_ID" />
+          <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+          <ScalarProperty Name="Cost_Price" ColumnName="Cost_Price" />
+          <ScalarProperty Name="Part_Stage" ColumnName="Part_Stage" />
+          <ScalarProperty Name="Parent_ID" ColumnName="Parent_ID" />
+          <ScalarProperty Name="Part_Type_ID" ColumnName="Part_Type_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Part_Blueprint">
+      <EntityTypeMapping TypeName="ProteusModel.Part_Blueprint">
+        <MappingFragment StoreEntitySet="Part_Blueprint">
+          <ScalarProperty Name="Blueprint_ID" ColumnName="Blueprint_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="File_Type" ColumnName="File_Type" />
+          <ScalarProperty Name="location" ColumnName="location" />
+          <ScalarProperty Name="Part_Type_ID" ColumnName="Part_Type_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Part_Status">
+      <EntityTypeMapping TypeName="ProteusModel.Part_Status">
+        <MappingFragment StoreEntitySet="Part_Status">
+          <ScalarProperty Name="Part_Status_ID" ColumnName="Part_Status_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Part_Supplier">
+      <EntityTypeMapping TypeName="ProteusModel.Part_Supplier">
+        <MappingFragment StoreEntitySet="Part_Supplier">
+          <ScalarProperty Name="Is_Prefered" ColumnName="Is_Prefered" />
+          <ScalarProperty Name="Supplier_ID" ColumnName="Supplier_ID" />
+          <ScalarProperty Name="Part_Type_ID" ColumnName="Part_Type_ID" />
+          <ScalarProperty Name="unit_price" ColumnName="unit_price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Part_Type">
+      <EntityTypeMapping TypeName="ProteusModel.Part_Type">
+        <MappingFragment StoreEntitySet="Part_Type">
+          <ScalarProperty Name="Part_Type_ID" ColumnName="Part_Type_ID" />
+          <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Selling_Price" ColumnName="Selling_Price" />
+          <ScalarProperty Name="Dimension" ColumnName="Dimension" />
+          <ScalarProperty Name="Minimum_Level" ColumnName="Minimum_Level" />
+          <ScalarProperty Name="Maximum_Level" ColumnName="Maximum_Level" />
+          <ScalarProperty Name="Max_Discount_Rate" ColumnName="Max_Discount_Rate" />
+          <ScalarProperty Name="Manufactured" ColumnName="Manufactured" />
+          <ScalarProperty Name="Average_Completion_Time" ColumnName="Average_Completion_Time" />
+          <ScalarProperty Name="Number_Of_Stages" ColumnName="Number_Of_Stages" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Production_Schedule">
+      <EntityTypeMapping TypeName="ProteusModel.Production_Schedule">
+        <MappingFragment StoreEntitySet="Production_Schedule">
+          <ScalarProperty Name="Production_Schedule_ID" ColumnName="Production_Schedule_ID" />
+          <ScalarProperty Name="Production_Schedule_Date" ColumnName="Production_Schedule_Date" />
+          <ScalarProperty Name="intervals" ColumnName="intervals" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Production_Task">
+      <EntityTypeMapping TypeName="ProteusModel.Production_Task">
+        <MappingFragment StoreEntitySet="Production_Task">
+          <ScalarProperty Name="Production_Task_ID" ColumnName="Production_Task_ID" />
+          <ScalarProperty Name="Production_Task_Type" ColumnName="Production_Task_Type" />
+          <ScalarProperty Name="Resource_ID" ColumnName="Resource_ID" />
+          <ScalarProperty Name="Part_Stage" ColumnName="Part_Stage" />
+          <ScalarProperty Name="Unique_Machine_ID" ColumnName="Unique_Machine_ID" />
+          <ScalarProperty Name="Part_ID" ColumnName="Part_ID" />
+          <ScalarProperty Name="Manual_Labour_Type_ID" ColumnName="Manual_Labour_Type_ID" />
+          <ScalarProperty Name="Job_Card_ID" ColumnName="Job_Card_ID" />
+          <ScalarProperty Name="Production_Schedule_ID" ColumnName="Production_Schedule_ID" />
+          <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+          <ScalarProperty Name="Part_Type_ID" ColumnName="Part_Type_ID" />
+          <ScalarProperty Name="daycycle" ColumnName="daycycle" />
+          <ScalarProperty Name="intervals" ColumnName="intervals" />
+          <ScalarProperty Name="start_time" ColumnName="start_time" />
+          <ScalarProperty Name="end_time" ColumnName="end_time" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="complete" ColumnName="complete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Provinces">
+      <EntityTypeMapping TypeName="ProteusModel.Province">
+        <MappingFragment StoreEntitySet="Province">
+          <ScalarProperty Name="Province_ID" ColumnName="Province_ID" />
+          <ScalarProperty Name="Province1" ColumnName="Province" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Raw_Material">
+      <EntityTypeMapping TypeName="ProteusModel.Raw_Material">
+        <MappingFragment StoreEntitySet="Raw_Material">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Minimum_Stock_Instances" ColumnName="Minimum_Stock_Instances" />
+          <ScalarProperty Name="Raw_Material_ID" ColumnName="Raw_Material_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Raw_Material_Supplier">
+      <EntityTypeMapping TypeName="ProteusModel.Raw_Material_Supplier">
+        <MappingFragment StoreEntitySet="Raw_Material_Supplier">
+          <ScalarProperty Name="Raw_Material_ID" ColumnName="Raw_Material_ID" />
+          <ScalarProperty Name="Supplier_ID" ColumnName="Supplier_ID" />
+          <ScalarProperty Name="Is_Prefered" ColumnName="Is_Prefered" />
+          <ScalarProperty Name="unit_price" ColumnName="unit_price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recipes">
+      <EntityTypeMapping TypeName="ProteusModel.Recipe">
+        <MappingFragment StoreEntitySet="Recipe">
+          <ScalarProperty Name="Recipe_ID" ColumnName="Recipe_ID" />
+          <ScalarProperty Name="Recipe_Type" ColumnName="Recipe_Type" />
+          <ScalarProperty Name="Quantity_Required" ColumnName="Quantity_Required" />
+          <ScalarProperty Name="Stage_in_Manufacturing" ColumnName="Stage_in_Manufacturing" />
+          <ScalarProperty Name="Part_Type_ID" ColumnName="Part_Type_ID" />
+          <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+          <ScalarProperty Name="Item_Name" ColumnName="Item_Name" />
+          <ScalarProperty Name="Dimension" ColumnName="Dimension" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sub_Contractor">
+      <EntityTypeMapping TypeName="ProteusModel.Sub_Contractor">
+        <MappingFragment StoreEntitySet="Sub_Contractor">
+          <ScalarProperty Name="Sub_Contractor_ID" ColumnName="Sub_Contractor_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Manual_Labour_Type_ID" ColumnName="Manual_Labour_Type_ID" />
+          <ScalarProperty Name="Province_ID" ColumnName="Province_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sub_Contractor_Contact_Detail">
+      <EntityTypeMapping TypeName="ProteusModel.Sub_Contractor_Contact_Detail">
+        <MappingFragment StoreEntitySet="Sub_Contractor_Contact_Detail">
+          <ScalarProperty Name="Contact_ID" ColumnName="Contact_ID" />
+          <ScalarProperty Name="Sub_Contractor_ID" ColumnName="Sub_Contractor_ID" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suppliers">
+      <EntityTypeMapping TypeName="ProteusModel.Supplier">
+        <MappingFragment StoreEntitySet="Supplier">
+          <ScalarProperty Name="Supplier_ID" ColumnName="Supplier_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="Bank_Account_Number" ColumnName="Bank_Account_Number" />
+          <ScalarProperty Name="Bank_Branch" ColumnName="Bank_Branch" />
+          <ScalarProperty Name="Bank_Name" ColumnName="Bank_Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Contact_Number" ColumnName="Contact_Number" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Province_ID" ColumnName="Province_ID" />
+          <ScalarProperty Name="Bank_Reference" ColumnName="Bank_Reference" />
+          <ScalarProperty Name="Contact_Name" ColumnName="Contact_Name" />
+          <ScalarProperty Name="Foreign_Bank" ColumnName="Foreign_Bank" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supplier_Order">
+      <EntityTypeMapping TypeName="ProteusModel.Supplier_Order">
+        <MappingFragment StoreEntitySet="Supplier_Order">
+          <ScalarProperty Name="Supplier_Order_ID" ColumnName="Supplier_Order_ID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Supplier_ID" ColumnName="Supplier_ID" />
+          <ScalarProperty Name="Supplier_Order_Status_ID" ColumnName="Supplier_Order_Status_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supplier_Order_Component">
+      <EntityTypeMapping TypeName="ProteusModel.Supplier_Order_Component">
+        <MappingFragment StoreEntitySet="Supplier_Order_Component">
+          <ScalarProperty Name="Component_ID" ColumnName="Component_ID" />
+          <ScalarProperty Name="Quantity_Requested" ColumnName="Quantity_Requested" />
+          <ScalarProperty Name="Quantity_Received" ColumnName="Quantity_Received" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Supplier_Order_ID" ColumnName="Supplier_Order_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supplier_Order_Detail_Part">
+      <EntityTypeMapping TypeName="ProteusModel.Supplier_Order_Detail_Part">
+        <MappingFragment StoreEntitySet="Supplier_Order_Detail_Part">
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Quantity_Received" ColumnName="Quantity_Received" />
+          <ScalarProperty Name="Part_Type_ID" ColumnName="Part_Type_ID" />
+          <ScalarProperty Name="Supplier_Order_ID" ColumnName="Supplier_Order_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supplier_Order_Detail_Raw_Material">
+      <EntityTypeMapping TypeName="ProteusModel.Supplier_Order_Detail_Raw_Material">
+        <MappingFragment StoreEntitySet="Supplier_Order_Detail_Raw_Material">
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Quantity_Received" ColumnName="Quantity_Received" />
+          <ScalarProperty Name="Dimensions" ColumnName="Dimensions" />
+          <ScalarProperty Name="Raw_Material_ID" ColumnName="Raw_Material_ID" />
+          <ScalarProperty Name="Supplier_Order_ID" ColumnName="Supplier_Order_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supplier_Order_Status">
+      <EntityTypeMapping TypeName="ProteusModel.Supplier_Order_Status">
+        <MappingFragment StoreEntitySet="Supplier_Order_Status">
+          <ScalarProperty Name="Supplier_Order_Status_ID" ColumnName="Supplier_Order_Status_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supplier_Quote">
+      <EntityTypeMapping TypeName="ProteusModel.Supplier_Quote">
+        <MappingFragment StoreEntitySet="Supplier_Quote">
+          <ScalarProperty Name="Supplier_Quote_ID" ColumnName="Supplier_Quote_ID" />
+          <ScalarProperty Name="Supplier_Quote_Serial" ColumnName="Supplier_Quote_Serial" />
+          <ScalarProperty Name="Supplier_Quote_Date" ColumnName="Supplier_Quote_Date" />
+          <ScalarProperty Name="Supplier_ID" ColumnName="Supplier_ID" />
+          <ScalarProperty Name="Supplier_Quote_Expiry_Date" ColumnName="Supplier_Quote_Expiry_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supplier_Quote_Component">
+      <EntityTypeMapping TypeName="ProteusModel.Supplier_Quote_Component">
+        <MappingFragment StoreEntitySet="Supplier_Quote_Component">
+          <ScalarProperty Name="Supplier_Quote_ID" ColumnName="Supplier_Quote_ID" />
+          <ScalarProperty Name="Component_ID" ColumnName="Component_ID" />
+          <ScalarProperty Name="Quantity_Requested" ColumnName="Quantity_Requested" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supplier_Quote_Detail_Part">
+      <EntityTypeMapping TypeName="ProteusModel.Supplier_Quote_Detail_Part">
+        <MappingFragment StoreEntitySet="Supplier_Quote_Detail_Part">
+          <ScalarProperty Name="Supplier_Quote_ID" ColumnName="Supplier_Quote_ID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Part_Type_ID" ColumnName="Part_Type_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supplier_Quote_Detail_Raw_Material">
+      <EntityTypeMapping TypeName="ProteusModel.Supplier_Quote_Detail_Raw_Material">
+        <MappingFragment StoreEntitySet="Supplier_Quote_Detail_Raw_Material">
+          <ScalarProperty Name="Supplier_Quote_ID" ColumnName="Supplier_Quote_ID" />
+          <ScalarProperty Name="Raw_Material_ID" ColumnName="Raw_Material_ID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Dimension" ColumnName="Dimension" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supplier_Return">
+      <EntityTypeMapping TypeName="ProteusModel.Supplier_Return">
+        <MappingFragment StoreEntitySet="Supplier_Return">
+          <ScalarProperty Name="Supplier_Return_ID" ColumnName="Supplier_Return_ID" />
+          <ScalarProperty Name="Supplier_Order_ID" ColumnName="Supplier_Order_ID" />
+          <ScalarProperty Name="Date_of_Return" ColumnName="Date_of_Return" />
+          <ScalarProperty Name="Invoice_Number" ColumnName="Invoice_Number" />
+          <ScalarProperty Name="Delivery_Note_Number" ColumnName="Delivery_Note_Number" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supplier_Return_Item">
+      <EntityTypeMapping TypeName="ProteusModel.Supplier_Return_Item">
+        <MappingFragment StoreEntitySet="Supplier_Return_Item">
+          <ScalarProperty Name="Return_Item_ID" ColumnName="Return_Item_ID" />
+          <ScalarProperty Name="Supplier_Return_ID" ColumnName="Supplier_Return_ID" />
+          <ScalarProperty Name="Type_of_Inventory" ColumnName="Type_of_Inventory" />
+          <ScalarProperty Name="Inventory_ID" ColumnName="Inventory_ID" />
+          <ScalarProperty Name="Units_Returned" ColumnName="Units_Returned" />
+          <ScalarProperty Name="Item_Name" ColumnName="Item_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Unique_Machine">
+      <EntityTypeMapping TypeName="ProteusModel.Unique_Machine">
+        <MappingFragment StoreEntitySet="Unique_Machine">
+          <ScalarProperty Name="Unique_Machine_ID" ColumnName="Unique_Machine_ID" />
+          <ScalarProperty Name="Unique_Machine_Serial" ColumnName="Unique_Machine_Serial" />
+          <ScalarProperty Name="Machine_Status_ID" ColumnName="Machine_Status_ID" />
+          <ScalarProperty Name="Machine_ID" ColumnName="Machine_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Unique_Raw_Material">
+      <EntityTypeMapping TypeName="ProteusModel.Unique_Raw_Material">
+        <MappingFragment StoreEntitySet="Unique_Raw_Material">
+          <ScalarProperty Name="Unique_Raw_Material_ID" ColumnName="Unique_Raw_Material_ID" />
+          <ScalarProperty Name="Raw_Material_ID" ColumnName="Raw_Material_ID" />
+          <ScalarProperty Name="Dimension" ColumnName="Dimension" />
+          <ScalarProperty Name="Quality" ColumnName="Quality" />
+          <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+          <ScalarProperty Name="Date_Used" ColumnName="Date_Used" />
+          <ScalarProperty Name="Cost_Price" ColumnName="Cost_Price" />
+          <ScalarProperty Name="Supplier_Order_ID" ColumnName="Supplier_Order_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VATs">
+      <EntityTypeMapping TypeName="ProteusModel.VAT">
+        <MappingFragment StoreEntitySet="VAT">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="VAT_Rate" ColumnName="VAT_Rate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Job_Card_Detail_Part" TypeName="ProteusModel.Job_Card_Detail_Part" StoreEntitySet="Job_Card_Detail_Part">
+      <EndProperty Name="Job_Card_Detail">
+        <ScalarProperty Name="Job_Card_Details_ID" ColumnName="Job_Card_Details_ID" />
+      </EndProperty>
+      <EndProperty Name="Part">
+        <ScalarProperty Name="Part_ID" ColumnName="Part_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Machine_Employee" TypeName="ProteusModel.Machine_Employee" StoreEntitySet="Machine_Employee">
+      <EndProperty Name="Employee">
+        <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+      </EndProperty>
+      <EndProperty Name="Machine">
+        <ScalarProperty Name="Machine_ID" ColumnName="Machine_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Manual_Labour_Employee" TypeName="ProteusModel.Manual_Labour_Employee" StoreEntitySet="Manual_Labour_Employee">
+      <EndProperty Name="Employee">
+        <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+      </EndProperty>
+      <EndProperty Name="Manual_Labour_Type">
+        <ScalarProperty Name="Manual_Labour_Type_ID" ColumnName="Manual_Labour_Type_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Part_Supplier_Order" TypeName="ProteusModel.Part_Supplier_Order" StoreEntitySet="Part_Supplier_Order">
+      <EndProperty Name="Part">
+        <ScalarProperty Name="Part_ID" ColumnName="Part_ID" />
+      </EndProperty>
+      <EndProperty Name="Supplier_Order">
+        <ScalarProperty Name="Supplier_Order_ID" ColumnName="Supplier_Order_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Supplier_Order_Quote" TypeName="ProteusModel.Supplier_Order_Quote" StoreEntitySet="Supplier_Order_Quote">
+      <EndProperty Name="Supplier_Quote">
+        <ScalarProperty Name="Supplier_Quote_ID" ColumnName="Supplier_Quote_ID" />
+      </EndProperty>
+      <EndProperty Name="Supplier_Order">
+        <ScalarProperty Name="Supplier_Order_ID" ColumnName="Supplier_Order_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

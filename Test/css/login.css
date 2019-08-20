@@ -1,0 +1,81 @@
+.login-div
+{
+	width: 35%;
+	color: #333;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	/* bring your own prefixes */
+	transform: translate(-50%, -50%);
+}
+
+.form-group
+{
+	border: none;
+}
+
+body {
+  background: url(../images/notebookOntable2Compressed.jpg) no-repeat center center fixed;
+  background-color:rgba(0,0,0,0.3);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.login-heading
+{
+	text-align: center;
+	margin:0;
+	padding: 0;
+	
+	font-weight: bold;
+	font-size: 20pt;
+}
+
+.login-button
+{
+	margin-left: 2%;
+	width: 96%;
+	height: 40px;
+	background-color: #333;
+	color: #ccc;
+	font-size: 16pt;
+	border: none;
+	margin-left: 2%;
+}
+
+.login-button:hover
+{
+	background-color: #444;
+	color: #ff4000;
+}
+
+.login-subtext
+{
+	text-align: center;
+	color: #444444;
+	font-size: 12pt;
+}
+
+.forgot-password
+{
+	text-align: center;
+	
+	font-size: 10pt;
+	
+	width: 100%;
+}
+
+a
+{
+	text-decoration: none;
+	color: #444444;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.forgot-password > a:hover
+{
+	text-decoration: none;
+	color: #ff4000;
+}

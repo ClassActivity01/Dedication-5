@@ -1,0 +1,2268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProteusModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Access">
+    <Key>
+      <PropertyRef Name="Access_ID" />
+    </Key>
+    <Property Name="Access_ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="href" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Access_Employee_Type" Relationship="Self.FK__Access_Em__Acces__7E02B4CC" FromRole="Access" ToRole="Access_Employee_Type" />
+  </EntityType>
+  <EntityType Name="Access_Employee_Type">
+    <Key>
+      <PropertyRef Name="Employee_Type_ID" />
+      <PropertyRef Name="Access_ID" />
+    </Key>
+    <Property Name="Employee_Type_ID" Type="Int32" Nullable="false" />
+    <Property Name="Access_ID" Type="Int32" Nullable="false" />
+    <Property Name="Acess" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Access" Relationship="Self.FK__Access_Em__Acces__7E02B4CC" FromRole="Access_Employee_Type" ToRole="Access" />
+    <NavigationProperty Name="Employee_Type" Relationship="Self.FK__Access_Em__Emplo__7EF6D905" FromRole="Access_Employee_Type" ToRole="Employee_Type" />
+  </EntityType>
+  <EntityType Name="Audit">
+    <Key>
+      <PropertyRef Name="Audit_ID" />
+    </Key>
+    <Property Name="Audit_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Table" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Employee_ID" Type="Int32" Nullable="false" />
+    <Property Name="Employee_Name" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Audit_Type_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Audit_Type" Relationship="Self.FK__Audit__Audit_Typ__4CA06362" FromRole="Audit" ToRole="Audit_Type" />
+    <NavigationProperty Name="Audit_Detail" Relationship="Self.FK__Audit_Det__Audit__6477ECF3" FromRole="Audit" ToRole="Audit_Detail" />
+    <NavigationProperty Name="Audit_Update_Detail" Relationship="Self.FK__Audit_Upd__Audit__6EF57B66" FromRole="Audit" ToRole="Audit_Update_Detail" />
+  </EntityType>
+  <EntityType Name="Audit_Detail">
+    <Key>
+      <PropertyRef Name="Details_ID" />
+    </Key>
+    <Property Name="Details_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Field" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Value" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Record_ID" Type="Int32" Nullable="false" />
+    <Property Name="Audit_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Audit" Relationship="Self.FK__Audit_Det__Audit__6477ECF3" FromRole="Audit_Detail" ToRole="Audit" />
+  </EntityType>
+  <EntityType Name="Audit_Type">
+    <Key>
+      <PropertyRef Name="Audit_Type_ID" />
+    </Key>
+    <Property Name="Audit_Type_ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Audits" Relationship="Self.FK__Audit__Audit_Typ__4CA06362" FromRole="Audit_Type" ToRole="Audit" />
+  </EntityType>
+  <EntityType Name="Audit_Update_Detail">
+    <Key>
+      <PropertyRef Name="Update_Detail_ID" />
+    </Key>
+    <Property Name="Update_Detail_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Update_Field" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="New_Value" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Old_Value" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Record_ID" Type="Int32" Nullable="false" />
+    <Property Name="Audit_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Audit" Relationship="Self.FK__Audit_Upd__Audit__6EF57B66" FromRole="Audit_Update_Detail" ToRole="Audit" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="Client_ID" />
+    </Key>
+    <Property Name="Client_ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="95" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Zip" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Overdue_Payment" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Vat_Number" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Account_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Contract_Discount_Rate" Type="Double" Nullable="false" />
+    <Property Name="Client_Status" Type="Boolean" Nullable="false" />
+    <Property Name="Province_ID" Type="Int32" Nullable="false" />
+    <Property Name="Settlement_Discount_Rate" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Province" Relationship="Self.FK__Client__Province__75A278F5" FromRole="Client" ToRole="Province" />
+    <NavigationProperty Name="Client_Contact_Person_Detail" Relationship="Self.FK__Client_Co__Clien__0D7A0286" FromRole="Client" ToRole="Client_Contact_Person_Detail" />
+    <NavigationProperty Name="Client_Discount_Rate" Relationship="Self.FK__Client_Di__Clien__05D8E0BE" FromRole="Client" ToRole="Client_Discount_Rate" />
+    <NavigationProperty Name="Client_Order" Relationship="Self.FK__Client_Or__Clien__151B244E" FromRole="Client" ToRole="Client_Order" />
+    <NavigationProperty Name="Client_Quote" Relationship="Self.FK__Client_Qu__Clien__236943A5" FromRole="Client" ToRole="Client_Quote" />
+  </EntityType>
+  <EntityType Name="Client_Contact_Person_Detail">
+    <Key>
+      <PropertyRef Name="Contact_ID" />
+    </Key>
+    <Property Name="Contact_ID" Type="Int32" Nullable="false" />
+    <Property Name="Number" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Job_Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email_Address" Type="String" MaxLength="254" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Client_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Client" Relationship="Self.FK__Client_Co__Clien__0D7A0286" FromRole="Client_Contact_Person_Detail" ToRole="Client" />
+    <NavigationProperty Name="Client_Quote" Relationship="Self.FK__Client_Qu__Conta__245D67DE" FromRole="Client_Contact_Person_Detail" ToRole="Client_Quote" />
+  </EntityType>
+  <EntityType Name="Client_Credit_Order">
+    <Key>
+      <PropertyRef Name="Client_Credit_Order_ID" />
+    </Key>
+    <Property Name="Client_Credit_Order_ID" Type="Int32" Nullable="false" />
+    <Property Name="Quantity_Returned" Type="Int32" Nullable="false" />
+    <Property Name="Date_Returned" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Client_Order_Detail_ID" Type="Int32" Nullable="false" />
+    <Property Name="Return_Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Client_Order_Detail" Relationship="Self.FK__Client_Cr__Clien__625A9A57" FromRole="Client_Credit_Order" ToRole="Client_Order_Detail" />
+  </EntityType>
+  <EntityType Name="Client_Discount_Rate">
+    <Key>
+      <PropertyRef Name="Client_ID" />
+      <PropertyRef Name="Part_Type_ID" />
+    </Key>
+    <Property Name="Client_ID" Type="Int32" Nullable="false" />
+    <Property Name="Discount_Rate" Type="Double" Nullable="false" />
+    <Property Name="Part_Type_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Client" Relationship="Self.FK__Client_Di__Clien__05D8E0BE" FromRole="Client_Discount_Rate" ToRole="Client" />
+    <NavigationProperty Name="Part_Type" Relationship="Self.FK__Client_Di__Part___06CD04F7" FromRole="Client_Discount_Rate" ToRole="Part_Type" />
+  </EntityType>
+  <EntityType Name="Client_Order">
+    <Key>
+      <PropertyRef Name="Client_Order_ID" />
+    </Key>
+    <Property Name="Client_Order_ID" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Reference_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Contact_ID" Type="Int32" Nullable="false" />
+    <Property Name="Client_ID" Type="Int32" Nullable="false" />
+    <Property Name="Settlement_Discount_Rate" Type="Double" Nullable="false" />
+    <Property Name="Client_Order_Type_ID" Type="Int32" Nullable="false" />
+    <Property Name="Client_Order_Status_ID" Type="Int32" Nullable="false" />
+    <Property Name="Delivery_Method_ID" Type="Int32" Nullable="false" />
+    <Property Name="Job_Card_ID" Type="Int32" Nullable="false" />
+    <Property Name="VAT_Inclu" Type="Boolean" Nullable="false" />
+    <Property Name="Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Client" Relationship="Self.FK__Client_Or__Clien__151B244E" FromRole="Client_Order" ToRole="Client" />
+    <NavigationProperty Name="Client_Order_Type" Relationship="Self.FK__Client_Or__Clien__160F4887" FromRole="Client_Order" ToRole="Client_Order_Type" />
+    <NavigationProperty Name="Client_Order_Status" Relationship="Self.FK__Client_Or__Clien__17036CC0" FromRole="Client_Order" ToRole="Client_Order_Status" />
+    <NavigationProperty Name="Client_Order_Detail" Relationship="Self.FK__Client_Or__Clien__3864608B" FromRole="Client_Order" ToRole="Client_Order_Detail" />
+    <NavigationProperty Name="Delivery_Method" Relationship="Self.FK__Client_Or__Deliv__17F790F9" FromRole="Client_Order" ToRole="Delivery_Method" />
+    <NavigationProperty Name="Job_Card" Relationship="Self.FK__Client_Or__Job_C__18EBB532" FromRole="Client_Order" ToRole="Job_Card" />
+    <NavigationProperty Name="Contracted_Client_Orders" Relationship="Self.FK__Contracte__Clien__2739D489" FromRole="Client_Order" ToRole="Contracted_Client_Orders" />
+    <NavigationProperty Name="Delivery_Note" Relationship="Self.FK__Delivery___Clien__2DE6D218" FromRole="Client_Order" ToRole="Delivery_Note" />
+  </EntityType>
+  <EntityType Name="Client_Order_Detail">
+    <Key>
+      <PropertyRef Name="Client_Order_Detail_ID" />
+    </Key>
+    <Property Name="Client_Order_Detail_ID" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Quantity_Delivered" Type="Int32" Nullable="false" />
+    <Property Name="Part_Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Client_Discount_Rate" Type="Double" Nullable="false" />
+    <Property Name="Client_Order_ID" Type="Int32" Nullable="false" />
+    <Property Name="Part_Type_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Client_Credit_Order" Relationship="Self.FK__Client_Cr__Clien__625A9A57" FromRole="Client_Order_Detail" ToRole="Client_Credit_Order" />
+    <NavigationProperty Name="Client_Order" Relationship="Self.FK__Client_Or__Clien__3864608B" FromRole="Client_Order_Detail" ToRole="Client_Order" />
+    <NavigationProperty Name="Part_Type" Relationship="Self.FK__Client_Or__Part___395884C4" FromRole="Client_Order_Detail" ToRole="Part_Type" />
+    <NavigationProperty Name="Delivery_Note_Details" Relationship="Self.FK__Delivery___Clien__57DD0BE4" FromRole="Client_Order_Detail" ToRole="Delivery_Note_Details" />
+  </EntityType>
+  <EntityType Name="Client_Order_Status">
+    <Key>
+      <PropertyRef Name="Client_Order_Status_ID" />
+    </Key>
+    <Property Name="Client_Order_Status_ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Client_Order" Relationship="Self.FK__Client_Or__Clien__17036CC0" FromRole="Client_Order_Status" ToRole="Client_Order" />
+  </EntityType>
+  <EntityType Name="Client_Order_Type">
+    <Key>
+      <PropertyRef Name="Client_Order_Type_ID" />
+    </Key>
+    <Property Name="Client_Order_Type_ID" Type="Int32" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Client_Order" Relationship="Self.FK__Client_Or__Clien__160F4887" FromRole="Client_Order_Type" ToRole="Client_Order" />
+  </EntityType>
+  <EntityType Name="Client_Quote">
+    <Key>
+      <PropertyRef Name="Client_Quote_ID" />
+    </Key>
+    <Property Name="Client_Quote_ID" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Client_ID" Type="Int32" Nullable="false" />
+    <Property Name="Contact_ID" Type="Int32" Nullable="false" />
+    <Property Name="Client_Quote_Expiry_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Client" Relationship="Self.FK__Client_Qu__Clien__236943A5" FromRole="Client_Quote" ToRole="Client" />
+    <NavigationProperty Name="Client_Contact_Person_Detail" Relationship="Self.FK__Client_Qu__Conta__245D67DE" FromRole="Client_Quote" ToRole="Client_Contact_Person_Detail" />
+    <NavigationProperty Name="Client_Quote_Detail" Relationship="Self.FK__Client_Qu__Clien__5BAD9CC8" FromRole="Client_Quote" ToRole="Client_Quote_Detail" />
+  </EntityType>
+  <EntityType Name="Client_Quote_Detail">
+    <Key>
+      <PropertyRef Name="Client_Quote_ID" />
+      <PropertyRef Name="Part_Type_ID" />
+    </Key>
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Part_Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Client_Discount_Rate" Type="Double" Nullable="false" />
+    <Property Name="Settlement_Discount_Rate" Type="Double" Nullable="false" />
+    <Property Name="Client_Quote_ID" Type="Int32" Nullable="false" />
+    <Property Name="Part_Type_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Client_Quote" Relationship="Self.FK__Client_Qu__Clien__5BAD9CC8" FromRole="Client_Quote_Detail" ToRole="Client_Quote" />
+    <NavigationProperty Name="Part_Type" Relationship="Self.FK__Client_Qu__Part___5CA1C101" FromRole="Client_Quote_Detail" ToRole="Part_Type" />
+  </EntityType>
+  <EntityType Name="Component">
+    <Key>
+      <PropertyRef Name="Component_ID" />
+    </Key>
+    <Property Name="Component_ID" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Unit_Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Dimension" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Component_Supplier" Relationship="Self.FK__Component__Compo__4A8310C6" FromRole="Component" ToRole="Component_Supplier" />
+    <NavigationProperty Name="Supplier_Quote_Component" Relationship="Self.FK__Supplier___Compo__208CD6FA" FromRole="Component" ToRole="Supplier_Quote_Component" />
+    <NavigationProperty Name="Supplier_Order_Component" Relationship="Self.FK__Supplier___Compo__3C34F16F" FromRole="Component" ToRole="Supplier_Order_Component" />
+    <Property Name="Min_Stock" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Component_Supplier">
+    <Key>
+      <PropertyRef Name="Component_ID" />
+      <PropertyRef Name="Supplier_ID" />
+    </Key>
+    <Property Name="is_preferred" Type="Boolean" Nullable="false" />
+    <Property Name="unit_price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Component_ID" Type="Int32" Nullable="false" />
+    <Property Name="Supplier_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Component" Relationship="Self.FK__Component__Compo__4A8310C6" FromRole="Component_Supplier" ToRole="Component" />
+    <NavigationProperty Name="Supplier" Relationship="Self.FK__Component__Suppl__4B7734FF" FromRole="Component_Supplier" ToRole="Supplier" />
+  </EntityType>
+  <EntityType Name="Contracted_Client_Orders">
+    <Key>
+      <PropertyRef Name="Contract_Client_Order_ID" />
+    </Key>
+    <Property Name="Contract_Client_Order_ID" Type="Int32" Nullable="false" />
+    <Property Name="Client_Order_ID" Type="Int32" Nullable="false" />
+    <Property Name="Mine_Name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Contract_Discount_Rate" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Client_Order" Relationship="Self.FK__Contracte__Clien__2739D489" FromRole="Contracted_Client_Orders" ToRole="Client_Order" />
+  </EntityType>
+  <EntityType Name="Customer_Credit">
+    <Key>
+      <PropertyRef Name="Customer_Credit_ID" />
+    </Key>
+    <Property Name="Customer_Credit_ID" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Return_Comment" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Customer_Credit_Detail" Relationship="Self.FK__Customer___Custo__793DFFAF" FromRole="Customer_Credit" ToRole="Customer_Credit_Detail" />
+  </EntityType>
+  <EntityType Name="Customer_Credit_Detail">
+    <Key>
+      <PropertyRef Name="Customer_Credit_ID" />
+      <PropertyRef Name="Part_ID" />
+    </Key>
+    <Property Name="Customer_Credit_ID" Type="Int32" Nullable="false" />
+    <Property Name="Part_ID" Type="Int32" Nullable="false" />
+    <Property Name="Client_Order_Detail_ID" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Customer_Credit" Relationship="Self.FK__Customer___Custo__793DFFAF" FromRole="Customer_Credit_Detail" ToRole="Customer_Credit" />
+    <NavigationProperty Name="Part" Relationship="Self.FK__Customer___Part___7849DB76" FromRole="Customer_Credit_Detail" ToRole="Part" />
+  </EntityType>
+  <EntityType Name="Delivery_Method">
+    <Key>
+      <PropertyRef Name="Delivery_Method_ID" />
+    </Key>
+    <Property Name="Delivery_Method_ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Client_Order" Relationship="Self.FK__Client_Or__Deliv__17F790F9" FromRole="Delivery_Method" ToRole="Client_Order" />
+  </EntityType>
+  <EntityType Name="Delivery_Note">
+    <Key>
+      <PropertyRef Name="Delivery_Note_ID" />
+    </Key>
+    <Property Name="Delivery_Note_ID" Type="Int32" Nullable="false" />
+    <Property Name="Delivery_Note_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Client_Order_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Client_Order" Relationship="Self.FK__Delivery___Clien__2DE6D218" FromRole="Delivery_Note" ToRole="Client_Order" />
+    <NavigationProperty Name="Delivery_Note_Details" Relationship="Self.FK__Delivery___Deliv__58D1301D" FromRole="Delivery_Note" ToRole="Delivery_Note_Details" />
+    <NavigationProperty Name="Invoices" Relationship="Self.FK__Invoice__Deliver__55009F39" FromRole="Delivery_Note" ToRole="Invoice" />
+  </EntityType>
+  <EntityType Name="Delivery_Note_Details">
+    <Key>
+      <PropertyRef Name="Client_Order_Detail_ID" />
+      <PropertyRef Name="Delivery_Note_ID" />
+    </Key>
+    <Property Name="Quantity_Delivered" Type="Int32" Nullable="false" />
+    <Property Name="Client_Order_Detail_ID" Type="Int32" Nullable="false" />
+    <Property Name="Delivery_Note_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Client_Order_Detail" Relationship="Self.FK__Delivery___Clien__57DD0BE4" FromRole="Delivery_Note_Details" ToRole="Client_Order_Detail" />
+    <NavigationProperty Name="Delivery_Note" Relationship="Self.FK__Delivery___Deliv__58D1301D" FromRole="Delivery_Note_Details" ToRole="Delivery_Note" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Employee_ID" />
+    </Key>
+    <Property Name="Employee_ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_Number" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="Contact_Number" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Salt" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="Employee_Type_ID" Type="Int32" Nullable="false" />
+    <Property Name="Gender_ID" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Employee_Status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Employee_Photo" Relationship="Self.FK__Employee___Emplo__01D345B0" FromRole="Employee" ToRole="Employee_Photo" />
+    <NavigationProperty Name="Employee_Type" Relationship="Self.FK__Employee__Employ__5AEE82B9" FromRole="Employee" ToRole="Employee_Type" />
+    <NavigationProperty Name="Gender" Relationship="Self.FK__Employee__Gender__5BE2A6F2" FromRole="Employee" ToRole="Gender" />
+    <NavigationProperty Name="Production_Task" Relationship="Self.FK__Productio__Emplo__6BE40491" FromRole="Employee" ToRole="Production_Task" />
+    <NavigationProperty Name="Machines" Relationship="Self.Machine_Employee" FromRole="Employee" ToRole="Machine" />
+    <NavigationProperty Name="Manual_Labour_Type" Relationship="Self.Manual_Labour_Employee" FromRole="Employee" ToRole="Manual_Labour_Type" />
+  </EntityType>
+  <EntityType Name="Employee_Photo">
+    <Key>
+      <PropertyRef Name="photo_ID" />
+    </Key>
+    <Property Name="photo_ID" Type="Int32" Nullable="false" />
+    <Property Name="Employee_ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="File_Type" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name_on_Server" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK__Employee___Emplo__01D345B0" FromRole="Employee_Photo" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Employee_Type">
+    <Key>
+      <PropertyRef Name="Employee_Type_ID" />
+    </Key>
+    <Property Name="Employee_Type_ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Access_Employee_Type" Relationship="Self.FK__Access_Em__Emplo__7EF6D905" FromRole="Employee_Type" ToRole="Access_Employee_Type" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK__Employee__Employ__5AEE82B9" FromRole="Employee_Type" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="Gender_ID" />
+    </Key>
+    <Property Name="Gender_ID" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Gender_Name" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK__Employee__Gender__5BE2A6F2" FromRole="Gender" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Invoice">
+    <Key>
+      <PropertyRef Name="Invoice_ID" />
+    </Key>
+    <Property Name="Invoice_ID" Type="Int32" Nullable="false" />
+    <Property Name="Invoice_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Invoice_Status_ID" Type="Int32" Nullable="false" />
+    <Property Name="Delivery_Note_ID" Type="Int32" Nullable="false" />
+    <Property Name="amount_noVat" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="amount_Vat" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Delivery_Note" Relationship="Self.FK__Invoice__Deliver__55009F39" FromRole="Invoice" ToRole="Delivery_Note" />
+    <NavigationProperty Name="Invoice_Status" Relationship="Self.FK__Invoice__Invoice__540C7B00" FromRole="Invoice" ToRole="Invoice_Status" />
+    <NavigationProperty Name="Invoice_Payment" Relationship="Self.FK__Invoice_P__Invoi__5F7E2DAC" FromRole="Invoice" ToRole="Invoice_Payment" />
+  </EntityType>
+  <EntityType Name="Invoice_Payment">
+    <Key>
+      <PropertyRef Name="Payment_ID" />
+    </Key>
+    <Property Name="Payment_ID" Type="Int32" Nullable="false" />
+    <Property Name="Invoice_ID" Type="Int32" Nullable="false" />
+    <Property Name="Payment_Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Amount_Paid" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Invoice" Relationship="Self.FK__Invoice_P__Invoi__5F7E2DAC" FromRole="Invoice_Payment" ToRole="Invoice" />
+  </EntityType>
+  <EntityType Name="Invoice_Status">
+    <Key>
+      <PropertyRef Name="Invoice_Status_ID" />
+    </Key>
+    <Property Name="Invoice_Status_ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Invoices" Relationship="Self.FK__Invoice__Invoice__540C7B00" FromRole="Invoice_Status" ToRole="Invoice" />
+  </EntityType>
+  <EntityType Name="Job_Card">
+    <Key>
+      <PropertyRef Name="Job_Card_ID" />
+    </Key>
+    <Property Name="Job_Card_ID" Type="Int32" Nullable="false" />
+    <Property Name="Job_Card_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Job_Card_Status_ID" Type="Int32" Nullable="false" />
+    <Property Name="Job_Card_Priority_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Client_Order" Relationship="Self.FK__Client_Or__Job_C__18EBB532" FromRole="Job_Card" ToRole="Client_Order" />
+    <NavigationProperty Name="Job_Card_Detail" Relationship="Self.FK__Job_Card___Job_C__71D1E811" FromRole="Job_Card" ToRole="Job_Card_Detail" />
+    <NavigationProperty Name="Job_Card_Status" Relationship="Self.FK__Job_Card__Job_Ca__534D60F1" FromRole="Job_Card" ToRole="Job_Card_Status" />
+    <NavigationProperty Name="Job_Card_Priority" Relationship="Self.FK__Job_Card__Job_Ca__5441852A" FromRole="Job_Card" ToRole="Job_Card_Priority" />
+    <NavigationProperty Name="Production_Task" Relationship="Self.FK__Productio__Job_C__69FBBC1F" FromRole="Job_Card" ToRole="Production_Task" />
+  </EntityType>
+  <EntityType Name="Job_Card_Detail">
+    <Key>
+      <PropertyRef Name="Job_Card_Details_ID" />
+    </Key>
+    <Property Name="Job_Card_Details_ID" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Non_Manual" Type="Boolean" Nullable="false" />
+    <Property Name="Job_Card_ID" Type="Int32" Nullable="false" />
+    <Property Name="Part_Type_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Job_Card" Relationship="Self.FK__Job_Card___Job_C__71D1E811" FromRole="Job_Card_Detail" ToRole="Job_Card" />
+    <NavigationProperty Name="Part_Type" Relationship="Self.FK__Job_Card___Part___72C60C4A" FromRole="Job_Card_Detail" ToRole="Part_Type" />
+    <NavigationProperty Name="Parts" Relationship="Self.Job_Card_Detail_Part" FromRole="Job_Card_Detail" ToRole="Part" />
+  </EntityType>
+  <EntityType Name="Job_Card_Priority">
+    <Key>
+      <PropertyRef Name="Job_Card_Priority_ID" />
+    </Key>
+    <Property Name="Job_Card_Priority_ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Job_Card" Relationship="Self.FK__Job_Card__Job_Ca__5441852A" FromRole="Job_Card_Priority" ToRole="Job_Card" />
+  </EntityType>
+  <EntityType Name="Job_Card_Status">
+    <Key>
+      <PropertyRef Name="Job_Card_Status_ID" />
+    </Key>
+    <Property Name="Job_Card_Status_ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Job_Card" Relationship="Self.FK__Job_Card__Job_Ca__534D60F1" FromRole="Job_Card_Status" ToRole="Job_Card" />
+  </EntityType>
+  <EntityType Name="Machine">
+    <Key>
+      <PropertyRef Name="Machine_ID" />
+    </Key>
+    <Property Name="Machine_ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Manufacturer" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Model" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Price_Per_Hour" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Run_Time" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Machine_Part" Relationship="Self.FK__Machine_P__Machi__571DF1D5" FromRole="Machine" ToRole="Machine_Part" />
+    <NavigationProperty Name="Unique_Machine" Relationship="Self.FK__Unique_Ma__Machi__46E78A0C" FromRole="Machine" ToRole="Unique_Machine" />
+    <NavigationProperty Name="Employees" Relationship="Self.Machine_Employee" FromRole="Machine" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Machine_Part">
+    <Key>
+      <PropertyRef Name="Machine_ID" />
+      <PropertyRef Name="Part_Type_ID" />
+    </Key>
+    <Property Name="Stage_In_Manufacturing" Type="Int32" Nullable="false" />
+    <Property Name="Machine_ID" Type="Int32" Nullable="false" />
+    <Property Name="Part_Type_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Machine" Relationship="Self.FK__Machine_P__Machi__571DF1D5" FromRole="Machine_Part" ToRole="Machine" />
+    <NavigationProperty Name="Part_Type" Relationship="Self.FK__Machine_P__Part___5812160E" FromRole="Machine_Part" ToRole="Part_Type" />
+  </EntityType>
+  <EntityType Name="Machine_Status">
+    <Key>
+      <PropertyRef Name="Machine_Status_ID" />
+    </Key>
+    <Property Name="Machine_Status_ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Unique_Machine" Relationship="Self.FK__Unique_Ma__Machi__45F365D3" FromRole="Machine_Status" ToRole="Unique_Machine" />
+  </EntityType>
+  <EntityType Name="Manual_Labour_Type">
+    <Key>
+      <PropertyRef Name="Manual_Labour_Type_ID" />
+    </Key>
+    <Property Name="Manual_Labour_Type_ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Duration" Type="Int32" Nullable="false" />
+    <Property Name="Sub_Contractor" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Manual_Labour_Type_Part" Relationship="Self.FK__Manual_La__Manua__4F7CD00D" FromRole="Manual_Labour_Type" ToRole="Manual_Labour_Type_Part" />
+    <NavigationProperty Name="Sub_Contractor1" Relationship="Self.FK__Sub_Contr__Manua__6B24EA82" FromRole="Manual_Labour_Type" ToRole="Sub_Contractor" />
+    <NavigationProperty Name="Employees" Relationship="Self.Manual_Labour_Employee" FromRole="Manual_Labour_Type" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Manual_Labour_Type_Part">
+    <Key>
+      <PropertyRef Name="Manual_Labour_Type_ID" />
+      <PropertyRef Name="Part_Type_ID" />
+    </Key>
+    <Property Name="Stage_In_Manufacturing" Type="Int32" Nullable="false" />
+    <Property Name="Manual_Labour_Type_ID" Type="Int32" Nullable="false" />
+    <Property Name="Part_Type_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Manual_Labour_Type" Relationship="Self.FK__Manual_La__Manua__4F7CD00D" FromRole="Manual_Labour_Type_Part" ToRole="Manual_Labour_Type" />
+    <NavigationProperty Name="Part_Type" Relationship="Self.FK__Manual_La__Part___5070F446" FromRole="Manual_Labour_Type_Part" ToRole="Part_Type" />
+  </EntityType>
+  <EntityType Name="Part">
+    <Key>
+      <PropertyRef Name="Part_ID" />
+    </Key>
+    <Property Name="Part_ID" Type="Int32" Nullable="false" />
+    <Property Name="Part_Serial" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Part_Status_ID" Type="Int32" Nullable="false" />
+    <Property Name="Date_Added" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Cost_Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Part_Stage" Type="Int32" Nullable="false" />
+    <Property Name="Parent_ID" Type="Int32" Nullable="false" />
+    <Property Name="Part_Type_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Customer_Credit_Detail" Relationship="Self.FK__Customer___Part___7849DB76" FromRole="Part" ToRole="Customer_Credit_Detail" />
+    <NavigationProperty Name="Part_Status" Relationship="Self.FK__Part__Part_Statu__65370702" FromRole="Part" ToRole="Part_Status" />
+    <NavigationProperty Name="Part_Type" Relationship="Self.FK__Part__Part_Type___662B2B3B" FromRole="Part" ToRole="Part_Type" />
+    <NavigationProperty Name="Production_Task" Relationship="Self.FK__Productio__Part___690797E6" FromRole="Part" ToRole="Production_Task" />
+    <NavigationProperty Name="Job_Card_Detail" Relationship="Self.Job_Card_Detail_Part" FromRole="Part" ToRole="Job_Card_Detail" />
+    <NavigationProperty Name="Supplier_Order" Relationship="Self.Part_Supplier_Order" FromRole="Part" ToRole="Supplier_Order" />
+  </EntityType>
+  <EntityType Name="Part_Blueprint">
+    <Key>
+      <PropertyRef Name="Blueprint_ID" />
+    </Key>
+    <Property Name="Blueprint_ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="File_Type" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="location" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Part_Type_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Part_Type" Relationship="Self.FK__Part_Blue__Part___49C3F6B7" FromRole="Part_Blueprint" ToRole="Part_Type" />
+  </EntityType>
+  <EntityType Name="Part_Status">
+    <Key>
+      <PropertyRef Name="Part_Status_ID" />
+    </Key>
+    <Property Name="Part_Status_ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Parts" Relationship="Self.FK__Part__Part_Statu__65370702" FromRole="Part_Status" ToRole="Part" />
+  </EntityType>
+  <EntityType Name="Part_Supplier">
+    <Key>
+      <PropertyRef Name="Supplier_ID" />
+      <PropertyRef Name="Part_Type_ID" />
+    </Key>
+    <Property Name="Is_Prefered" Type="Boolean" Nullable="false" />
+    <Property Name="Supplier_ID" Type="Int32" Nullable="false" />
+    <Property Name="Part_Type_ID" Type="Int32" Nullable="false" />
+    <Property Name="unit_price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Part_Type" Relationship="Self.FK__Part_Supp__Part___7C4F7684" FromRole="Part_Supplier" ToRole="Part_Type" />
+    <NavigationProperty Name="Supplier" Relationship="Self.FK__Part_Supp__Suppl__7B5B524B" FromRole="Part_Supplier" ToRole="Supplier" />
+  </EntityType>
+  <EntityType Name="Part_Type">
+    <Key>
+      <PropertyRef Name="Part_Type_ID" />
+    </Key>
+    <Property Name="Part_Type_ID" Type="Int32" Nullable="false" />
+    <Property Name="Abbreviation" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Selling_Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Dimension" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Minimum_Level" Type="Int32" Nullable="false" />
+    <Property Name="Maximum_Level" Type="Int32" Nullable="false" />
+    <Property Name="Max_Discount_Rate" Type="Int32" Nullable="false" />
+    <Property Name="Manufactured" Type="Boolean" Nullable="false" />
+    <Property Name="Average_Completion_Time" Type="Int32" Nullable="false" />
+    <Property Name="Number_Of_Stages" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Client_Discount_Rate" Relationship="Self.FK__Client_Di__Part___06CD04F7" FromRole="Part_Type" ToRole="Client_Discount_Rate" />
+    <NavigationProperty Name="Client_Order_Detail" Relationship="Self.FK__Client_Or__Part___395884C4" FromRole="Part_Type" ToRole="Client_Order_Detail" />
+    <NavigationProperty Name="Client_Quote_Detail" Relationship="Self.FK__Client_Qu__Part___5CA1C101" FromRole="Part_Type" ToRole="Client_Quote_Detail" />
+    <NavigationProperty Name="Job_Card_Detail" Relationship="Self.FK__Job_Card___Part___72C60C4A" FromRole="Part_Type" ToRole="Job_Card_Detail" />
+    <NavigationProperty Name="Machine_Part" Relationship="Self.FK__Machine_P__Part___5812160E" FromRole="Part_Type" ToRole="Machine_Part" />
+    <NavigationProperty Name="Manual_Labour_Type_Part" Relationship="Self.FK__Manual_La__Part___5070F446" FromRole="Part_Type" ToRole="Manual_Labour_Type_Part" />
+    <NavigationProperty Name="Parts" Relationship="Self.FK__Part__Part_Type___662B2B3B" FromRole="Part_Type" ToRole="Part" />
+    <NavigationProperty Name="Part_Blueprint" Relationship="Self.FK__Part_Blue__Part___49C3F6B7" FromRole="Part_Type" ToRole="Part_Blueprint" />
+    <NavigationProperty Name="Part_Supplier" Relationship="Self.FK__Part_Supp__Part___7C4F7684" FromRole="Part_Type" ToRole="Part_Supplier" />
+    <NavigationProperty Name="Recipes" Relationship="Self.FK__Recipe__Part_Typ__43D61337" FromRole="Part_Type" ToRole="Recipe" />
+    <NavigationProperty Name="Supplier_Quote_Detail_Part" Relationship="Self.FK__Supplier___Part___2B0A656D" FromRole="Part_Type" ToRole="Supplier_Quote_Detail_Part" />
+    <NavigationProperty Name="Supplier_Order_Detail_Part" Relationship="Self.FK__Supplier___Part___30C33EC3" FromRole="Part_Type" ToRole="Supplier_Order_Detail_Part" />
+  </EntityType>
+  <EntityType Name="Production_Schedule">
+    <Key>
+      <PropertyRef Name="Production_Schedule_ID" />
+    </Key>
+    <Property Name="Production_Schedule_ID" Type="Int32" Nullable="false" />
+    <Property Name="Production_Schedule_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="intervals" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Production_Task" Relationship="Self.FK__Productio__Produ__6AEFE058" FromRole="Production_Schedule" ToRole="Production_Task" />
+  </EntityType>
+  <EntityType Name="Production_Task">
+    <Key>
+      <PropertyRef Name="Production_Task_ID" />
+    </Key>
+    <Property Name="Production_Task_ID" Type="Int32" Nullable="false" />
+    <Property Name="Production_Task_Type" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Resource_ID" Type="Int32" Nullable="false" />
+    <Property Name="Part_Stage" Type="Int32" Nullable="false" />
+    <Property Name="Part_ID" Type="Int32" Nullable="false" />
+    <Property Name="Job_Card_ID" Type="Int32" Nullable="false" />
+    <Property Name="Production_Schedule_ID" Type="Int32" Nullable="false" />
+    <Property Name="Employee_ID" Type="Int32" Nullable="false" />
+    <Property Name="start_time" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="end_time" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="duration" Type="Int32" Nullable="false" />
+    <Property Name="complete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK__Productio__Emplo__6BE40491" FromRole="Production_Task" ToRole="Employee" />
+    <NavigationProperty Name="Job_Card" Relationship="Self.FK__Productio__Job_C__69FBBC1F" FromRole="Production_Task" ToRole="Job_Card" />
+    <NavigationProperty Name="Part" Relationship="Self.FK__Productio__Part___690797E6" FromRole="Production_Task" ToRole="Part" />
+    <NavigationProperty Name="Production_Schedule" Relationship="Self.FK__Productio__Produ__6AEFE058" FromRole="Production_Task" ToRole="Production_Schedule" />
+  </EntityType>
+  <EntityType Name="Province">
+    <Key>
+      <PropertyRef Name="Province_ID" />
+    </Key>
+    <Property Name="Province_ID" Type="Int32" Nullable="false" />
+    <Property Name="Province1" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Clients" Relationship="Self.FK__Client__Province__75A278F5" FromRole="Province" ToRole="Client" />
+    <NavigationProperty Name="Sub_Contractor" Relationship="Self.FK__Sub_Contr__Provi__6C190EBB" FromRole="Province" ToRole="Sub_Contractor" />
+    <NavigationProperty Name="Suppliers" Relationship="Self.FK__Supplier__Provin__787EE5A0" FromRole="Province" ToRole="Supplier" />
+  </EntityType>
+  <EntityType Name="Raw_Material">
+    <Key>
+      <PropertyRef Name="Raw_Material_ID" />
+    </Key>
+    <Property Name="Name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Minimum_Stock_Instances" Type="Int32" Nullable="false" />
+    <Property Name="Raw_Material_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Raw_Material_Supplier" Relationship="Self.FK__Raw_Mater__Raw_M__7F2BE32F" FromRole="Raw_Material" ToRole="Raw_Material_Supplier" />
+    <NavigationProperty Name="Supplier_Quote_Detail_Raw_Material" Relationship="Self.FK__Supplier___Raw_M__3587F3E0" FromRole="Raw_Material" ToRole="Supplier_Quote_Detail_Raw_Material" />
+    <NavigationProperty Name="Supplier_Order_Detail_Raw_Material" Relationship="Self.FK__Supplier___Raw_M__40058253" FromRole="Raw_Material" ToRole="Supplier_Order_Detail_Raw_Material" />
+    <NavigationProperty Name="Unique_Raw_Material" Relationship="Self.FK__Unique_Ra__Raw_M__46B27FE2" FromRole="Raw_Material" ToRole="Unique_Raw_Material" />
+  </EntityType>
+  <EntityType Name="Raw_Material_Supplier">
+    <Key>
+      <PropertyRef Name="Raw_Material_ID" />
+      <PropertyRef Name="Supplier_ID" />
+    </Key>
+    <Property Name="Raw_Material_ID" Type="Int32" Nullable="false" />
+    <Property Name="Supplier_ID" Type="Int32" Nullable="false" />
+    <Property Name="Is_Prefered" Type="Boolean" Nullable="false" />
+    <Property Name="unit_price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Raw_Material" Relationship="Self.FK__Raw_Mater__Raw_M__7F2BE32F" FromRole="Raw_Material_Supplier" ToRole="Raw_Material" />
+    <NavigationProperty Name="Supplier" Relationship="Self.FK__Raw_Mater__Suppl__00200768" FromRole="Raw_Material_Supplier" ToRole="Supplier" />
+  </EntityType>
+  <EntityType Name="Recipe">
+    <Key>
+      <PropertyRef Name="Recipe_ID" />
+    </Key>
+    <Property Name="Recipe_ID" Type="Int32" Nullable="false" />
+    <Property Name="Recipe_Type" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Quantity_Required" Type="Int32" Nullable="false" />
+    <Property Name="Stage_in_Manufacturing" Type="Int32" Nullable="false" />
+    <Property Name="Part_Type_ID" Type="Int32" />
+    <Property Name="Item_ID" Type="Int32" />
+    <Property Name="Item_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Dimension" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Part_Type" Relationship="Self.FK__Recipe__Part_Typ__43D61337" FromRole="Recipe" ToRole="Part_Type" />
+  </EntityType>
+  <EntityType Name="Sub_Contractor">
+    <Key>
+      <PropertyRef Name="Sub_Contractor_ID" />
+    </Key>
+    <Property Name="Sub_Contractor_ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="95" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Zip" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="Manual_Labour_Type_ID" Type="Int32" Nullable="false" />
+    <Property Name="Province_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Manual_Labour_Type" Relationship="Self.FK__Sub_Contr__Manua__6B24EA82" FromRole="Sub_Contractor" ToRole="Manual_Labour_Type" />
+    <NavigationProperty Name="Province" Relationship="Self.FK__Sub_Contr__Provi__6C190EBB" FromRole="Sub_Contractor" ToRole="Province" />
+    <NavigationProperty Name="Sub_Contractor_Contact_Detail" Relationship="Self.FK__Sub_Contr__Sub_C__10566F31" FromRole="Sub_Contractor" ToRole="Sub_Contractor_Contact_Detail" />
+  </EntityType>
+  <EntityType Name="Sub_Contractor_Contact_Detail">
+    <Key>
+      <PropertyRef Name="Contact_ID" />
+    </Key>
+    <Property Name="Contact_ID" Type="Int32" Nullable="false" />
+    <Property Name="Sub_Contractor_ID" Type="Int32" Nullable="false" />
+    <Property Name="Number" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="254" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Sub_Contractor" Relationship="Self.FK__Sub_Contr__Sub_C__10566F31" FromRole="Sub_Contractor_Contact_Detail" ToRole="Sub_Contractor" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="Supplier_ID" />
+    </Key>
+    <Property Name="Supplier_ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="95" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Zip" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Bank_Account_Number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Bank_Branch" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Bank_Name" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="254" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Contact_Number" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="Province_ID" Type="Int32" Nullable="false" />
+    <Property Name="Bank_Reference" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Contact_Name" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Foreign_Bank" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Component_Supplier" Relationship="Self.FK__Component__Suppl__4B7734FF" FromRole="Supplier" ToRole="Component_Supplier" />
+    <NavigationProperty Name="Part_Supplier" Relationship="Self.FK__Part_Supp__Suppl__7B5B524B" FromRole="Supplier" ToRole="Part_Supplier" />
+    <NavigationProperty Name="Province" Relationship="Self.FK__Supplier__Provin__787EE5A0" FromRole="Supplier" ToRole="Province" />
+    <NavigationProperty Name="Raw_Material_Supplier" Relationship="Self.FK__Raw_Mater__Suppl__00200768" FromRole="Supplier" ToRole="Raw_Material_Supplier" />
+    <NavigationProperty Name="Supplier_Quote" Relationship="Self.FK__Supplier___Suppl__02FC7413" FromRole="Supplier" ToRole="Supplier_Quote" />
+    <NavigationProperty Name="Supplier_Order" Relationship="Self.FK__Supplier___Suppl__09A971A2" FromRole="Supplier" ToRole="Supplier_Order" />
+  </EntityType>
+  <EntityType Name="Supplier_Order">
+    <Key>
+      <PropertyRef Name="Supplier_Order_ID" />
+    </Key>
+    <Property Name="Supplier_Order_ID" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Supplier_ID" Type="Int32" Nullable="false" />
+    <Property Name="Supplier_Order_Status_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Supplier" Relationship="Self.FK__Supplier___Suppl__09A971A2" FromRole="Supplier_Order" ToRole="Supplier" />
+    <NavigationProperty Name="Supplier_Order_Status" Relationship="Self.FK__Supplier___Suppl__0A9D95DB" FromRole="Supplier_Order" ToRole="Supplier_Order_Status" />
+    <NavigationProperty Name="Supplier_Order_Detail_Part" Relationship="Self.FK__Supplier___Suppl__31B762FC" FromRole="Supplier_Order" ToRole="Supplier_Order_Detail_Part" />
+    <NavigationProperty Name="Supplier_Order_Component" Relationship="Self.FK__Supplier___Suppl__3D2915A8" FromRole="Supplier_Order" ToRole="Supplier_Order_Component" />
+    <NavigationProperty Name="Supplier_Order_Detail_Raw_Material" Relationship="Self.FK__Supplier___Suppl__40F9A68C" FromRole="Supplier_Order" ToRole="Supplier_Order_Detail_Raw_Material" />
+    <NavigationProperty Name="Supplier_Return" Relationship="Self.FK__Supplier___Suppl__4E53A1AA" FromRole="Supplier_Order" ToRole="Supplier_Return" />
+    <NavigationProperty Name="Unique_Raw_Material" Relationship="Self.FK__Unique_Ra__Suppl__47A6A41B" FromRole="Supplier_Order" ToRole="Unique_Raw_Material" />
+    <NavigationProperty Name="Parts" Relationship="Self.Part_Supplier_Order" FromRole="Supplier_Order" ToRole="Part" />
+    <NavigationProperty Name="Supplier_Quote" Relationship="Self.Supplier_Order_Quote" FromRole="Supplier_Order" ToRole="Supplier_Quote" />
+  </EntityType>
+  <EntityType Name="Supplier_Order_Component">
+    <Key>
+      <PropertyRef Name="Component_ID" />
+      <PropertyRef Name="Supplier_Order_ID" />
+    </Key>
+    <Property Name="Component_ID" Type="Int32" Nullable="false" />
+    <Property Name="Quantity_Requested" Type="Int32" Nullable="false" />
+    <Property Name="Quantity_Received" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Supplier_Order_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Component" Relationship="Self.FK__Supplier___Compo__3C34F16F" FromRole="Supplier_Order_Component" ToRole="Component" />
+    <NavigationProperty Name="Supplier_Order" Relationship="Self.FK__Supplier___Suppl__3D2915A8" FromRole="Supplier_Order_Component" ToRole="Supplier_Order" />
+  </EntityType>
+  <EntityType Name="Supplier_Order_Detail_Part">
+    <Key>
+      <PropertyRef Name="Part_Type_ID" />
+      <PropertyRef Name="Supplier_Order_ID" />
+    </Key>
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Quantity_Received" Type="Int32" Nullable="false" />
+    <Property Name="Part_Type_ID" Type="Int32" Nullable="false" />
+    <Property Name="Supplier_Order_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Part_Type" Relationship="Self.FK__Supplier___Part___30C33EC3" FromRole="Supplier_Order_Detail_Part" ToRole="Part_Type" />
+    <NavigationProperty Name="Supplier_Order" Relationship="Self.FK__Supplier___Suppl__31B762FC" FromRole="Supplier_Order_Detail_Part" ToRole="Supplier_Order" />
+  </EntityType>
+  <EntityType Name="Supplier_Order_Detail_Raw_Material">
+    <Key>
+      <PropertyRef Name="Raw_Material_ID" />
+      <PropertyRef Name="Supplier_Order_ID" />
+    </Key>
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Quantity_Received" Type="Int32" Nullable="false" />
+    <Property Name="Dimensions" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Raw_Material_ID" Type="Int32" Nullable="false" />
+    <Property Name="Supplier_Order_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Raw_Material" Relationship="Self.FK__Supplier___Raw_M__40058253" FromRole="Supplier_Order_Detail_Raw_Material" ToRole="Raw_Material" />
+    <NavigationProperty Name="Supplier_Order" Relationship="Self.FK__Supplier___Suppl__40F9A68C" FromRole="Supplier_Order_Detail_Raw_Material" ToRole="Supplier_Order" />
+  </EntityType>
+  <EntityType Name="Supplier_Order_Status">
+    <Key>
+      <PropertyRef Name="Supplier_Order_Status_ID" />
+    </Key>
+    <Property Name="Supplier_Order_Status_ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Supplier_Order" Relationship="Self.FK__Supplier___Suppl__0A9D95DB" FromRole="Supplier_Order_Status" ToRole="Supplier_Order" />
+  </EntityType>
+  <EntityType Name="Supplier_Quote">
+    <Key>
+      <PropertyRef Name="Supplier_Quote_ID" />
+    </Key>
+    <Property Name="Supplier_Quote_ID" Type="Int32" Nullable="false" />
+    <Property Name="Supplier_Quote_Serial" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Supplier_Quote_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Supplier_ID" Type="Int32" Nullable="false" />
+    <Property Name="Supplier_Quote_Expiry_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Supplier" Relationship="Self.FK__Supplier___Suppl__02FC7413" FromRole="Supplier_Quote" ToRole="Supplier" />
+    <NavigationProperty Name="Supplier_Quote_Component" Relationship="Self.FK__Supplier___Suppl__1F98B2C1" FromRole="Supplier_Quote" ToRole="Supplier_Quote_Component" />
+    <NavigationProperty Name="Supplier_Quote_Detail_Part" Relationship="Self.FK__Supplier___Suppl__2A164134" FromRole="Supplier_Quote" ToRole="Supplier_Quote_Detail_Part" />
+    <NavigationProperty Name="Supplier_Quote_Detail_Raw_Material" Relationship="Self.FK__Supplier___Suppl__3493CFA7" FromRole="Supplier_Quote" ToRole="Supplier_Quote_Detail_Raw_Material" />
+    <NavigationProperty Name="Supplier_Order" Relationship="Self.Supplier_Order_Quote" FromRole="Supplier_Quote" ToRole="Supplier_Order" />
+  </EntityType>
+  <EntityType Name="Supplier_Quote_Component">
+    <Key>
+      <PropertyRef Name="Supplier_Quote_ID" />
+      <PropertyRef Name="Component_ID" />
+    </Key>
+    <Property Name="Supplier_Quote_ID" Type="Int32" Nullable="false" />
+    <Property Name="Component_ID" Type="Int32" Nullable="false" />
+    <Property Name="Quantity_Requested" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Component" Relationship="Self.FK__Supplier___Compo__208CD6FA" FromRole="Supplier_Quote_Component" ToRole="Component" />
+    <NavigationProperty Name="Supplier_Quote" Relationship="Self.FK__Supplier___Suppl__1F98B2C1" FromRole="Supplier_Quote_Component" ToRole="Supplier_Quote" />
+  </EntityType>
+  <EntityType Name="Supplier_Quote_Detail_Part">
+    <Key>
+      <PropertyRef Name="Supplier_Quote_ID" />
+      <PropertyRef Name="Part_Type_ID" />
+    </Key>
+    <Property Name="Supplier_Quote_ID" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Part_Type_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Part_Type" Relationship="Self.FK__Supplier___Part___2B0A656D" FromRole="Supplier_Quote_Detail_Part" ToRole="Part_Type" />
+    <NavigationProperty Name="Supplier_Quote" Relationship="Self.FK__Supplier___Suppl__2A164134" FromRole="Supplier_Quote_Detail_Part" ToRole="Supplier_Quote" />
+  </EntityType>
+  <EntityType Name="Supplier_Quote_Detail_Raw_Material">
+    <Key>
+      <PropertyRef Name="Supplier_Quote_ID" />
+      <PropertyRef Name="Raw_Material_ID" />
+    </Key>
+    <Property Name="Supplier_Quote_ID" Type="Int32" Nullable="false" />
+    <Property Name="Raw_Material_ID" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Dimension" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Raw_Material" Relationship="Self.FK__Supplier___Raw_M__3587F3E0" FromRole="Supplier_Quote_Detail_Raw_Material" ToRole="Raw_Material" />
+    <NavigationProperty Name="Supplier_Quote" Relationship="Self.FK__Supplier___Suppl__3493CFA7" FromRole="Supplier_Quote_Detail_Raw_Material" ToRole="Supplier_Quote" />
+  </EntityType>
+  <EntityType Name="Supplier_Return">
+    <Key>
+      <PropertyRef Name="Supplier_Return_ID" />
+    </Key>
+    <Property Name="Supplier_Return_ID" Type="Int32" Nullable="false" />
+    <Property Name="Supplier_Order_ID" Type="Int32" Nullable="false" />
+    <Property Name="Date_of_Return" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Invoice_Number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Delivery_Note_Number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Comment" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Supplier_Order" Relationship="Self.FK__Supplier___Suppl__4E53A1AA" FromRole="Supplier_Return" ToRole="Supplier_Order" />
+    <NavigationProperty Name="Supplier_Return_Item" Relationship="Self.FK__Supplier___Suppl__51300E55" FromRole="Supplier_Return" ToRole="Supplier_Return_Item" />
+  </EntityType>
+  <EntityType Name="Supplier_Return_Item">
+    <Key>
+      <PropertyRef Name="Return_Item_ID" />
+    </Key>
+    <Property Name="Return_Item_ID" Type="Int32" Nullable="false" />
+    <Property Name="Supplier_Return_ID" Type="Int32" Nullable="false" />
+    <Property Name="Type_of_Inventory" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Inventory_ID" Type="Int32" Nullable="false" />
+    <Property Name="Units_Returned" Type="Int32" Nullable="false" />
+    <Property Name="Item_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Supplier_Return" Relationship="Self.FK__Supplier___Suppl__51300E55" FromRole="Supplier_Return_Item" ToRole="Supplier_Return" />
+  </EntityType>
+  <EntityType Name="Unique_Machine">
+    <Key>
+      <PropertyRef Name="Unique_Machine_ID" />
+    </Key>
+    <Property Name="Unique_Machine_ID" Type="Int32" Nullable="false" />
+    <Property Name="Unique_Machine_Serial" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Machine_Status_ID" Type="Int32" Nullable="false" />
+    <Property Name="Machine_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Machine" Relationship="Self.FK__Unique_Ma__Machi__46E78A0C" FromRole="Unique_Machine" ToRole="Machine" />
+    <NavigationProperty Name="Machine_Status" Relationship="Self.FK__Unique_Ma__Machi__45F365D3" FromRole="Unique_Machine" ToRole="Machine_Status" />
+  </EntityType>
+  <EntityType Name="Unique_Raw_Material">
+    <Key>
+      <PropertyRef Name="Unique_Raw_Material_ID" />
+    </Key>
+    <Property Name="Unique_Raw_Material_ID" Type="Int32" Nullable="false" />
+    <Property Name="Raw_Material_ID" Type="Int32" Nullable="false" />
+    <Property Name="Dimension" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Quality" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Date_Added" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Date_Used" Type="DateTime" Precision="3" />
+    <Property Name="Cost_Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Supplier_Order_ID" Type="Int32" />
+    <NavigationProperty Name="Raw_Material" Relationship="Self.FK__Unique_Ra__Raw_M__46B27FE2" FromRole="Unique_Raw_Material" ToRole="Raw_Material" />
+    <NavigationProperty Name="Supplier_Order" Relationship="Self.FK__Unique_Ra__Suppl__47A6A41B" FromRole="Unique_Raw_Material" ToRole="Supplier_Order" />
+  </EntityType>
+  <EntityType Name="VAT">
+    <Key>
+      <PropertyRef Name="Date" />
+    </Key>
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="VAT_Rate" Type="Double" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Access_Em__Acces__7E02B4CC">
+    <End Role="Access" Type="Self.Access" Multiplicity="1" />
+    <End Role="Access_Employee_Type" Type="Self.Access_Employee_Type" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Access">
+        <PropertyRef Name="Access_ID" />
+      </Principal>
+      <Dependent Role="Access_Employee_Type">
+        <PropertyRef Name="Access_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Access_Em__Emplo__7EF6D905">
+    <End Role="Employee_Type" Type="Self.Employee_Type" Multiplicity="1" />
+    <End Role="Access_Employee_Type" Type="Self.Access_Employee_Type" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee_Type">
+        <PropertyRef Name="Employee_Type_ID" />
+      </Principal>
+      <Dependent Role="Access_Employee_Type">
+        <PropertyRef Name="Employee_Type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Audit__Audit_Typ__4CA06362">
+    <End Role="Audit_Type" Type="Self.Audit_Type" Multiplicity="1" />
+    <End Role="Audit" Type="Self.Audit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Audit_Type">
+        <PropertyRef Name="Audit_Type_ID" />
+      </Principal>
+      <Dependent Role="Audit">
+        <PropertyRef Name="Audit_Type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Audit_Det__Audit__6477ECF3">
+    <End Role="Audit" Type="Self.Audit" Multiplicity="1" />
+    <End Role="Audit_Detail" Type="Self.Audit_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Audit">
+        <PropertyRef Name="Audit_ID" />
+      </Principal>
+      <Dependent Role="Audit_Detail">
+        <PropertyRef Name="Audit_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Audit_Upd__Audit__6EF57B66">
+    <End Role="Audit" Type="Self.Audit" Multiplicity="1" />
+    <End Role="Audit_Update_Detail" Type="Self.Audit_Update_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Audit">
+        <PropertyRef Name="Audit_ID" />
+      </Principal>
+      <Dependent Role="Audit_Update_Detail">
+        <PropertyRef Name="Audit_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Client__Province__75A278F5">
+    <End Role="Province" Type="Self.Province" Multiplicity="1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Province">
+        <PropertyRef Name="Province_ID" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="Province_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Client_Co__Clien__0D7A0286">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="Client_Contact_Person_Detail" Type="Self.Client_Contact_Person_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Client_ID" />
+      </Principal>
+      <Dependent Role="Client_Contact_Person_Detail">
+        <PropertyRef Name="Client_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Client_Di__Clien__05D8E0BE">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="Client_Discount_Rate" Type="Self.Client_Discount_Rate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Client_ID" />
+      </Principal>
+      <Dependent Role="Client_Discount_Rate">
+        <PropertyRef Name="Client_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Client_Or__Clien__151B244E">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="Client_Order" Type="Self.Client_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Client_ID" />
+      </Principal>
+      <Dependent Role="Client_Order">
+        <PropertyRef Name="Client_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Client_Qu__Clien__236943A5">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="Client_Quote" Type="Self.Client_Quote" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Client_ID" />
+      </Principal>
+      <Dependent Role="Client_Quote">
+        <PropertyRef Name="Client_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Client_Qu__Conta__245D67DE">
+    <End Role="Client_Contact_Person_Detail" Type="Self.Client_Contact_Person_Detail" Multiplicity="1" />
+    <End Role="Client_Quote" Type="Self.Client_Quote" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client_Contact_Person_Detail">
+        <PropertyRef Name="Contact_ID" />
+      </Principal>
+      <Dependent Role="Client_Quote">
+        <PropertyRef Name="Contact_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Client_Cr__Clien__625A9A57">
+    <End Role="Client_Order_Detail" Type="Self.Client_Order_Detail" Multiplicity="1" />
+    <End Role="Client_Credit_Order" Type="Self.Client_Credit_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client_Order_Detail">
+        <PropertyRef Name="Client_Order_Detail_ID" />
+      </Principal>
+      <Dependent Role="Client_Credit_Order">
+        <PropertyRef Name="Client_Order_Detail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Client_Di__Part___06CD04F7">
+    <End Role="Part_Type" Type="Self.Part_Type" Multiplicity="1" />
+    <End Role="Client_Discount_Rate" Type="Self.Client_Discount_Rate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Part_Type">
+        <PropertyRef Name="Part_Type_ID" />
+      </Principal>
+      <Dependent Role="Client_Discount_Rate">
+        <PropertyRef Name="Part_Type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Client_Or__Clien__160F4887">
+    <End Role="Client_Order_Type" Type="Self.Client_Order_Type" Multiplicity="1" />
+    <End Role="Client_Order" Type="Self.Client_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client_Order_Type">
+        <PropertyRef Name="Client_Order_Type_ID" />
+      </Principal>
+      <Dependent Role="Client_Order">
+        <PropertyRef Name="Client_Order_Type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Client_Or__Clien__17036CC0">
+    <End Role="Client_Order_Status" Type="Self.Client_Order_Status" Multiplicity="1" />
+    <End Role="Client_Order" Type="Self.Client_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client_Order_Status">
+        <PropertyRef Name="Client_Order_Status_ID" />
+      </Principal>
+      <Dependent Role="Client_Order">
+        <PropertyRef Name="Client_Order_Status_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Client_Or__Clien__3864608B">
+    <End Role="Client_Order" Type="Self.Client_Order" Multiplicity="1" />
+    <End Role="Client_Order_Detail" Type="Self.Client_Order_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client_Order">
+        <PropertyRef Name="Client_Order_ID" />
+      </Principal>
+      <Dependent Role="Client_Order_Detail">
+        <PropertyRef Name="Client_Order_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Client_Or__Deliv__17F790F9">
+    <End Role="Delivery_Method" Type="Self.Delivery_Method" Multiplicity="1" />
+    <End Role="Client_Order" Type="Self.Client_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Delivery_Method">
+        <PropertyRef Name="Delivery_Method_ID" />
+      </Principal>
+      <Dependent Role="Client_Order">
+        <PropertyRef Name="Delivery_Method_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Client_Or__Job_C__18EBB532">
+    <End Role="Job_Card" Type="Self.Job_Card" Multiplicity="1" />
+    <End Role="Client_Order" Type="Self.Client_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Job_Card">
+        <PropertyRef Name="Job_Card_ID" />
+      </Principal>
+      <Dependent Role="Client_Order">
+        <PropertyRef Name="Job_Card_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Contracte__Clien__2739D489">
+    <End Role="Client_Order" Type="Self.Client_Order" Multiplicity="1" />
+    <End Role="Contracted_Client_Orders" Type="Self.Contracted_Client_Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client_Order">
+        <PropertyRef Name="Client_Order_ID" />
+      </Principal>
+      <Dependent Role="Contracted_Client_Orders">
+        <PropertyRef Name="Client_Order_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Delivery___Clien__2DE6D218">
+    <End Role="Client_Order" Type="Self.Client_Order" Multiplicity="1" />
+    <End Role="Delivery_Note" Type="Self.Delivery_Note" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client_Order">
+        <PropertyRef Name="Client_Order_ID" />
+      </Principal>
+      <Dependent Role="Delivery_Note">
+        <PropertyRef Name="Client_Order_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Client_Or__Part___395884C4">
+    <End Role="Part_Type" Type="Self.Part_Type" Multiplicity="1" />
+    <End Role="Client_Order_Detail" Type="Self.Client_Order_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Part_Type">
+        <PropertyRef Name="Part_Type_ID" />
+      </Principal>
+      <Dependent Role="Client_Order_Detail">
+        <PropertyRef Name="Part_Type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Delivery___Clien__57DD0BE4">
+    <End Role="Client_Order_Detail" Type="Self.Client_Order_Detail" Multiplicity="1" />
+    <End Role="Delivery_Note_Details" Type="Self.Delivery_Note_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client_Order_Detail">
+        <PropertyRef Name="Client_Order_Detail_ID" />
+      </Principal>
+      <Dependent Role="Delivery_Note_Details">
+        <PropertyRef Name="Client_Order_Detail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Client_Qu__Clien__5BAD9CC8">
+    <End Role="Client_Quote" Type="Self.Client_Quote" Multiplicity="1" />
+    <End Role="Client_Quote_Detail" Type="Self.Client_Quote_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client_Quote">
+        <PropertyRef Name="Client_Quote_ID" />
+      </Principal>
+      <Dependent Role="Client_Quote_Detail">
+        <PropertyRef Name="Client_Quote_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Client_Qu__Part___5CA1C101">
+    <End Role="Part_Type" Type="Self.Part_Type" Multiplicity="1" />
+    <End Role="Client_Quote_Detail" Type="Self.Client_Quote_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Part_Type">
+        <PropertyRef Name="Part_Type_ID" />
+      </Principal>
+      <Dependent Role="Client_Quote_Detail">
+        <PropertyRef Name="Part_Type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Component__Compo__4A8310C6">
+    <End Role="Component" Type="Self.Component" Multiplicity="1" />
+    <End Role="Component_Supplier" Type="Self.Component_Supplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Component">
+        <PropertyRef Name="Component_ID" />
+      </Principal>
+      <Dependent Role="Component_Supplier">
+        <PropertyRef Name="Component_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Supplier___Compo__208CD6FA">
+    <End Role="Component" Type="Self.Component" Multiplicity="1" />
+    <End Role="Supplier_Quote_Component" Type="Self.Supplier_Quote_Component" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Component">
+        <PropertyRef Name="Component_ID" />
+      </Principal>
+      <Dependent Role="Supplier_Quote_Component">
+        <PropertyRef Name="Component_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Supplier___Compo__3C34F16F">
+    <End Role="Component" Type="Self.Component" Multiplicity="1" />
+    <End Role="Supplier_Order_Component" Type="Self.Supplier_Order_Component" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Component">
+        <PropertyRef Name="Component_ID" />
+      </Principal>
+      <Dependent Role="Supplier_Order_Component">
+        <PropertyRef Name="Component_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Component__Suppl__4B7734FF">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+    <End Role="Component_Supplier" Type="Self.Component_Supplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="Supplier_ID" />
+      </Principal>
+      <Dependent Role="Component_Supplier">
+        <PropertyRef Name="Supplier_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Customer___Custo__793DFFAF">
+    <End Role="Customer_Credit" Type="Self.Customer_Credit" Multiplicity="1" />
+    <End Role="Customer_Credit_Detail" Type="Self.Customer_Credit_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer_Credit">
+        <PropertyRef Name="Customer_Credit_ID" />
+      </Principal>
+      <Dependent Role="Customer_Credit_Detail">
+        <PropertyRef Name="Customer_Credit_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Customer___Part___7849DB76">
+    <End Role="Part" Type="Self.Part" Multiplicity="1" />
+    <End Role="Customer_Credit_Detail" Type="Self.Customer_Credit_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Part">
+        <PropertyRef Name="Part_ID" />
+      </Principal>
+      <Dependent Role="Customer_Credit_Detail">
+        <PropertyRef Name="Part_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Delivery___Deliv__58D1301D">
+    <End Role="Delivery_Note" Type="Self.Delivery_Note" Multiplicity="1" />
+    <End Role="Delivery_Note_Details" Type="Self.Delivery_Note_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Delivery_Note">
+        <PropertyRef Name="Delivery_Note_ID" />
+      </Principal>
+      <Dependent Role="Delivery_Note_Details">
+        <PropertyRef Name="Delivery_Note_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Invoice__Deliver__55009F39">
+    <End Role="Delivery_Note" Type="Self.Delivery_Note" Multiplicity="1" />
+    <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Delivery_Note">
+        <PropertyRef Name="Delivery_Note_ID" />
+      </Principal>
+      <Dependent Role="Invoice">
+        <PropertyRef Name="Delivery_Note_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee___Emplo__01D345B0">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Employee_Photo" Type="Self.Employee_Photo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Employee_ID" />
+      </Principal>
+      <Dependent Role="Employee_Photo">
+        <PropertyRef Name="Employee_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee__Employ__5AEE82B9">
+    <End Role="Employee_Type" Type="Self.Employee_Type" Multiplicity="1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee_Type">
+        <PropertyRef Name="Employee_Type_ID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="Employee_Type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee__Gender__5BE2A6F2">
+    <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="Gender_ID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="Gender_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Productio__Emplo__6BE40491">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Production_Task" Type="Self.Production_Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Employee_ID" />
+      </Principal>
+      <Dependent Role="Production_Task">
+        <PropertyRef Name="Employee_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Invoice__Invoice__540C7B00">
+    <End Role="Invoice_Status" Type="Self.Invoice_Status" Multiplicity="1" />
+    <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Invoice_Status">
+        <PropertyRef Name="Invoice_Status_ID" />
+      </Principal>
+      <Dependent Role="Invoice">
+        <PropertyRef Name="Invoice_Status_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Invoice_P__Invoi__5F7E2DAC">
+    <End Role="Invoice" Type="Self.Invoice" Multiplicity="1" />
+    <End Role="Invoice_Payment" Type="Self.Invoice_Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Invoice">
+        <PropertyRef Name="Invoice_ID" />
+      </Principal>
+      <Dependent Role="Invoice_Payment">
+        <PropertyRef Name="Invoice_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Job_Card___Job_C__71D1E811">
+    <End Role="Job_Card" Type="Self.Job_Card" Multiplicity="1" />
+    <End Role="Job_Card_Detail" Type="Self.Job_Card_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Job_Card">
+        <PropertyRef Name="Job_Card_ID" />
+      </Principal>
+      <Dependent Role="Job_Card_Detail">
+        <PropertyRef Name="Job_Card_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Job_Card__Job_Ca__534D60F1">
+    <End Role="Job_Card_Status" Type="Self.Job_Card_Status" Multiplicity="1" />
+    <End Role="Job_Card" Type="Self.Job_Card" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Job_Card_Status">
+        <PropertyRef Name="Job_Card_Status_ID" />
+      </Principal>
+      <Dependent Role="Job_Card">
+        <PropertyRef Name="Job_Card_Status_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Job_Card__Job_Ca__5441852A">
+    <End Role="Job_Card_Priority" Type="Self.Job_Card_Priority" Multiplicity="1" />
+    <End Role="Job_Card" Type="Self.Job_Card" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Job_Card_Priority">
+        <PropertyRef Name="Job_Card_Priority_ID" />
+      </Principal>
+      <Dependent Role="Job_Card">
+        <PropertyRef Name="Job_Card_Priority_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Productio__Job_C__69FBBC1F">
+    <End Role="Job_Card" Type="Self.Job_Card" Multiplicity="1" />
+    <End Role="Production_Task" Type="Self.Production_Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Job_Card">
+        <PropertyRef Name="Job_Card_ID" />
+      </Principal>
+      <Dependent Role="Production_Task">
+        <PropertyRef Name="Job_Card_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Job_Card___Part___72C60C4A">
+    <End Role="Part_Type" Type="Self.Part_Type" Multiplicity="1" />
+    <End Role="Job_Card_Detail" Type="Self.Job_Card_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Part_Type">
+        <PropertyRef Name="Part_Type_ID" />
+      </Principal>
+      <Dependent Role="Job_Card_Detail">
+        <PropertyRef Name="Part_Type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Machine_P__Machi__571DF1D5">
+    <End Role="Machine" Type="Self.Machine" Multiplicity="1" />
+    <End Role="Machine_Part" Type="Self.Machine_Part" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Machine">
+        <PropertyRef Name="Machine_ID" />
+      </Principal>
+      <Dependent Role="Machine_Part">
+        <PropertyRef Name="Machine_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Unique_Ma__Machi__46E78A0C">
+    <End Role="Machine" Type="Self.Machine" Multiplicity="1" />
+    <End Role="Unique_Machine" Type="Self.Unique_Machine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Machine">
+        <PropertyRef Name="Machine_ID" />
+      </Principal>
+      <Dependent Role="Unique_Machine">
+        <PropertyRef Name="Machine_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Machine_P__Part___5812160E">
+    <End Role="Part_Type" Type="Self.Part_Type" Multiplicity="1" />
+    <End Role="Machine_Part" Type="Self.Machine_Part" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Part_Type">
+        <PropertyRef Name="Part_Type_ID" />
+      </Principal>
+      <Dependent Role="Machine_Part">
+        <PropertyRef Name="Part_Type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Unique_Ma__Machi__45F365D3">
+    <End Role="Machine_Status" Type="Self.Machine_Status" Multiplicity="1" />
+    <End Role="Unique_Machine" Type="Self.Unique_Machine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Machine_Status">
+        <PropertyRef Name="Machine_Status_ID" />
+      </Principal>
+      <Dependent Role="Unique_Machine">
+        <PropertyRef Name="Machine_Status_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Manual_La__Manua__4F7CD00D">
+    <End Role="Manual_Labour_Type" Type="Self.Manual_Labour_Type" Multiplicity="1" />
+    <End Role="Manual_Labour_Type_Part" Type="Self.Manual_Labour_Type_Part" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manual_Labour_Type">
+        <PropertyRef Name="Manual_Labour_Type_ID" />
+      </Principal>
+      <Dependent Role="Manual_Labour_Type_Part">
+        <PropertyRef Name="Manual_Labour_Type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sub_Contr__Manua__6B24EA82">
+    <End Role="Manual_Labour_Type" Type="Self.Manual_Labour_Type" Multiplicity="1" />
+    <End Role="Sub_Contractor" Type="Self.Sub_Contractor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manual_Labour_Type">
+        <PropertyRef Name="Manual_Labour_Type_ID" />
+      </Principal>
+      <Dependent Role="Sub_Contractor">
+        <PropertyRef Name="Manual_Labour_Type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Manual_La__Part___5070F446">
+    <End Role="Part_Type" Type="Self.Part_Type" Multiplicity="1" />
+    <End Role="Manual_Labour_Type_Part" Type="Self.Manual_Labour_Type_Part" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Part_Type">
+        <PropertyRef Name="Part_Type_ID" />
+      </Principal>
+      <Dependent Role="Manual_Labour_Type_Part">
+        <PropertyRef Name="Part_Type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Part__Part_Statu__65370702">
+    <End Role="Part_Status" Type="Self.Part_Status" Multiplicity="1" />
+    <End Role="Part" Type="Self.Part" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Part_Status">
+        <PropertyRef Name="Part_Status_ID" />
+      </Principal>
+      <Dependent Role="Part">
+        <PropertyRef Name="Part_Status_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Part__Part_Type___662B2B3B">
+    <End Role="Part_Type" Type="Self.Part_Type" Multiplicity="1" />
+    <End Role="Part" Type="Self.Part" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Part_Type">
+        <PropertyRef Name="Part_Type_ID" />
+      </Principal>
+      <Dependent Role="Part">
+        <PropertyRef Name="Part_Type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Productio__Part___690797E6">
+    <End Role="Part" Type="Self.Part" Multiplicity="1" />
+    <End Role="Production_Task" Type="Self.Production_Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Part">
+        <PropertyRef Name="Part_ID" />
+      </Principal>
+      <Dependent Role="Production_Task">
+        <PropertyRef Name="Part_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Part_Blue__Part___49C3F6B7">
+    <End Role="Part_Type" Type="Self.Part_Type" Multiplicity="1" />
+    <End Role="Part_Blueprint" Type="Self.Part_Blueprint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Part_Type">
+        <PropertyRef Name="Part_Type_ID" />
+      </Principal>
+      <Dependent Role="Part_Blueprint">
+        <PropertyRef Name="Part_Type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Part_Supp__Part___7C4F7684">
+    <End Role="Part_Type" Type="Self.Part_Type" Multiplicity="1" />
+    <End Role="Part_Supplier" Type="Self.Part_Supplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Part_Type">
+        <PropertyRef Name="Part_Type_ID" />
+      </Principal>
+      <Dependent Role="Part_Supplier">
+        <PropertyRef Name="Part_Type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Part_Supp__Suppl__7B5B524B">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+    <End Role="Part_Supplier" Type="Self.Part_Supplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="Supplier_ID" />
+      </Principal>
+      <Dependent Role="Part_Supplier">
+        <PropertyRef Name="Supplier_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Recipe__Part_Typ__43D61337">
+    <End Role="Part_Type" Type="Self.Part_Type" Multiplicity="0..1" />
+    <End Role="Recipe" Type="Self.Recipe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Part_Type">
+        <PropertyRef Name="Part_Type_ID" />
+      </Principal>
+      <Dependent Role="Recipe">
+        <PropertyRef Name="Part_Type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Supplier___Part___2B0A656D">
+    <End Role="Part_Type" Type="Self.Part_Type" Multiplicity="1" />
+    <End Role="Supplier_Quote_Detail_Part" Type="Self.Supplier_Quote_Detail_Part" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Part_Type">
+        <PropertyRef Name="Part_Type_ID" />
+      </Principal>
+      <Dependent Role="Supplier_Quote_Detail_Part">
+        <PropertyRef Name="Part_Type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Supplier___Part___30C33EC3">
+    <End Role="Part_Type" Type="Self.Part_Type" Multiplicity="1" />
+    <End Role="Supplier_Order_Detail_Part" Type="Self.Supplier_Order_Detail_Part" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Part_Type">
+        <PropertyRef Name="Part_Type_ID" />
+      </Principal>
+      <Dependent Role="Supplier_Order_Detail_Part">
+        <PropertyRef Name="Part_Type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Productio__Produ__6AEFE058">
+    <End Role="Production_Schedule" Type="Self.Production_Schedule" Multiplicity="1" />
+    <End Role="Production_Task" Type="Self.Production_Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Production_Schedule">
+        <PropertyRef Name="Production_Schedule_ID" />
+      </Principal>
+      <Dependent Role="Production_Task">
+        <PropertyRef Name="Production_Schedule_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sub_Contr__Provi__6C190EBB">
+    <End Role="Province" Type="Self.Province" Multiplicity="1" />
+    <End Role="Sub_Contractor" Type="Self.Sub_Contractor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Province">
+        <PropertyRef Name="Province_ID" />
+      </Principal>
+      <Dependent Role="Sub_Contractor">
+        <PropertyRef Name="Province_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Supplier__Provin__787EE5A0">
+    <End Role="Province" Type="Self.Province" Multiplicity="1" />
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Province">
+        <PropertyRef Name="Province_ID" />
+      </Principal>
+      <Dependent Role="Supplier">
+        <PropertyRef Name="Province_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Raw_Mater__Raw_M__7F2BE32F">
+    <End Role="Raw_Material" Type="Self.Raw_Material" Multiplicity="1" />
+    <End Role="Raw_Material_Supplier" Type="Self.Raw_Material_Supplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Raw_Material">
+        <PropertyRef Name="Raw_Material_ID" />
+      </Principal>
+      <Dependent Role="Raw_Material_Supplier">
+        <PropertyRef Name="Raw_Material_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Supplier___Raw_M__3587F3E0">
+    <End Role="Raw_Material" Type="Self.Raw_Material" Multiplicity="1" />
+    <End Role="Supplier_Quote_Detail_Raw_Material" Type="Self.Supplier_Quote_Detail_Raw_Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Raw_Material">
+        <PropertyRef Name="Raw_Material_ID" />
+      </Principal>
+      <Dependent Role="Supplier_Quote_Detail_Raw_Material">
+        <PropertyRef Name="Raw_Material_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Supplier___Raw_M__40058253">
+    <End Role="Raw_Material" Type="Self.Raw_Material" Multiplicity="1" />
+    <End Role="Supplier_Order_Detail_Raw_Material" Type="Self.Supplier_Order_Detail_Raw_Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Raw_Material">
+        <PropertyRef Name="Raw_Material_ID" />
+      </Principal>
+      <Dependent Role="Supplier_Order_Detail_Raw_Material">
+        <PropertyRef Name="Raw_Material_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Unique_Ra__Raw_M__46B27FE2">
+    <End Role="Raw_Material" Type="Self.Raw_Material" Multiplicity="1" />
+    <End Role="Unique_Raw_Material" Type="Self.Unique_Raw_Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Raw_Material">
+        <PropertyRef Name="Raw_Material_ID" />
+      </Principal>
+      <Dependent Role="Unique_Raw_Material">
+        <PropertyRef Name="Raw_Material_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Raw_Mater__Suppl__00200768">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+    <End Role="Raw_Material_Supplier" Type="Self.Raw_Material_Supplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="Supplier_ID" />
+      </Principal>
+      <Dependent Role="Raw_Material_Supplier">
+        <PropertyRef Name="Supplier_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sub_Contr__Sub_C__10566F31">
+    <End Role="Sub_Contractor" Type="Self.Sub_Contractor" Multiplicity="1" />
+    <End Role="Sub_Contractor_Contact_Detail" Type="Self.Sub_Contractor_Contact_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sub_Contractor">
+        <PropertyRef Name="Sub_Contractor_ID" />
+      </Principal>
+      <Dependent Role="Sub_Contractor_Contact_Detail">
+        <PropertyRef Name="Sub_Contractor_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Supplier___Suppl__02FC7413">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+    <End Role="Supplier_Quote" Type="Self.Supplier_Quote" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="Supplier_ID" />
+      </Principal>
+      <Dependent Role="Supplier_Quote">
+        <PropertyRef Name="Supplier_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Supplier___Suppl__09A971A2">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+    <End Role="Supplier_Order" Type="Self.Supplier_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="Supplier_ID" />
+      </Principal>
+      <Dependent Role="Supplier_Order">
+        <PropertyRef Name="Supplier_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Supplier___Suppl__0A9D95DB">
+    <End Role="Supplier_Order_Status" Type="Self.Supplier_Order_Status" Multiplicity="1" />
+    <End Role="Supplier_Order" Type="Self.Supplier_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier_Order_Status">
+        <PropertyRef Name="Supplier_Order_Status_ID" />
+      </Principal>
+      <Dependent Role="Supplier_Order">
+        <PropertyRef Name="Supplier_Order_Status_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Supplier___Suppl__31B762FC">
+    <End Role="Supplier_Order" Type="Self.Supplier_Order" Multiplicity="1" />
+    <End Role="Supplier_Order_Detail_Part" Type="Self.Supplier_Order_Detail_Part" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier_Order">
+        <PropertyRef Name="Supplier_Order_ID" />
+      </Principal>
+      <Dependent Role="Supplier_Order_Detail_Part">
+        <PropertyRef Name="Supplier_Order_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Supplier___Suppl__3D2915A8">
+    <End Role="Supplier_Order" Type="Self.Supplier_Order" Multiplicity="1" />
+    <End Role="Supplier_Order_Component" Type="Self.Supplier_Order_Component" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier_Order">
+        <PropertyRef Name="Supplier_Order_ID" />
+      </Principal>
+      <Dependent Role="Supplier_Order_Component">
+        <PropertyRef Name="Supplier_Order_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Supplier___Suppl__40F9A68C">
+    <End Role="Supplier_Order" Type="Self.Supplier_Order" Multiplicity="1" />
+    <End Role="Supplier_Order_Detail_Raw_Material" Type="Self.Supplier_Order_Detail_Raw_Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier_Order">
+        <PropertyRef Name="Supplier_Order_ID" />
+      </Principal>
+      <Dependent Role="Supplier_Order_Detail_Raw_Material">
+        <PropertyRef Name="Supplier_Order_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Supplier___Suppl__4E53A1AA">
+    <End Role="Supplier_Order" Type="Self.Supplier_Order" Multiplicity="1" />
+    <End Role="Supplier_Return" Type="Self.Supplier_Return" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier_Order">
+        <PropertyRef Name="Supplier_Order_ID" />
+      </Principal>
+      <Dependent Role="Supplier_Return">
+        <PropertyRef Name="Supplier_Order_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Unique_Ra__Suppl__47A6A41B">
+    <End Role="Supplier_Order" Type="Self.Supplier_Order" Multiplicity="0..1" />
+    <End Role="Unique_Raw_Material" Type="Self.Unique_Raw_Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier_Order">
+        <PropertyRef Name="Supplier_Order_ID" />
+      </Principal>
+      <Dependent Role="Unique_Raw_Material">
+        <PropertyRef Name="Supplier_Order_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Supplier___Suppl__1F98B2C1">
+    <End Role="Supplier_Quote" Type="Self.Supplier_Quote" Multiplicity="1" />
+    <End Role="Supplier_Quote_Component" Type="Self.Supplier_Quote_Component" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier_Quote">
+        <PropertyRef Name="Supplier_Quote_ID" />
+      </Principal>
+      <Dependent Role="Supplier_Quote_Component">
+        <PropertyRef Name="Supplier_Quote_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Supplier___Suppl__2A164134">
+    <End Role="Supplier_Quote" Type="Self.Supplier_Quote" Multiplicity="1" />
+    <End Role="Supplier_Quote_Detail_Part" Type="Self.Supplier_Quote_Detail_Part" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier_Quote">
+        <PropertyRef Name="Supplier_Quote_ID" />
+      </Principal>
+      <Dependent Role="Supplier_Quote_Detail_Part">
+        <PropertyRef Name="Supplier_Quote_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Supplier___Suppl__3493CFA7">
+    <End Role="Supplier_Quote" Type="Self.Supplier_Quote" Multiplicity="1" />
+    <End Role="Supplier_Quote_Detail_Raw_Material" Type="Self.Supplier_Quote_Detail_Raw_Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier_Quote">
+        <PropertyRef Name="Supplier_Quote_ID" />
+      </Principal>
+      <Dependent Role="Supplier_Quote_Detail_Raw_Material">
+        <PropertyRef Name="Supplier_Quote_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Supplier___Suppl__51300E55">
+    <End Role="Supplier_Return" Type="Self.Supplier_Return" Multiplicity="1" />
+    <End Role="Supplier_Return_Item" Type="Self.Supplier_Return_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier_Return">
+        <PropertyRef Name="Supplier_Return_ID" />
+      </Principal>
+      <Dependent Role="Supplier_Return_Item">
+        <PropertyRef Name="Supplier_Return_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Job_Card_Detail_Part">
+    <End Role="Job_Card_Detail" Type="Self.Job_Card_Detail" Multiplicity="*" />
+    <End Role="Part" Type="Self.Part" Multiplicity="*" />
+  </Association>
+  <Association Name="Machine_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <End Role="Machine" Type="Self.Machine" Multiplicity="*" />
+  </Association>
+  <Association Name="Manual_Labour_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <End Role="Manual_Labour_Type" Type="Self.Manual_Labour_Type" Multiplicity="*" />
+  </Association>
+  <Association Name="Part_Supplier_Order">
+    <End Role="Part" Type="Self.Part" Multiplicity="*" />
+    <End Role="Supplier_Order" Type="Self.Supplier_Order" Multiplicity="*" />
+  </Association>
+  <Association Name="Supplier_Order_Quote">
+    <End Role="Supplier_Quote" Type="Self.Supplier_Quote" Multiplicity="*" />
+    <End Role="Supplier_Order" Type="Self.Supplier_Order" Multiplicity="0..1" />
+  </Association>
+  <EntityContainer Name="ProteusEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accesses" EntityType="Self.Access" />
+    <EntitySet Name="Access_Employee_Type" EntityType="Self.Access_Employee_Type" />
+    <EntitySet Name="Audits" EntityType="Self.Audit" />
+    <EntitySet Name="Audit_Detail" EntityType="Self.Audit_Detail" />
+    <EntitySet Name="Audit_Type" EntityType="Self.Audit_Type" />
+    <EntitySet Name="Audit_Update_Detail" EntityType="Self.Audit_Update_Detail" />
+    <EntitySet Name="Clients" EntityType="Self.Client" />
+    <EntitySet Name="Client_Contact_Person_Detail" EntityType="Self.Client_Contact_Person_Detail" />
+    <EntitySet Name="Client_Credit_Order" EntityType="Self.Client_Credit_Order" />
+    <EntitySet Name="Client_Discount_Rate" EntityType="Self.Client_Discount_Rate" />
+    <EntitySet Name="Client_Order" EntityType="Self.Client_Order" />
+    <EntitySet Name="Client_Order_Detail" EntityType="Self.Client_Order_Detail" />
+    <EntitySet Name="Client_Order_Status" EntityType="Self.Client_Order_Status" />
+    <EntitySet Name="Client_Order_Type" EntityType="Self.Client_Order_Type" />
+    <EntitySet Name="Client_Quote" EntityType="Self.Client_Quote" />
+    <EntitySet Name="Client_Quote_Detail" EntityType="Self.Client_Quote_Detail" />
+    <EntitySet Name="Components" EntityType="Self.Component" />
+    <EntitySet Name="Component_Supplier" EntityType="Self.Component_Supplier" />
+    <EntitySet Name="Contracted_Client_Orders" EntityType="Self.Contracted_Client_Orders" />
+    <EntitySet Name="Customer_Credit" EntityType="Self.Customer_Credit" />
+    <EntitySet Name="Customer_Credit_Detail" EntityType="Self.Customer_Credit_Detail" />
+    <EntitySet Name="Delivery_Method" EntityType="Self.Delivery_Method" />
+    <EntitySet Name="Delivery_Note" EntityType="Self.Delivery_Note" />
+    <EntitySet Name="Delivery_Note_Details" EntityType="Self.Delivery_Note_Details" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="Employee_Photo" EntityType="Self.Employee_Photo" />
+    <EntitySet Name="Employee_Type" EntityType="Self.Employee_Type" />
+    <EntitySet Name="Genders" EntityType="Self.Gender" />
+    <EntitySet Name="Invoices" EntityType="Self.Invoice" />
+    <EntitySet Name="Invoice_Payment" EntityType="Self.Invoice_Payment" />
+    <EntitySet Name="Invoice_Status" EntityType="Self.Invoice_Status" />
+    <EntitySet Name="Job_Card" EntityType="Self.Job_Card" />
+    <EntitySet Name="Job_Card_Detail" EntityType="Self.Job_Card_Detail" />
+    <EntitySet Name="Job_Card_Priority" EntityType="Self.Job_Card_Priority" />
+    <EntitySet Name="Job_Card_Status" EntityType="Self.Job_Card_Status" />
+    <EntitySet Name="Machines" EntityType="Self.Machine" />
+    <EntitySet Name="Machine_Part" EntityType="Self.Machine_Part" />
+    <EntitySet Name="Machine_Status" EntityType="Self.Machine_Status" />
+    <EntitySet Name="Manual_Labour_Type" EntityType="Self.Manual_Labour_Type" />
+    <EntitySet Name="Manual_Labour_Type_Part" EntityType="Self.Manual_Labour_Type_Part" />
+    <EntitySet Name="Parts" EntityType="Self.Part" />
+    <EntitySet Name="Part_Blueprint" EntityType="Self.Part_Blueprint" />
+    <EntitySet Name="Part_Status" EntityType="Self.Part_Status" />
+    <EntitySet Name="Part_Supplier" EntityType="Self.Part_Supplier" />
+    <EntitySet Name="Part_Type" EntityType="Self.Part_Type" />
+    <EntitySet Name="Production_Schedule" EntityType="Self.Production_Schedule" />
+    <EntitySet Name="Production_Task" EntityType="Self.Production_Task" />
+    <EntitySet Name="Provinces" EntityType="Self.Province" />
+    <EntitySet Name="Raw_Material" EntityType="Self.Raw_Material" />
+    <EntitySet Name="Raw_Material_Supplier" EntityType="Self.Raw_Material_Supplier" />
+    <EntitySet Name="Recipes" EntityType="Self.Recipe" />
+    <EntitySet Name="Sub_Contractor" EntityType="Self.Sub_Contractor" />
+    <EntitySet Name="Sub_Contractor_Contact_Detail" EntityType="Self.Sub_Contractor_Contact_Detail" />
+    <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
+    <EntitySet Name="Supplier_Order" EntityType="Self.Supplier_Order" />
+    <EntitySet Name="Supplier_Order_Component" EntityType="Self.Supplier_Order_Component" />
+    <EntitySet Name="Supplier_Order_Detail_Part" EntityType="Self.Supplier_Order_Detail_Part" />
+    <EntitySet Name="Supplier_Order_Detail_Raw_Material" EntityType="Self.Supplier_Order_Detail_Raw_Material" />
+    <EntitySet Name="Supplier_Order_Status" EntityType="Self.Supplier_Order_Status" />
+    <EntitySet Name="Supplier_Quote" EntityType="Self.Supplier_Quote" />
+    <EntitySet Name="Supplier_Quote_Component" EntityType="Self.Supplier_Quote_Component" />
+    <EntitySet Name="Supplier_Quote_Detail_Part" EntityType="Self.Supplier_Quote_Detail_Part" />
+    <EntitySet Name="Supplier_Quote_Detail_Raw_Material" EntityType="Self.Supplier_Quote_Detail_Raw_Material" />
+    <EntitySet Name="Supplier_Return" EntityType="Self.Supplier_Return" />
+    <EntitySet Name="Supplier_Return_Item" EntityType="Self.Supplier_Return_Item" />
+    <EntitySet Name="Unique_Machine" EntityType="Self.Unique_Machine" />
+    <EntitySet Name="Unique_Raw_Material" EntityType="Self.Unique_Raw_Material" />
+    <EntitySet Name="VATs" EntityType="Self.VAT" />
+    <AssociationSet Name="FK__Access_Em__Acces__7E02B4CC" Association="Self.FK__Access_Em__Acces__7E02B4CC">
+      <End Role="Access" EntitySet="Accesses" />
+      <End Role="Access_Employee_Type" EntitySet="Access_Employee_Type" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Access_Em__Emplo__7EF6D905" Association="Self.FK__Access_Em__Emplo__7EF6D905">
+      <End Role="Employee_Type" EntitySet="Employee_Type" />
+      <End Role="Access_Employee_Type" EntitySet="Access_Employee_Type" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Audit__Audit_Typ__4CA06362" Association="Self.FK__Audit__Audit_Typ__4CA06362">
+      <End Role="Audit_Type" EntitySet="Audit_Type" />
+      <End Role="Audit" EntitySet="Audits" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Audit_Det__Audit__6477ECF3" Association="Self.FK__Audit_Det__Audit__6477ECF3">
+      <End Role="Audit" EntitySet="Audits" />
+      <End Role="Audit_Detail" EntitySet="Audit_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Audit_Upd__Audit__6EF57B66" Association="Self.FK__Audit_Upd__Audit__6EF57B66">
+      <End Role="Audit" EntitySet="Audits" />
+      <End Role="Audit_Update_Detail" EntitySet="Audit_Update_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Client__Province__75A278F5" Association="Self.FK__Client__Province__75A278F5">
+      <End Role="Province" EntitySet="Provinces" />
+      <End Role="Client" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Client_Co__Clien__0D7A0286" Association="Self.FK__Client_Co__Clien__0D7A0286">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="Client_Contact_Person_Detail" EntitySet="Client_Contact_Person_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Client_Di__Clien__05D8E0BE" Association="Self.FK__Client_Di__Clien__05D8E0BE">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="Client_Discount_Rate" EntitySet="Client_Discount_Rate" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Client_Or__Clien__151B244E" Association="Self.FK__Client_Or__Clien__151B244E">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="Client_Order" EntitySet="Client_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Client_Qu__Clien__236943A5" Association="Self.FK__Client_Qu__Clien__236943A5">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="Client_Quote" EntitySet="Client_Quote" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Client_Qu__Conta__245D67DE" Association="Self.FK__Client_Qu__Conta__245D67DE">
+      <End Role="Client_Contact_Person_Detail" EntitySet="Client_Contact_Person_Detail" />
+      <End Role="Client_Quote" EntitySet="Client_Quote" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Client_Cr__Clien__625A9A57" Association="Self.FK__Client_Cr__Clien__625A9A57">
+      <End Role="Client_Order_Detail" EntitySet="Client_Order_Detail" />
+      <End Role="Client_Credit_Order" EntitySet="Client_Credit_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Client_Di__Part___06CD04F7" Association="Self.FK__Client_Di__Part___06CD04F7">
+      <End Role="Part_Type" EntitySet="Part_Type" />
+      <End Role="Client_Discount_Rate" EntitySet="Client_Discount_Rate" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Client_Or__Clien__160F4887" Association="Self.FK__Client_Or__Clien__160F4887">
+      <End Role="Client_Order_Type" EntitySet="Client_Order_Type" />
+      <End Role="Client_Order" EntitySet="Client_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Client_Or__Clien__17036CC0" Association="Self.FK__Client_Or__Clien__17036CC0">
+      <End Role="Client_Order_Status" EntitySet="Client_Order_Status" />
+      <End Role="Client_Order" EntitySet="Client_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Client_Or__Clien__3864608B" Association="Self.FK__Client_Or__Clien__3864608B">
+      <End Role="Client_Order" EntitySet="Client_Order" />
+      <End Role="Client_Order_Detail" EntitySet="Client_Order_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Client_Or__Deliv__17F790F9" Association="Self.FK__Client_Or__Deliv__17F790F9">
+      <End Role="Delivery_Method" EntitySet="Delivery_Method" />
+      <End Role="Client_Order" EntitySet="Client_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Client_Or__Job_C__18EBB532" Association="Self.FK__Client_Or__Job_C__18EBB532">
+      <End Role="Job_Card" EntitySet="Job_Card" />
+      <End Role="Client_Order" EntitySet="Client_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Contracte__Clien__2739D489" Association="Self.FK__Contracte__Clien__2739D489">
+      <End Role="Client_Order" EntitySet="Client_Order" />
+      <End Role="Contracted_Client_Orders" EntitySet="Contracted_Client_Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Delivery___Clien__2DE6D218" Association="Self.FK__Delivery___Clien__2DE6D218">
+      <End Role="Client_Order" EntitySet="Client_Order" />
+      <End Role="Delivery_Note" EntitySet="Delivery_Note" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Client_Or__Part___395884C4" Association="Self.FK__Client_Or__Part___395884C4">
+      <End Role="Part_Type" EntitySet="Part_Type" />
+      <End Role="Client_Order_Detail" EntitySet="Client_Order_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Delivery___Clien__57DD0BE4" Association="Self.FK__Delivery___Clien__57DD0BE4">
+      <End Role="Client_Order_Detail" EntitySet="Client_Order_Detail" />
+      <End Role="Delivery_Note_Details" EntitySet="Delivery_Note_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Client_Qu__Clien__5BAD9CC8" Association="Self.FK__Client_Qu__Clien__5BAD9CC8">
+      <End Role="Client_Quote" EntitySet="Client_Quote" />
+      <End Role="Client_Quote_Detail" EntitySet="Client_Quote_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Client_Qu__Part___5CA1C101" Association="Self.FK__Client_Qu__Part___5CA1C101">
+      <End Role="Part_Type" EntitySet="Part_Type" />
+      <End Role="Client_Quote_Detail" EntitySet="Client_Quote_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Component__Compo__4A8310C6" Association="Self.FK__Component__Compo__4A8310C6">
+      <End Role="Component" EntitySet="Components" />
+      <End Role="Component_Supplier" EntitySet="Component_Supplier" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Supplier___Compo__208CD6FA" Association="Self.FK__Supplier___Compo__208CD6FA">
+      <End Role="Component" EntitySet="Components" />
+      <End Role="Supplier_Quote_Component" EntitySet="Supplier_Quote_Component" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Supplier___Compo__3C34F16F" Association="Self.FK__Supplier___Compo__3C34F16F">
+      <End Role="Component" EntitySet="Components" />
+      <End Role="Supplier_Order_Component" EntitySet="Supplier_Order_Component" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Component__Suppl__4B7734FF" Association="Self.FK__Component__Suppl__4B7734FF">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="Component_Supplier" EntitySet="Component_Supplier" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Customer___Custo__793DFFAF" Association="Self.FK__Customer___Custo__793DFFAF">
+      <End Role="Customer_Credit" EntitySet="Customer_Credit" />
+      <End Role="Customer_Credit_Detail" EntitySet="Customer_Credit_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Customer___Part___7849DB76" Association="Self.FK__Customer___Part___7849DB76">
+      <End Role="Part" EntitySet="Parts" />
+      <End Role="Customer_Credit_Detail" EntitySet="Customer_Credit_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Delivery___Deliv__58D1301D" Association="Self.FK__Delivery___Deliv__58D1301D">
+      <End Role="Delivery_Note" EntitySet="Delivery_Note" />
+      <End Role="Delivery_Note_Details" EntitySet="Delivery_Note_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Invoice__Deliver__55009F39" Association="Self.FK__Invoice__Deliver__55009F39">
+      <End Role="Delivery_Note" EntitySet="Delivery_Note" />
+      <End Role="Invoice" EntitySet="Invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee___Emplo__01D345B0" Association="Self.FK__Employee___Emplo__01D345B0">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Employee_Photo" EntitySet="Employee_Photo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee__Employ__5AEE82B9" Association="Self.FK__Employee__Employ__5AEE82B9">
+      <End Role="Employee_Type" EntitySet="Employee_Type" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee__Gender__5BE2A6F2" Association="Self.FK__Employee__Gender__5BE2A6F2">
+      <End Role="Gender" EntitySet="Genders" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Productio__Emplo__6BE40491" Association="Self.FK__Productio__Emplo__6BE40491">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Production_Task" EntitySet="Production_Task" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Invoice__Invoice__540C7B00" Association="Self.FK__Invoice__Invoice__540C7B00">
+      <End Role="Invoice_Status" EntitySet="Invoice_Status" />
+      <End Role="Invoice" EntitySet="Invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Invoice_P__Invoi__5F7E2DAC" Association="Self.FK__Invoice_P__Invoi__5F7E2DAC">
+      <End Role="Invoice" EntitySet="Invoices" />
+      <End Role="Invoice_Payment" EntitySet="Invoice_Payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Job_Card___Job_C__71D1E811" Association="Self.FK__Job_Card___Job_C__71D1E811">
+      <End Role="Job_Card" EntitySet="Job_Card" />
+      <End Role="Job_Card_Detail" EntitySet="Job_Card_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Job_Card__Job_Ca__534D60F1" Association="Self.FK__Job_Card__Job_Ca__534D60F1">
+      <End Role="Job_Card_Status" EntitySet="Job_Card_Status" />
+      <End Role="Job_Card" EntitySet="Job_Card" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Job_Card__Job_Ca__5441852A" Association="Self.FK__Job_Card__Job_Ca__5441852A">
+      <End Role="Job_Card_Priority" EntitySet="Job_Card_Priority" />
+      <End Role="Job_Card" EntitySet="Job_Card" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Productio__Job_C__69FBBC1F" Association="Self.FK__Productio__Job_C__69FBBC1F">
+      <End Role="Job_Card" EntitySet="Job_Card" />
+      <End Role="Production_Task" EntitySet="Production_Task" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Job_Card___Part___72C60C4A" Association="Self.FK__Job_Card___Part___72C60C4A">
+      <End Role="Part_Type" EntitySet="Part_Type" />
+      <End Role="Job_Card_Detail" EntitySet="Job_Card_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Machine_P__Machi__571DF1D5" Association="Self.FK__Machine_P__Machi__571DF1D5">
+      <End Role="Machine" EntitySet="Machines" />
+      <End Role="Machine_Part" EntitySet="Machine_Part" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Unique_Ma__Machi__46E78A0C" Association="Self.FK__Unique_Ma__Machi__46E78A0C">
+      <End Role="Machine" EntitySet="Machines" />
+      <End Role="Unique_Machine" EntitySet="Unique_Machine" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Machine_P__Part___5812160E" Association="Self.FK__Machine_P__Part___5812160E">
+      <End Role="Part_Type" EntitySet="Part_Type" />
+      <End Role="Machine_Part" EntitySet="Machine_Part" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Unique_Ma__Machi__45F365D3" Association="Self.FK__Unique_Ma__Machi__45F365D3">
+      <End Role="Machine_Status" EntitySet="Machine_Status" />
+      <End Role="Unique_Machine" EntitySet="Unique_Machine" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Manual_La__Manua__4F7CD00D" Association="Self.FK__Manual_La__Manua__4F7CD00D">
+      <End Role="Manual_Labour_Type" EntitySet="Manual_Labour_Type" />
+      <End Role="Manual_Labour_Type_Part" EntitySet="Manual_Labour_Type_Part" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sub_Contr__Manua__6B24EA82" Association="Self.FK__Sub_Contr__Manua__6B24EA82">
+      <End Role="Manual_Labour_Type" EntitySet="Manual_Labour_Type" />
+      <End Role="Sub_Contractor" EntitySet="Sub_Contractor" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Manual_La__Part___5070F446" Association="Self.FK__Manual_La__Part___5070F446">
+      <End Role="Part_Type" EntitySet="Part_Type" />
+      <End Role="Manual_Labour_Type_Part" EntitySet="Manual_Labour_Type_Part" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Part__Part_Statu__65370702" Association="Self.FK__Part__Part_Statu__65370702">
+      <End Role="Part_Status" EntitySet="Part_Status" />
+      <End Role="Part" EntitySet="Parts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Part__Part_Type___662B2B3B" Association="Self.FK__Part__Part_Type___662B2B3B">
+      <End Role="Part_Type" EntitySet="Part_Type" />
+      <End Role="Part" EntitySet="Parts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Productio__Part___690797E6" Association="Self.FK__Productio__Part___690797E6">
+      <End Role="Part" EntitySet="Parts" />
+      <End Role="Production_Task" EntitySet="Production_Task" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Part_Blue__Part___49C3F6B7" Association="Self.FK__Part_Blue__Part___49C3F6B7">
+      <End Role="Part_Type" EntitySet="Part_Type" />
+      <End Role="Part_Blueprint" EntitySet="Part_Blueprint" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Part_Supp__Part___7C4F7684" Association="Self.FK__Part_Supp__Part___7C4F7684">
+      <End Role="Part_Type" EntitySet="Part_Type" />
+      <End Role="Part_Supplier" EntitySet="Part_Supplier" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Part_Supp__Suppl__7B5B524B" Association="Self.FK__Part_Supp__Suppl__7B5B524B">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="Part_Supplier" EntitySet="Part_Supplier" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Recipe__Part_Typ__43D61337" Association="Self.FK__Recipe__Part_Typ__43D61337">
+      <End Role="Part_Type" EntitySet="Part_Type" />
+      <End Role="Recipe" EntitySet="Recipes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Supplier___Part___2B0A656D" Association="Self.FK__Supplier___Part___2B0A656D">
+      <End Role="Part_Type" EntitySet="Part_Type" />
+      <End Role="Supplier_Quote_Detail_Part" EntitySet="Supplier_Quote_Detail_Part" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Supplier___Part___30C33EC3" Association="Self.FK__Supplier___Part___30C33EC3">
+      <End Role="Part_Type" EntitySet="Part_Type" />
+      <End Role="Supplier_Order_Detail_Part" EntitySet="Supplier_Order_Detail_Part" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Productio__Produ__6AEFE058" Association="Self.FK__Productio__Produ__6AEFE058">
+      <End Role="Production_Schedule" EntitySet="Production_Schedule" />
+      <End Role="Production_Task" EntitySet="Production_Task" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sub_Contr__Provi__6C190EBB" Association="Self.FK__Sub_Contr__Provi__6C190EBB">
+      <End Role="Province" EntitySet="Provinces" />
+      <End Role="Sub_Contractor" EntitySet="Sub_Contractor" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Supplier__Provin__787EE5A0" Association="Self.FK__Supplier__Provin__787EE5A0">
+      <End Role="Province" EntitySet="Provinces" />
+      <End Role="Supplier" EntitySet="Suppliers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Raw_Mater__Raw_M__7F2BE32F" Association="Self.FK__Raw_Mater__Raw_M__7F2BE32F">
+      <End Role="Raw_Material" EntitySet="Raw_Material" />
+      <End Role="Raw_Material_Supplier" EntitySet="Raw_Material_Supplier" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Supplier___Raw_M__3587F3E0" Association="Self.FK__Supplier___Raw_M__3587F3E0">
+      <End Role="Raw_Material" EntitySet="Raw_Material" />
+      <End Role="Supplier_Quote_Detail_Raw_Material" EntitySet="Supplier_Quote_Detail_Raw_Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Supplier___Raw_M__40058253" Association="Self.FK__Supplier___Raw_M__40058253">
+      <End Role="Raw_Material" EntitySet="Raw_Material" />
+      <End Role="Supplier_Order_Detail_Raw_Material" EntitySet="Supplier_Order_Detail_Raw_Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Unique_Ra__Raw_M__46B27FE2" Association="Self.FK__Unique_Ra__Raw_M__46B27FE2">
+      <End Role="Raw_Material" EntitySet="Raw_Material" />
+      <End Role="Unique_Raw_Material" EntitySet="Unique_Raw_Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Raw_Mater__Suppl__00200768" Association="Self.FK__Raw_Mater__Suppl__00200768">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="Raw_Material_Supplier" EntitySet="Raw_Material_Supplier" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sub_Contr__Sub_C__10566F31" Association="Self.FK__Sub_Contr__Sub_C__10566F31">
+      <End Role="Sub_Contractor" EntitySet="Sub_Contractor" />
+      <End Role="Sub_Contractor_Contact_Detail" EntitySet="Sub_Contractor_Contact_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Supplier___Suppl__02FC7413" Association="Self.FK__Supplier___Suppl__02FC7413">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="Supplier_Quote" EntitySet="Supplier_Quote" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Supplier___Suppl__09A971A2" Association="Self.FK__Supplier___Suppl__09A971A2">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="Supplier_Order" EntitySet="Supplier_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Supplier___Suppl__0A9D95DB" Association="Self.FK__Supplier___Suppl__0A9D95DB">
+      <End Role="Supplier_Order_Status" EntitySet="Supplier_Order_Status" />
+      <End Role="Supplier_Order" EntitySet="Supplier_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Supplier___Suppl__31B762FC" Association="Self.FK__Supplier___Suppl__31B762FC">
+      <End Role="Supplier_Order" EntitySet="Supplier_Order" />
+      <End Role="Supplier_Order_Detail_Part" EntitySet="Supplier_Order_Detail_Part" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Supplier___Suppl__3D2915A8" Association="Self.FK__Supplier___Suppl__3D2915A8">
+      <End Role="Supplier_Order" EntitySet="Supplier_Order" />
+      <End Role="Supplier_Order_Component" EntitySet="Supplier_Order_Component" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Supplier___Suppl__40F9A68C" Association="Self.FK__Supplier___Suppl__40F9A68C">
+      <End Role="Supplier_Order" EntitySet="Supplier_Order" />
+      <End Role="Supplier_Order_Detail_Raw_Material" EntitySet="Supplier_Order_Detail_Raw_Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Supplier___Suppl__4E53A1AA" Association="Self.FK__Supplier___Suppl__4E53A1AA">
+      <End Role="Supplier_Order" EntitySet="Supplier_Order" />
+      <End Role="Supplier_Return" EntitySet="Supplier_Return" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Unique_Ra__Suppl__47A6A41B" Association="Self.FK__Unique_Ra__Suppl__47A6A41B">
+      <End Role="Supplier_Order" EntitySet="Supplier_Order" />
+      <End Role="Unique_Raw_Material" EntitySet="Unique_Raw_Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Supplier___Suppl__1F98B2C1" Association="Self.FK__Supplier___Suppl__1F98B2C1">
+      <End Role="Supplier_Quote" EntitySet="Supplier_Quote" />
+      <End Role="Supplier_Quote_Component" EntitySet="Supplier_Quote_Component" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Supplier___Suppl__2A164134" Association="Self.FK__Supplier___Suppl__2A164134">
+      <End Role="Supplier_Quote" EntitySet="Supplier_Quote" />
+      <End Role="Supplier_Quote_Detail_Part" EntitySet="Supplier_Quote_Detail_Part" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Supplier___Suppl__3493CFA7" Association="Self.FK__Supplier___Suppl__3493CFA7">
+      <End Role="Supplier_Quote" EntitySet="Supplier_Quote" />
+      <End Role="Supplier_Quote_Detail_Raw_Material" EntitySet="Supplier_Quote_Detail_Raw_Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Supplier___Suppl__51300E55" Association="Self.FK__Supplier___Suppl__51300E55">
+      <End Role="Supplier_Return" EntitySet="Supplier_Return" />
+      <End Role="Supplier_Return_Item" EntitySet="Supplier_Return_Item" />
+    </AssociationSet>
+    <AssociationSet Name="Job_Card_Detail_Part" Association="Self.Job_Card_Detail_Part">
+      <End Role="Job_Card_Detail" EntitySet="Job_Card_Detail" />
+      <End Role="Part" EntitySet="Parts" />
+    </AssociationSet>
+    <AssociationSet Name="Machine_Employee" Association="Self.Machine_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Machine" EntitySet="Machines" />
+    </AssociationSet>
+    <AssociationSet Name="Manual_Labour_Employee" Association="Self.Manual_Labour_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Manual_Labour_Type" EntitySet="Manual_Labour_Type" />
+    </AssociationSet>
+    <AssociationSet Name="Part_Supplier_Order" Association="Self.Part_Supplier_Order">
+      <End Role="Part" EntitySet="Parts" />
+      <End Role="Supplier_Order" EntitySet="Supplier_Order" />
+    </AssociationSet>
+    <AssociationSet Name="Supplier_Order_Quote" Association="Self.Supplier_Order_Quote">
+      <End Role="Supplier_Quote" EntitySet="Supplier_Quote" />
+      <End Role="Supplier_Order" EntitySet="Supplier_Order" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

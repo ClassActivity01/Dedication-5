@@ -1,0 +1,21 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,700|Open+Sans:400,700);
+
+body
+{
+	font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4
+{
+	font-family: 'Oswald', sans-serif;
+}
+
+legend
+{
+	font-family: 'Open Sans', sans-serif;
+}
+
+.addToList
+{
+	font-family: 'Open Sans', sans-serif;
+}
